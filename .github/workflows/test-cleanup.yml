@@ -173,18 +173,6 @@ jobs:
           cleanup_correct_indentation: true
           cleanup_use_var: true
 
-      - name: Check if changes occurred
-        working-directory: sample-project
-        run: |
-          if git diff --quiet; then
-            echo "No changes — skipping PR creation."
-            echo "has_changes=false" >> $GITHUB_OUTPUT
-          else
-            echo "Changes detected."
-            echo "has_changes=true" >> $GITHUB_OUTPUT
-          fi
-        id: diffcheck
-
       - name: Open pull request
         uses: peter-evans/create-pull-request@v7
         with:
