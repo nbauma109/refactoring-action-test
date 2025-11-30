@@ -25,15 +25,13 @@ jobs:
       - name: Checkout test repo
         uses: actions/checkout@v6
         with:
-          repository: nbauma109/refactoring-action-test
-          path: refactoring-action-test
           fetch-depth: 0
           persist-credentials: false
 
       - name: Run refactoring action
         uses: ./refactoring-cleanup-action
         with:
-          project_root: refactoring-action-test/sample-project
+          project_root: sample-project
           source_level: "21"
 
           cleanup_array_with_curly: true
