@@ -196,8 +196,8 @@ jobs:
 
       - name: Open pull request
         uses: peter-evans/create-pull-request@v7
-        path: refactoring-action-test/sample-project
         with:
+          path: refactoring-action-test/sample-project
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "Apply Eclipse cleanup refactoring"
           title: "Automated cleanup refactoring"
