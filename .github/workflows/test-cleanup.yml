@@ -186,7 +186,7 @@ jobs:
             echo "has_changes=true" >> $GITHUB_OUTPUT
           fi
         id: diffcheck
-      
+
       - name: Open pull request
         uses: peter-evans/create-pull-request@v7
         with:
