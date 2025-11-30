@@ -1,7 +1,10 @@
 package demo;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.FileSystems;
 import java.time.DayOfWeek;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,144 +15,118 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ToClean {
 
-    /**
-     * A Javadoc comment
-     * @since 2007
-     */
-    public static class Engine {
-        public void start() {}
+	/**
+	 * A Javadoc comment
+	 *
+	 * @since 2007
+	 */
+	public static class Engine {
+		public void start() {
+		}
 
-        public void stop() {}
-    }
+		public void stop() {
+		}
+	}
 
-    static class SortExample {
-        private String foo;
-        private String bar;
-        private void foo() {}
-        private void bar() {}
-    }
+	static class SortExample {
+	}
 
-    public void aggregatedStatements(
-            Object obj,
-            int[] ids,
-            int number,
-            boolean isValid,
-            boolean isEnabled,
-            boolean isActive,
-            boolean isFound,
-            Object o,
+	public void aggregatedStatements(
+            final Object obj,
+            final int[] ids,
+            final int number,
+            final boolean isValid,
+            final boolean isEnabled,
+            final boolean isActive,
+            final boolean isFound,
+            final Object o,
             int j,
-            List<String> inputList,
-            List<String> outputList,
-            Integer integerObject,
-            Character cObject,
-            Object object,
-            int anotherNumber,
-            int aShort,
-            String text,
-            String placeholder,
-            String value,
-            String comment,
-            Object possibleNullObject,
-            boolean CONSTANT,
-            int x,
-            Map<Integer,String> map,
-            Collection<Integer> collection,
-            int letter,
-            boolean myInt) throws Exception {
+            final List<String> inputList,
+            final List<String> outputList,
+            final Integer integerObject,
+            final Character cObject,
+            final Object object,
+            final int anotherNumber,
+            final int aShort,
+            final String text,
+            final String placeholder,
+            final String value,
+            final String comment,
+            final Object possibleNullObject,
+            final boolean CONSTANT,
+            final int x,
+            final Map<Integer,String> map,
+            final Collection<Integer> collection,
+            final int letter,
+            final boolean myInt) throws Exception {
 
-        if (obj == null) {
-            throw new IllegalArgumentException();
-        }
-        if (ids.length > 0) {
-            System.out.println(ids[0]);
-        } else {
-            return;
-        }
+        if (obj == null)
+			throw new IllegalArgumentException();
+        if (ids.length <= 0)
+			return;
+		System.out.println(ids[0]);
 
-        int i = 0;
-        int kVal = 0;
-        int m = 0;
-        if (number == 0) {
-            i = 0;
-        } else if (number == 1) {
-            j = 10;
-        } else if (2 == number) {
-            kVal = 20;
-        } else {
-            m = -1;
-        }
+        var i = 0;
+        switch (number) {
+		case 0:
+			i = 0;
+			break;
+		case 1:
+			j = 10;
+			break;
+		case 2:
+			break;
+		default:
+			break;
+		}
 
-        for (int idx = 0; idx < inputList.size(); idx++) {
-            outputList.add(inputList.get(idx));
-        }
+        outputList.addAll(inputList);
 
         if (isValid) {
             System.out.println(isValid);
-        } else {
-            if (isEnabled) {
-                System.out.println(isEnabled);
-            }
-        }
+        } else if (isEnabled) {
+		    System.out.println(isEnabled);
+		}
 
-        if (i > 0) {
-            return;
-        } else {
-            i = i + 1;
-        }
+        if (i > 0)
+			return;
+		i = i + 1;
 
-        boolean b = (i > 0 && i < 10 || i == 50);
-        boolean isPositive = ++i > 0;
+        i++;
+		(((List<Object>) o).remove(o));
 
-        boolean isRemoved = false;
-        isRemoved = (isRemoved = ((List<Object>) o).remove(o));
+        this.fooMethod(3);
 
-        long number1 = 10L;
+        someString.trim().toLowerCase();
+        someString.trim().toLowerCase();
+        someString.trim().toLowerCase();
+        new ArrayList<Object>();
+        date.getTime();
 
-        boolean isRightType = String.class.isInstance(o);
+        this.repeatedExpression();
+		this.thenExpression();
+		this.repeatedExpression();
+		this.elseExpression();
+        if (!isActive){} else {!isEnabled;}
 
-        int h;
-        fooMethod(3);
-
-        java.util.function.Function<String, String> f1 = (someString) -> someString.trim().toLowerCase();
-        java.util.function.Function<String, String> f2 = someString -> { return someString.trim().toLowerCase(); };
-        java.util.function.Function<String, String> f3 = someString -> { return someString.trim().toLowerCase() + "bar"; };
-        java.util.function.Supplier<List<Object>> s1 = () -> new ArrayList<>();
-        java.util.function.Function<Date, Long> f4 = date -> date.getTime();
-
-        boolean newBoolean = repeatedExpression() && thenExpression() || repeatedExpression() && elseExpression();
-        boolean result = (0 < i) && isValid || (i <= 0) && isEnabled;
-
-        boolean newBoolean1 = isValid && (i > 0) || !isValid && (i <= 0);
-        boolean newBoolean2 = !isValid && isEnabled || isValid && !isEnabled;
-        boolean newBoolean3 = isActive ? (0 <= i) : (i < 0);
-        boolean newBoolean4 = !isActive ? isEnabled : !isEnabled;
-
-        if (isValid) {
+        if (isValid || (i != 1)) {
             System.out.println("Duplicate");
-        } else if (i == 1) {
+        } else {
             System.out.println("Different");
-        } else {
-            System.out.println("Duplicate");
         }
 
-        if (isValid) {
-            ++i;
-        } else {
+        if (!isValid) {
             j++;
-            i = i + 1;
         }
+		++i;
 
-        if (isActive) {
-            System.out.println("The same code");
-            throw new NullPointerException();
-        }
-        if (isValid) {
+        if (isActive || isValid) {
             System.out.println("The same code");
             throw new NullPointerException();
         }
@@ -159,550 +136,504 @@ public class ToClean {
             System.out.println("Doing something");
             return;
         }
-        return;
 
         // unreachable return keeps minimal edits; compilation OK
     }
 
-    public int fooMethod(int j) {
-        int k, h;
-        h = 0;
-        return 0;
-    }
+	public int fooMethod(final int j) {
+		return 0;
+	}
 
-    private boolean repeatedExpression() {
-        return true;
-    }
+	private boolean repeatedExpression() {
+		return true;
+	}
 
-    private boolean thenExpression() {
-        return true;
-    }
+	private boolean thenExpression() {
+		return true;
+	}
 
-    private boolean elseExpression() {
-        return false;
-    }
+	private boolean elseExpression() {
+		return false;
+	}
 
-    public static class IntSwitchExample {
-        public int apply(int j) {
-            int i;
-            switch (j) {
-                case 1:
-                    i = 3;
-                    break;
-                case 2:
-                    i = 4;
-                    break;
-                default:
-                    i = 0;
-                    break;
-            }
-            return i;
-        }
-    }
+	public static class IntSwitchExample {
+		public int apply(final int j) {
+			var i = switch (j) {
+			case 1 -> 3;
+			case 2 -> 4;
+			default -> 0;
+			};
+			return i;
+		}
+	}
 
-    public static class InputStreamExample {
-        public void example() throws IOException {
-            final FileInputStream inputStream = new FileInputStream("out.txt");
-            try {
-                System.out.println(inputStream.read());
-            } finally {
-                inputStream.close();
-            }
-        }
-    }
+	public static class InputStreamExample {
+		public void example() throws IOException {
+			final var inputStream = new FileInputStream("out.txt");
+			try (inputStream) {
+				System.out.println(inputStream.read());
+			}
+		}
+	}
 
-    public static class ExampleStrings {
-        public void demo(String text, String placeholder, String value) {
-            String buf = ""
-                + "public class A {"
-                + "    public void foo() {"
-                + "    }"
-                + "}";
+	public static class ExampleStrings {
+		public void demo(final String text, final String placeholder, final String value) {
+		}
+	}
 
-            StringBuffer sb = new StringBuffer();
-            sb.append("public void foo() {\n");
-            sb.append("    return null;\n");
-            sb.append("}\n");
-            String k = sb.toString();
-        }
-    }
+	public static class TryCatchExample {
+		public void x(final Object obj) {
+			try {
+				obj.toString();
+			} catch (final Exception ioe) {
+				ioe.printStackTrace();
+			}
+		}
+	}
 
-    public static class TryCatchExample {
-        public void x(Object obj) {
-            try {
-                obj.toString();
-            } catch (IllegalArgumentException iae) {
-                iae.printStackTrace();
-            } catch (Exception ioe) {
-                ioe.printStackTrace();
-            }
-        }
-    }
+	public static class MapExample {
+		private short aShort;
 
-    public static class MapExample {
-        private short aShort;
+		@Override
+		public boolean equals(final Object other) {
+			if (other == null)
+				return false;
+			final var o = (MapExample) other;
+			if (o == null)
+				return false;
+			final String aText = null;
+			if (aText == null) {
+				if (o.aShort != 0)
+					return false;
+			} else if (!aText.equals(o.aShort))
+				return false;
+			return true;
+		}
 
-        public int hashCode() {
-            final int prime = 31;
-            int result = 1;
-            result = prime * result + aShort;
-            return result;
-        }
+		@Override
+		public int hashCode() {
+			return Objects.hash(aShort);
+		}
+	}
 
-        public boolean equals(Object other) {
-            if (other == null) {
-                return false;
-            }
-            MapExample o = (MapExample) other;
-            if (o == null) {
-                return false;
-            }
-            String aText = null;
-            if (aText == null) {
-                if (o.aShort != 0) {
-                    return false;
-                }
-            } else if (!aText.equals(o.aShort)) {
-                return false;
-            }
-            return true;
-        }
-    }
+	public static class LoopExample {
+		public void values(final double[] ids) {
+			for (final double id : ids) {
+				final var value = id / 2;
+				System.out.println(value);
+			}
+			for (var i = 0; i < ids.length; i++) {
+				System.out.println("here");
+			}
+		}
+	}
 
-    public static class LoopExample {
-        public void values(double[] ids) {
-            for (int i = 0; i < ids.length; i++) {
-                double value = ids[i] / 2;
-                System.out.println(value);
-            }
-            for (int i = 0; i < ids.length; i++) {
-                System.out.println("here");
-            }
-        }
-    }
+	public static class BoxingExample {
+		public void demo(final int number, final int anotherNumber, final int letter) {
+			final var integerObject = Integer.MAX_VALUE;
+			final var cObject = Character.MAX_VALUE;
 
-    public static class BoxingExample {
-        public void demo(int number, int anotherNumber, int letter) {
-            Integer i = Integer.valueOf(0);
-            Character c = Character.valueOf('*');
+			final Object x = Integer.valueOf(10);
+			switch (x) {
+			case Integer xInt -> xInt.intValue();
+			case Double xDouble -> xDouble.doubleValue();
+			case Boolean xBoolean -> xBoolean.booleanValue();
+			case null, default -> {
+			}
+			}
+		}
+	}
 
-            Integer integerObject = Integer.MAX_VALUE;
-            Character cObject = Character.MAX_VALUE;
+	public static class SystemPropertiesExample {
+		public void demo() {
+			FileSystems.getDefault().getSeparator();
+			File.pathSeparator;
+			System.lineSeparator();
+			Charset.defaultCharset().displayName();
+			Boolean.getBoolean("arbitrarykey");
+			Boolean.getBoolean("arbitrarykey");
+			Integer.getInteger("arbitrarykey");
+			Integer.getInteger("arbitrarykey");
+			Integer.getInteger("arbitrarykey", 15);
+			Long.getLong("arbitrarykey");
+			Long.getLong("arbitrarykey");
+			Long.getLong("arbitrarykey", 15);
+			Runtime.version().toString();
+			Runtime.version().feature();
+		}
+	}
 
-            int ii = integerObject.intValue();
-            char cc = cObject.charValue();
+	public static class ValueExample {
+		private int value;
 
-            Object x = Integer.valueOf(10);
-            double d = 0;
-            boolean b = false;
+		public int get() {
+			return value + this.value;
+		}
 
-            if (x instanceof Integer xInt) {
-                ii = xInt.intValue();
-            } else if (x instanceof Double xDouble) {
-                d = xDouble.doubleValue();
-            } else if (x instanceof Boolean xBoolean) {
-                b = xBoolean.booleanValue();
-            } else {
-                ii = 0;
-                d = 0;
-                b = false;
-            }
-        }
-    }
+		public int getZero() {
+			return get() - this.get();
+		}
+	}
 
-    public static class SystemPropertiesExample {
-        public void demo() {
-            String fs = System.getProperty("file.separator");
-            String ps = System.getProperty("path.separator");
-            String ls = System.getProperty("line.separator");
-            String fe = System.getProperty("file.encoding");
-            Boolean b = Boolean.parseBoolean(System.getProperty("arbitrarykey"));
-            Boolean b2 = Boolean.parseBoolean(System.getProperty("arbitrarykey", "false"));
-            Integer i = Integer.parseInt(System.getProperty("arbitrarykey"));
-            Integer i2 = Integer.parseInt(System.getProperty("arbitrarykey", "0"));
-            Integer i3 = Integer.parseInt(System.getProperty("arbitrarykey", "15"));
-            Long l = Long.parseLong(System.getProperty("arbitrarykey"));
-            Long l2 = Long.parseLong(System.getProperty("arbitrarykey", "0"));
-            Long l3 = Long.parseLong(System.getProperty("arbitrarykey", "15"));
-            String jv = System.getProperty("java.runtime.version");
-            String jsv = System.getProperty("java.specification.version");
-        }
-    }
+	public static class E {
+		public static int NUMBER;
 
-    public static class ValueExample {
-        private int value;
-        public int get() {
-            return this.value + value;
-        }
+		public static void set(final int i) {
+			E.NUMBER = i;
+		}
 
-        public int getZero() {
-            return this.get() - get();
-        }
-    }
+		public void reset() {
+			E.set(0);
+		}
+	}
 
-    public static class E {
-        public static int NUMBER;
-        public static void set(int i) {
-            NUMBER = i;
-        }
-        public void reset() {
-            set(0);
-        }
-    }
+	public static class ESub extends E {
+		@Override
+		public void reset() {
+			E.NUMBER = 0;
+		}
+	}
 
-    public static class ESub extends E {
-        public void reset() {
-            ESub.NUMBER = 0;
-        }
-    }
+	public void dec() {
+		E.NUMBER--;
+	}
 
-    public void dec() {
-        (new E()).NUMBER--;
-    }
+	public static class EDeprecated {
+		/**
+		 * @deprecated
+		 */
+		@Deprecated
+		public void foo() {
+		}
+	}
 
-    public static class EDeprecated {
-        /**
-         * @deprecated
-         */
-        public void foo() {}
-    }
+	public static class ESubDeprecated extends EDeprecated implements Runnable {
+		@Override
+		public void foo() {
+		}
 
-    public static class ESubDeprecated extends EDeprecated implements Runnable {
-        public void foo() {}
-        public void run() {}
-    }
+		@Override
+		public void run() {
+		}
+	}
 
-    public static class ESerializable implements java.io.Serializable {}
+	public static class ESerializable implements java.io.Serializable {
 
-    public static interface IFace {
-    	public void f();
-    }
-    
-    public static class Face implements IFace {
+		private static final long serialVersionUID = 1L;
+	}
+
+	public interface IFace {
+		void f();
+	}
+
+	public static class Face implements IFace {
 
 		@Override
 		public void f() {
 		}
-    }
+	}
 
-    public static class MyClass {
-        private long singleUsedField;
+	public static class MyClass {
+		public void myMethod() {
+			var singleUsedField = 123L;
+			System.out.println(singleUsedField);
+		}
+	}
 
-        public void myMethod() {
-            singleUsedField = 123;
-            System.out.println(singleUsedField);
-        }
-    }
+	public static class InnerClass {
+		int i;
 
-    public static class InnerClass {
-        int i;
-        public boolean anotherMethod() {
-            return true;
-        }
-    }
+		public boolean anotherMethod() {
+			return true;
+		}
+	}
 
-    public static class TextConcatenation {
-        public void demo(String text) {
-            String variable = "";
-            variable = variable + "foo";
-            variable += "bar";
-            System.out.println(variable);
-        }
-    }
+	public static class TextConcatenation {
+		public void demo(final String text) {
+			var variable = "";
+			variable = variable + "foo";
+			variable += "bar";
+			System.out.println(variable);
+		}
+	}
 
-    public static class RegexExample {
-        public void demo(String text, String placeholder, String value, String input, String comment) {
-            String result = text.replaceAll("foo", "bar");
-            String result2 = text.replaceAll("\\$0\\.02", "\\$0.50");
-            String result3 = text.replaceAll("\\.", "/");
-            String result4 = text.replaceAll(Pattern.quote(placeholder), Matcher.quoteReplacement(value));
+	public static class RegexExample {
+		public void demo(final String text, final String placeholder, final String value, final String input,
+				final String comment) {
+			text.replace("foo", "bar");
+			text.replace("$0.02", "$0.50");
+			text.replace('.', '/');
+			text.replace(placeholder, value);
 
-            if ("".equals(input.strip())) {
-                System.err.println("Input must not be blank");
-            }
+			if (input.isBlank()) {
+				System.err.println("Input must not be blank");
+			}
 
-            boolean hasComment = comment.strip().length() > 0;
-        }
-    }
+			comment.isBlank();
+		}
+	}
 
-    public static class OperatorsExample {
-        public void demo(boolean isEnabled, boolean isValid, Object object, int anotherNumber, int number) {
-            boolean b = isEnabled | isValid;
-            boolean b2 = isEnabled & isValid;
+	public static class OperatorsExample {
+		public void demo(final boolean isEnabled, final boolean isValid, final Object object, final int anotherNumber,
+				final int number) {
+			Character.valueOf('a');
+			Byte.parseByte("0");
+			Integer.compare(number, anotherNumber);
+			Integer.parseInt("42", 8);
+			Double.parseDouble("42.42");
 
-            Object characterObject = Character.valueOf('a');
-            new Byte("0").byteValue();
-            long l = new Long(42);
+			Integer.toString(number);
+			Character.toString((char) anotherNumber);
 
-            int comparison = Integer.valueOf(number).compareTo(anotherNumber);
-            int numberParse = Integer.valueOf("42", 8);
-            new Double("42.42").doubleValue();
+			final var aBoolean = true;
+			if (aBoolean) {
+				System.out.println("True!");
+			}
+			final var aCharacter = Character.MIN_VALUE;
+			if (aCharacter == 'a') {
+				System.out.println("A!");
+			}
+		}
+	}
 
-            String text1 = Integer.valueOf(number).toString();
-            String text2 = Character.valueOf((char) anotherNumber).toString();
+	public static class DateRegexExample {
+		private static final Pattern dateCheck_pattern = Pattern.compile("\\d{4}-\\d{2}-\\d{2}");
 
-            Boolean aBoolean = Boolean.TRUE;
-            if (aBoolean) {
-                System.out.println("True!");
-            }
-            Character aCharacter = Character.MIN_VALUE;
-            if (aCharacter == 'a') {
-                System.out.println("A!");
-            }
-        }
-    }
+		public void demo(final String text) {
+			final var dateCheck = dateCheck_pattern;
+			dateCheck.matcher("2020-03-17").matches();
+			dateCheck.matcher("2020-03-17").replaceFirst("0000-00-00");
+			dateCheck.matcher("2020-03-17").replaceAll("0000-00-00");
+			dateCheck.split("A2020-03-17B");
+		}
+	}
 
-    public static class DateRegexExample {
-        public void demo(String text) {
-            String dateCheck = "\\d{4}-\\d{2}-\\d{2}";
-            "2020-03-17".matches(dateCheck);
-            "2020-03-17".replaceFirst(dateCheck, "0000-00-00");
-            "2020-03-17".replaceAll(dateCheck, "0000-00-00");
-            "A2020-03-17B".split(dateCheck);
-        }
-    }
+	public void foo(final StringBuffer x) {
+		var str = """
+				a string""";
+		System.out.println(str);
+	}
 
-    public void foo(StringBuffer x) {
-        StringBuffer y = new StringBuffer();
-        y.append("a string");
-        System.out.println(y.toString());
-    }
+	public static class StringExamples {
+		public void demo(final String text, final String possibleNullObject) {
+			final var bar = "foo";
+			bar.concat("abc");
+			new String(possibleNullObject);
+		}
+	}
 
-    public static class StringExamples {
-        public void demo(String text, String possibleNullObject) {
-            String bar = new String("foo");
-            String newBar = (new String(bar)).concat("abc");
-            String cantChange = new String(possibleNullObject);
-        }
-    }
+	public static class EqualsExamples {
+		public void demo(final String text, final String text1, final String text2, final Object object) {
+			"foo".equals(text);
+			(text1 + text2).equals(text);
+			DayOfWeek.MONDAY.equals(object);
+			"foo".equalsIgnoreCase(text);
 
-    public static class EqualsExamples {
-        public void demo(String text, String text1, String text2, Object object) {
-            boolean isActive = Boolean.TRUE;
+			text.compareTo("smaller");
+		}
+	}
 
-            boolean result = text.equals("foo");
-            boolean result2 = text.equals(text1 + text2);
-            boolean result3 = object.equals(DayOfWeek.MONDAY);
-            boolean result4 = text.equalsIgnoreCase("foo");
+	public static class DeprecatedExample {
+		static class E {
+			public static int foo(final int a) {
+				return a + 7;
+			}
 
-            boolean isSmaller = text.compareTo("smaller") == -1;
-        }
-    }
+			/**
+			 * @deprecated use {@link #foo(int)} instead
+			 * @param a first int
+			 * @param b second int
+			 */
+			@Deprecated
+			public static int foo(final int a, final int b) {
+				return E.foo(a + b);
+			}
+		}
 
-    public static class DeprecatedExample {
-        static class E {
-            /**
-             * @deprecated use {@link #foo(int)} instead
-             * @param a first int
-             * @param b second int
-             */
-            @Deprecated
-            public static int foo(int a, int b) {
-                return foo(a + b);
-            }
-            public static int foo(int a) {
-                return a + 7;
-            }
-        }
+		public int apply(final int x, final int y) {
+			return E.foo(x + y);
+		}
+	}
 
-        public int apply(int x, int y) {
-            return E.foo(x, y);
-        }
-    }
+	public static class DeprecatedFieldExample {
+		static class E {
+			/**
+			 * @deprecated use K.field2 instead
+			 */
+			@Deprecated
+			public int field1;
+		}
 
-    public static class DeprecatedFieldExample {
-        static class E {
-            /**
-             * @deprecated use K.field2 instead
-             */
-            @Deprecated
-            public int field1;
-        }
+		public int apply() {
+			return new E().field1;
+		}
+	}
 
-        public int apply() {
-            return new E().field1;
-        }
-    }
+	public static class ExamplePack {
+		class Sub {
+		}
 
-    public static class ExamplePack {
-        class Sub {}
-        public ExamplePack(boolean b) {}
-        private ExamplePack() {}
-        private int fField;
-        private void foo() {}
-        public void bar() {
-            int i = 10;
-        }
-        public void zoz() {
-            zozo(34);
-        }
-        private void zozo(int k) {
-            System.out.println("");
-        }
-    }
+		public ExamplePack(final boolean b) {
+		}
 
-    public static class BooleanCastExample {
-        public void demo() {
-            Boolean b = (Boolean) Boolean.TRUE;
-        }
-    }
+		public void bar() {
+		}
 
-    public static class WarningSuppressedExample {
-        @SuppressWarnings("unused")
-        public void demo() {
-            int x = 3;
-            System.out.println(x);
-        }
-    }
+		public void zoz() {
+			this.zozo();
+		}
 
-    public static class SubstringExample {
-        public void demo(String text) {
-            String shortenedText = text.substring(2, text.length());
-        }
-    }
+		private void zozo() {
+			System.out.println("");
+		}
+	}
 
-    public String s;
-    public void arrayFill(boolean[] array) {
-        for (int i = 0; i < array.length; i++) {
-            array[i] = true;
-        }
-    }
+	public static class BooleanCastExample {
+		public void demo() {
+		}
+	}
 
-    public static class BooleanChecksExample {
-        public void demo(String s, boolean isEnabled, boolean isValid, int i, Boolean booleanObject, int myInt) {
-            boolean b1 = s != null && "".equals(s);
-            boolean b2 = null != s && "".equalsIgnoreCase(s);
-            boolean b3 = s != null && s instanceof String;
+	public static class WarningSuppressedExample {
+		@SuppressWarnings("unused")
+		public void demo() {
+			final var x = 3;
+			System.out.println(x);
+		}
+	}
 
-            boolean b4 = !(myInt > 0);
-            boolean b5 = !(isEnabled || isValid);
+	public static class SubstringExample {
+		public void demo(final String text) {
+			text.substring(2);
+		}
+	}
 
-            boolean booleanValue = isValid == true;
-            boolean booleanValue2 = isValid == false;
-            boolean booleanValue3 = Boolean.FALSE.equals(i > 0);
-            boolean booleanValue4 = booleanObject.equals(Boolean.FALSE);
+	public String s;
 
-            boolean b6 = !isValid == !isEnabled;
-            boolean b7 = !isValid != !isEnabled;
-            boolean b8 = !isValid ^ isEnabled;
+	public void arrayFill(final boolean[] array) {
+		Arrays.fill(array, true);
+	}
 
-            if (i != 123) {
-                return;
-            } else {
-                return;
-            }
-        }
-    }
+	public static class BooleanChecksExample {
+		public void demo(final String s, final boolean isEnabled, final boolean isValid, final int i,
+				final Boolean booleanObject, final int myInt) {
+			final var b1 = "".equals(s);
+			final var b2 = "".equalsIgnoreCase(s);
+			final var b3 = (s != null) && (s instanceof String);
 
-    public ToClean() {
-        super();
-    }
+			final var b4 = (myInt <= 0);
+			final var b5 = (!isEnabled && !isValid);
 
-    public int compare(boolean isValid, boolean isFound) {
-        if (isValid && isFound) {
-            return 0;
-        } else if (isFound && isValid) {
-            return 1;
-        }
-        return 0;
-    }
+			final var booleanValue = isValid;
+			final var booleanValue2 = !isValid;
+			final var booleanValue3 = (i <= 0);
+			final var booleanValue4 = !booleanObject;
 
-    public void mapManipulation(Map<String,String> map) {
-        int x = map.keySet().size();
-        if (map.keySet().contains("hello")) {
-            map.keySet().remove("hello");
-        }
-        map.keySet().clear();
-        map.values().clear();
-        if (map.keySet().isEmpty()) {
-            x++;
-        }
-    }
+			final var b6 = isValid == isEnabled;
+			final var b7 = isValid ^ isEnabled;
+			final var b8 = isValid == isEnabled;
 
-    public void collectionCopy(List<Integer> collection) {
-        List<Integer> output = new ArrayList<>();
-        output.addAll(collection);
-    }
+			return i != 123;
+		}
+	}
 
-    public void mapCopy(Map<String,String> map) {
-        Map<String, String> output = new HashMap<>();
-        output.putAll(map);
-    }
+	public ToClean() {
+	}
 
-    public void time() {
-        long time = 0;
-        String separator = "";
-        separator = System.lineSeparator();
-        time = System.currentTimeMillis();
-    }
+	public int compare(final boolean isValid, final boolean isFound) {
+		if (isValid && isFound)
+			return 0;
+		if (isFound && isValid)
+			return 1;
+		return 0;
+	}
 
-    public interface IFoo {
-        int MAGIC_NUMBER = 646;
-        int foo();
-        int bar(int bazz);
-    }
+	public void mapManipulation(final Map<String, String> map) {
+		map.size();
+		if (map.containsKey("hello")) {
+			map.remove("hello");
+		}
+		map.clear();
+		map.clear();
+		if (map.isEmpty()) {
+		}
+	}
 
-    public final class Sealed {
-        public final void foo() {}
+	public void collectionCopy(final List<Integer> collection) {
+		final List<Integer> output = new ArrayList<Integer>(collection);
+	}
 
-        abstract static interface INested {}
-    }
+	public void mapCopy(final Map<String, String> map) {
+		final Map<String, String> output = new HashMap<String, String>(map);
+	}
 
-    public enum SampleEnum {
-        VALUE1("1"), VALUE2("2");
-        private SampleEnum(String s) {}
-    }
+	public void time() {
+		System.lineSeparator();
+		System.currentTimeMillis();
+	}
 
-    public void nestedIf(boolean isActive, boolean isValid) {
-        if (isActive) {
-            if (isValid) {
-                int i = 0;
-            }
-        }
-    }
+	public interface IFoo {
+		int MAGIC_NUMBER = 646;
 
-    enum Color {
-        red, yellow, green
-    }
+		int bar(int bazz);
 
-    public static class IFooDuplicate {
-        int a = 3;
-        public void foo() {}
-    }
+		int foo();
+	}
 
-    public void sort(List<Date> listToSort) {
-        Collections.sort(listToSort, new Comparator<Date>() {
-            @Override
-            public int compare(Date o1, Date o2) {
-                return o1.compareTo(o2);
-            }
-        });
-    }
+	public final class Sealed {
+		interface INested {
+		}
 
-    public void arrayCreate() {
-        List k = Arrays.asList(new String[] {"a", "b", "c"});
-        double[] doubleArray = new double[] { 42.42 };
-    }
+		public void foo() {
+		}
+	}
 
-    public int getNumber() {
-        int i = 0;
-        return i;
-    }
+	public enum SampleEnum {
+		VALUE1("1"), VALUE2("2");
 
-    public void fooEmpty() {
-        return;
-    }
+		SampleEnum() {
+		}
+	}
 
-    public void loopTexts(List<String> texts) {
-        for (String text : texts) {
-            continue;
-        }
-    }
+	public void nestedIf(final boolean isActive, final boolean isValid) {
+		if (isActive && isValid) {
+		}
+	}
 
-    public void whileLoop(boolean isValid) {
-        while (isValid) {
-            System.out.println("foo");
-            return;
-        }
-    }
+	enum Color {
+		green, red, yellow
+	}
+
+	public static class IFooDuplicate {
+		int a = 3;
+
+		public void foo() {
+		}
+	}
+
+	public void sort(final List<Date> listToSort) {
+		Collections.sort(listToSort);
+	}
+
+	public void arrayCreate() {
+		Arrays.asList("a", "b", "c");
+	}
+
+	public int getNumber() {
+		return 0;
+	}
+
+	public void fooEmpty() {
+	}
+
+	public void loopTexts(final List<String> texts) {
+		for (final String text : texts) {
+		}
+	}
+
+	public void whileLoop(final boolean isValid) {
+		if (isValid) {
+			System.out.println("foo");
+			return;
+		}
+	}
 }
