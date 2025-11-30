@@ -17,6 +17,8 @@ jobs:
       - name: Checkout test repo
         uses: actions/checkout@v6
         with:
+          repository: nbauma109/refactoring-action-test
+          path: refactoring-action-test
           fetch-depth: 0
           persist-credentials: false
 
@@ -31,7 +33,7 @@ jobs:
       - name: Run refactoring action
         uses: ./refactoring-cleanup-action
         with:
-          project_root: sample-project
+          project_root: refactoring-action-test/sample-project
           source_level: "21"
 
           cleanup_array_with_curly: true
@@ -181,7 +183,7 @@ jobs:
           cleanup_use_var: true
 
       - name: Check if changes occurred
-        working-directory: sample-project
+        working-directory: refactoring-action-test/sample-project
         run: |
           if git diff --quiet; then
             echo "No changes — skipping PR creation."
@@ -191,9 +193,10 @@ jobs:
             echo "has_changes=true" >> $GITHUB_OUTPUT
           fi
         id: diffcheck
-      
+
       - name: Open pull request
         uses: peter-evans/create-pull-request@v7
+        working-directory: refactoring-action-test/sample-project
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "Apply Eclipse cleanup refactoring"
