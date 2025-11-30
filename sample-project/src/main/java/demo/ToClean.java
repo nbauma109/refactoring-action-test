@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -75,15 +76,20 @@ public class ToClean {
         int i = 0;
         int kVal = 0;
         int m = 0;
-        if (number == 0) {
-            i = 0;
-        } else if (number == 1) {
-            j = 10;
-        } else if (2 == number) {
-            kVal = 20;
-        } else {
-            m = -1;
-        }
+        switch (number) {
+		case 0:
+			i = 0;
+			break;
+		case 1:
+			j = 10;
+			break;
+		case 2:
+			kVal = 20;
+			break;
+		default:
+			m = -1;
+			break;
+		}
 
         for (int idx = 0; idx < inputList.size(); idx++) {
             outputList.add(inputList.get(idx));
@@ -243,10 +249,7 @@ public class ToClean {
         private short aShort;
 
         public int hashCode() {
-            final int prime = 31;
-            int result = 1;
-            result = prime * result + aShort;
-            return result;
+            return Objects.hash(aShort);
         }
 
         public boolean equals(Object other) {
@@ -557,7 +560,7 @@ public class ToClean {
 
     public static class SubstringExample {
         public void demo(String text) {
-            String shortenedText = text.substring(2, text.length());
+            String shortenedText = text.substring(2);
         }
     }
 
