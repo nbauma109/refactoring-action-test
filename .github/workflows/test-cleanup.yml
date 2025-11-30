@@ -39,6 +39,7 @@ jobs:
           cleanup_useless_continue: true
           cleanup_qualify_static_member_accesses_through_subtypes_with_declaring_class: true
           cleanup_remove_redundant_type_arguments: true
+          cleanup_remove_unused_imports: true 
           cleanup_break_loop: true
           cleanup_pull_up_assignment: true
           cleanup_stringbuilder: true
