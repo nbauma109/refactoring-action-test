@@ -104,7 +104,7 @@ public class ObsoleteGenericMapRatherThanRawMapSample {
         // Keep this comment
         Map map = new java.util.TreeMap();
         // Keep this comment too
-        Set<Entry<String, double[]>> theKeys = (Set<Entry<String, double[]>>) map.entrySet();
+        Set<Entry<String, double[]>> theKeys = map.entrySet();
         double[] theValue = (double[]) map.remove("bar");
     }
 
@@ -174,19 +174,19 @@ public class ObsoleteGenericMapRatherThanRawMapSample {
 
     public void replaceTreeMapWithParameter() {
         // Keep this comment
-        java.util.TreeMap map = new java.util.TreeMap(new java.util.TreeMap<String, BigDecimal>());
+        java.util.TreeMap map = new java.util.TreeMap(new java.util.TreeMap<>());
         map.put("bar", BigDecimal.ONE);
     }
 
     public void replaceHashMapWithParameter() {
         // Keep this comment
-        java.util.HashMap map = new java.util.HashMap(new java.util.TreeMap<String, BigDecimal>());
+        java.util.HashMap map = new java.util.HashMap(new java.util.TreeMap<>());
         map.put("bar", BigDecimal.ONE);
     }
 
     public void refactorMapWithParameter() {
         // Keep this comment
-        Map map = new java.util.TreeMap(new java.util.TreeMap<String, BigDecimal>());
+        Map map = new java.util.TreeMap(new java.util.TreeMap<>());
         map.put("bar", BigDecimal.ONE);
     }
 
@@ -248,299 +248,298 @@ public class ObsoleteGenericMapRatherThanRawMapSample {
         // Keep this comment
         Map map = new HashMap();
         map.equals(object1);
-        map.putAll(new HashMap<boolean[], Short[]>());
+        map.putAll(new HashMap<>());
     }
 
     public void genericizeToString() {
         // Keep this comment
         Map map = new HashMap();
         map.toString();
-        map.putAll(new HashMap<boolean[], Short[]>());
+        map.putAll(new HashMap<>());
     }
 
     public void genericizeNotify() {
         // Keep this comment
         Map map = new HashMap();
         map.notify();
-        map.putAll(new HashMap<boolean[], Short[]>());
+        map.putAll(new HashMap<>());
     }
 
     public void genericizeNotifyAll() {
         // Keep this comment
         Map map = new HashMap();
         map.notifyAll();
-        map.putAll(new HashMap<boolean[], Short[]>());
+        map.putAll(new HashMap<>());
     }
 
     public void genericizeWait() throws InterruptedException {
         // Keep this comment
         Map map = new HashMap();
         map.wait();
-        map.putAll(new HashMap<boolean[], Short[]>());
+        map.putAll(new HashMap<>());
     }
 
     public void genericizeWait(long long1) throws InterruptedException {
         // Keep this comment
         Map map = new HashMap();
         map.wait(long1);
-        map.putAll(new HashMap<boolean[], Short[]>());
+        map.putAll(new HashMap<>());
     }
 
     public void genericizeWait(long long1, int int1) throws InterruptedException {
         // Keep this comment
         Map map = new HashMap();
         map.wait(long1, int1);
-        map.putAll(new HashMap<boolean[], Short[]>());
+        map.putAll(new HashMap<>());
     }
 
     public void genericizeClear() {
         // Keep this comment
         Map map = new HashMap();
         map.clear();
-        map.putAll(new HashMap<String, String>());
+        map.putAll(new HashMap<>());
     }
 
     public void genericizeContainsKey​(String object1) {
         // Keep this comment
         Map map = new HashMap();
         map.containsKey(object1);
-        map.putAll(new HashMap<String, String>());
+        map.putAll(new HashMap<>());
     }
 
     public void genericizeContainsValue(String object1) {
         // Keep this comment
         Map map = new HashMap();
         map.containsValue(object1);
-        map.putAll(new HashMap<String, String>());
+        map.putAll(new HashMap<>());
     }
 
     public void genericizeEquals(String object1) {
         // Keep this comment
         Map map = new HashMap();
         map.equals(object1);
-        map.putAll(new HashMap<String, String>());
+        map.putAll(new HashMap<>());
     }
 
     public void genericizeForEach(BiConsumer biConsumer1) {
         // Keep this comment
         Map map = new HashMap();
         map.forEach(biConsumer1);
-        map.putAll(new HashMap<String, String>());
+        map.putAll(new HashMap<>());
     }
 
     public void genericizeHashCode() {
         // Keep this comment
         Map map = new HashMap();
         map.hashCode();
-        map.putAll(new HashMap<String, String>());
+        map.putAll(new HashMap<>());
     }
 
     public void genericizeIsEmpty() {
         // Keep this comment
         Map map = new HashMap();
         map.isEmpty();
-        map.putAll(new HashMap<String, String>());
+        map.putAll(new HashMap<>());
     }
 
     public void genericizeSize() {
         // Keep this comment
         Map map = new HashMap();
         map.size();
-        map.putAll(new HashMap<String, Exception>());
+        map.putAll(new HashMap<>());
     }
 
     public void genericizeRemove(String object1, List<String> object2) {
         // Keep this comment
         Map map = new HashMap();
         map.remove(object1, object2);
-        map.putAll(new HashMap<String, List<String>>());
+        map.putAll(new HashMap<>());
     }
 
     public void genericizePutAll(Map<Integer, Date> map1) {
         // Keep this comment
-        Map map = new HashMap();
-        map.putAll(map1);
+        Map map = new HashMap(map1);
     }
 
     public void genericizeGet(String object1) {
         // Keep this comment
         Map map = new HashMap();
         Double theValue = (Double) map.get(object1);
-        map.putAll(new HashMap<String, Double>());
+        map.putAll(new HashMap<>());
     }
 
     public void genericizeRemove(String object1) {
         // Keep this comment
         Map map = new HashMap();
         String theValue = (String) map.remove(object1);
-        map.putAll(new HashMap<String, String>());
+        map.putAll(new HashMap<>());
     }
 
     public void genericizeLastKey() {
         // Keep this comment
         TreeMap map = new TreeMap();
         String theValue = (String) map.lastKey();
-        map.putAll(new HashMap<String, String>());
+        map.putAll(new HashMap<>());
     }
 
     public void genericizeFirstKey() {
         // Keep this comment
         TreeMap map = new TreeMap();
         String theValue = (String) map.firstKey();
-        map.putAll(new HashMap<String, String>());
+        map.putAll(new HashMap<>());
     }
 
     public void genericizeKeySet() {
         // Keep this comment
         Map map = new HashMap();
-        Set<String> theKeys = (Set<String>) map.keySet();
-        map.putAll(new HashMap<String, String>());
+        Set<String> theKeys = map.keySet();
+        map.putAll(new HashMap<>());
     }
 
     public void genericizeComparator() {
         // Keep this comment
         TreeMap map = new TreeMap();
-        Comparator<String> theComparator = (Comparator<String>) map.comparator();
-        map.putAll(new HashMap<String, String>());
+        Comparator<String> theComparator = map.comparator();
+        map.putAll(new HashMap<>());
     }
 
     public void genericizeDescendingKeySet() {
         // Keep this comment
         TreeMap map = new TreeMap();
-        Set<String> theKeys = (Set<String>) map.descendingKeySet();
-        map.putAll(new HashMap<String, String>());
+        Set<String> theKeys = map.descendingKeySet();
+        map.putAll(new HashMap<>());
     }
 
     public void genericizeNavigableKeySet() {
         // Keep this comment
         TreeMap map = new TreeMap();
-        Set<String> theKeys = (Set<String>) map.navigableKeySet();
-        map.putAll(new HashMap<String, String>());
+        Set<String> theKeys = map.navigableKeySet();
+        map.putAll(new HashMap<>());
     }
 
     public void genericizeValues() {
         // Keep this comment
         Map map = new HashMap();
-        Collection<String> theValues = (Collection<String>) map.values();
-        map.putAll(new HashMap<String, String>());
+        Collection<String> theValues = map.values();
+        map.putAll(new HashMap<>());
     }
 
     public void genericizeDescendingMap() {
         // Keep this comment
         TreeMap map = new TreeMap();
-        Map<String, String> theMap = (Map<String, String>) map.descendingMap();
+        Map<String, String> theMap = map.descendingMap();
     }
 
     public void genericizeFirstEntry() {
         // Keep this comment
         TreeMap map = new TreeMap();
-        Entry<String, String> theEntry = (Entry<String, String>) map.firstEntry();
+        Entry<String, String> theEntry = map.firstEntry();
     }
 
     public void genericizeLastEntry() {
         // Keep this comment
         TreeMap map = new TreeMap();
-        Entry<String, String> theEntry = (Entry<String, String>) map.lastEntry();
+        Entry<String, String> theEntry = map.lastEntry();
     }
 
     public void genericizePollFirstEntry() {
         // Keep this comment
         TreeMap map = new TreeMap();
-        Entry<String, String> theEntry = (Entry<String, String>) map.pollFirstEntry();
+        Entry<String, String> theEntry = map.pollFirstEntry();
     }
 
     public void genericizePollLastEntry() {
         // Keep this comment
         TreeMap map = new TreeMap();
-        Entry<String, String> theEntry = (Entry<String, String>) map.pollLastEntry();
+        Entry<String, String> theEntry = map.pollLastEntry();
     }
 
     public void genericizeCeilingEntry(String object1) {
         // Keep this comment
         TreeMap map = new TreeMap();
-        Entry<String, String> theEntry = (Entry<String, String>) map.ceilingEntry(object1);
+        Entry<String, String> theEntry = map.ceilingEntry(object1);
     }
 
     public void genericizeFloorEntry(String object1) {
         // Keep this comment
         TreeMap map = new TreeMap();
-        Entry<String, String> theEntry = (Entry<String, String>) map.floorEntry(object1);
+        Entry<String, String> theEntry = map.floorEntry(object1);
     }
 
     public void genericizeHeadMap(String object1) {
         // Keep this comment
         TreeMap map = new TreeMap();
-        Map<String, String> theMap = (Map<String, String>) map.headMap(object1);
+        Map<String, String> theMap = map.headMap(object1);
     }
 
     public void genericizeHeadMap(String object1, boolean boolean2) {
         // Keep this comment
         TreeMap map = new TreeMap();
-        Map<String, String> theMap = (Map<String, String>) map.headMap(object1, boolean2);
+        Map<String, String> theMap = map.headMap(object1, boolean2);
     }
 
     public void genericizeHigherEntry(String object1) {
         // Keep this comment
         TreeMap map = new TreeMap();
-        Entry<String, String> theEntry = (Entry<String, String>) map.higherEntry(object1);
+        Entry<String, String> theEntry = map.higherEntry(object1);
     }
 
     public void genericizeLowerEntry(String object1) {
         // Keep this comment
         TreeMap map = new TreeMap();
-        Entry<String, String> theEntry = (Entry<String, String>) map.lowerEntry(object1);
+        Entry<String, String> theEntry = map.lowerEntry(object1);
     }
 
     public void genericizeTailMap(String object1) {
         // Keep this comment
         TreeMap map = new TreeMap();
-        Map<String, String> theMap = (Map<String, String>) map.tailMap(object1);
+        Map<String, String> theMap = map.tailMap(object1);
     }
 
     public void genericizeTailMap(String object1, boolean boolean2) {
         // Keep this comment
         TreeMap map = new TreeMap();
-        Map<String, String> theMap = (Map<String, String>) map.tailMap(object1, boolean2);
+        Map<String, String> theMap = map.tailMap(object1, boolean2);
     }
 
     public void genericizeSubMap(String object1, String object2) {
         // Keep this comment
         TreeMap map = new TreeMap();
-        Map<String, String> theMap = (Map<String, String>) map.subMap(object1, object2);
+        Map<String, String> theMap = map.subMap(object1, object2);
     }
 
     public void genericizeEntrySet() {
         // Keep this comment
         Map map = new HashMap();
-        Set<Entry<String, Float>> theEntry = (Set<Entry<String, Float>>) map.entrySet();
+        Set<Entry<String, Float>> theEntry = map.entrySet();
     }
 
     public void genericizeCeilingKey(String object1) {
         // Keep this comment
         TreeMap map = new TreeMap();
         map.ceilingKey(object1);
-        Collection<int[]> theValues = (Collection<int[]>) map.values();
+        Collection<int[]> theValues = map.values();
     }
 
     public void genericizeFloorKey(String object1) {
         // Keep this comment
         TreeMap map = new TreeMap();
         map.floorKey(object1);
-        Collection<int[]> theValues = (Collection<int[]>) map.values();
+        Collection<int[]> theValues = map.values();
     }
 
     public void genericizeHigherKey(String object1) {
         // Keep this comment
         TreeMap map = new TreeMap();
         map.higherKey(object1);
-        Collection<int[]> theValues = (Collection<int[]>) map.values();
+        Collection<int[]> theValues = map.values();
     }
 
     public void genericizeLowerKey(String object1) {
         // Keep this comment
         TreeMap map = new TreeMap();
         map.lowerKey(object1);
-        Collection<int[]> theValues = (Collection<int[]>) map.values();
+        Collection<int[]> theValues = map.values();
     }
 
     public void genericizeGetOrDefault(String object1, byte[] object2) {
@@ -578,7 +577,7 @@ public class ObsoleteGenericMapRatherThanRawMapSample {
             boolean boolean4) {
         // Keep this comment
         TreeMap map = new TreeMap();
-        Map<String, String> theMap = (Map<String, String>) map.subMap(object1, boolean2, object3, boolean4);
+        Map<String, String> theMap = map.subMap(object1, boolean2, object3, boolean4);
     }
 
     public void genericizeCompute(String object1, BiFunction<String, Integer, Integer> biFunction2) {

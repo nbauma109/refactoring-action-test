@@ -38,11 +38,7 @@ public class ObsoleteAssignRatherThanFilterThenAssignAnywaySample {
     public String refactorLocalVariable1(String input) {
         String output;
         // Keep this comment
-        if (input == null) {
-            output = null;
-        } else {
-            output = input;
-        }
+        output = input;
         return output;
     }
 
@@ -79,77 +75,50 @@ public class ObsoleteAssignRatherThanFilterThenAssignAnywaySample {
     public String refactorLocalVariable2(String input) {
         String output;
         // Keep this comment
-        if (null == input) {
-            output = null;
-        } else {
-            output = input;
-        }
+        output = input;
         return output;
     }
 
     public String refactorLocalVariable3(String input) {
         String output;
         // Keep this comment
-        if (input != null) {
-            output = input;
-        } else {
-            output = null;
-        }
+        output = input;
         return output;
     }
 
     public String refactorLocalVariable4(String input) {
         String output;
         // Keep this comment
-        if (null != input) {
-            output = input;
-        } else {
-            output = null;
-        }
+        output = input;
         return output;
     }
 
     public int removeHardCodedNumber(int input) {
         int output;
         // Keep this comment
-        if (123 != input) {
-            output = input;
-        } else {
-            output = 123;
-        }
+        output = input;
         return output;
     }
 
     public char removeHardCodedCharacter(char input) {
         char output;
         // Keep this comment
-        if (input == 'a') {
-            output = 'a';
-        } else {
-            output = input;
-        }
+        output = input;
         return output;
     }
 
     public int removeHardCodedExpression(int input) {
         int output;
         // Keep this comment
-        if (input != 1 + 2 + 3) {
-            output = input;
-        } else {
-            output = 3 + 2 + 1;
-        }
+        output = input;
         return output;
     }
 
     public String refactorLocalVariable5(String input, boolean isValid) {
         String output = null;
-        if (isValid)
-            if (input != null) {
-                output = input;
-            } else {
-                output = null;
-            }
+        if (isValid) {
+            output = input;
+        }
         return output;
     }
 
@@ -171,122 +140,76 @@ public class ObsoleteAssignRatherThanFilterThenAssignAnywaySample {
 
     public void refactorFieldAssign1(String input) {
         // Keep this comment
-        if (input == null) {
-            this.input = null;
-        } else {
-            this.input = input;
-        }
+        this.input = input;
     }
 
     public void refactorFieldAssign2(String input) {
         // Keep this comment
-        if (null == input) {
-            this.input = null;
-        } else {
-            this.input = input;
-        }
+        this.input = input;
     }
 
     public void refactorFieldAssign3(String input) {
         // Keep this comment
-        if (input != null) {
-            this.input = input;
-        } else {
-            this.input = null;
-        }
+        this.input = input;
     }
 
     public void refactorFieldAssign4(String input) {
         // Keep this comment
-        if (null != input) {
-            this.input = input;
-        } else {
-            this.input = null;
-        }
+        this.input = input;
     }
 
     public String doNotRefactorReturn1(String input) {
         if (null != input) {
             return input;
-        } else {
-            return DEFAULT;
         }
+        return DEFAULT;
     }
 
     public Collection<?> doNotRefactorReturn2(Collection<?> c) {
         if (c == null) {
             return Collections.emptySet();
-        } else {
-            return c;
         }
+        return c;
     }
 
     public String refactorReturn1(String input) {
         // Keep this comment
-        if (input == null) {
-            return null;
-        } else {
-            return input;
-        }
+        return input;
     }
 
     public String refactorReturn2(String input) {
         // Keep this comment
-        if (null == input) {
-            return null;
-        } else {
-            return input;
-        }
+        return input;
     }
 
     public String refactorReturn3(String input) {
         // Keep this comment
-        if (input != null) {
-            return input;
-        } else {
-            return null;
-        }
+        return input;
     }
 
     public String refactorReturn4(String input) {
         // Keep this comment
-        if (null != input) {
-            return input;
-        } else {
-            return null;
-        }
+        return input;
     }
 
     public String refactorReturnNoElse1(String input) {
         // Keep this comment
-        if (input == null) {
-            return null;
-        }
         return input;
     }
 
     public String refactorReturnNoElse2(String input) {
         // Keep this comment
-        if (null == input) {
-            return null;
-        }
         return input;
     }
 
     public String refactorReturnNoElse3(String input) {
         // Keep this comment
-        if (input != null) {
-            return input;
-        }
-        return null;
+        return input;
     }
 
     public String refactorReturnNoElse4(String input) {
         // Keep this comment
-        if (null != input) {
-            return input;
-        }
-        return null;
+        return input;
     }
 
     public Date doNotRefactorActiveExpression(Map<Integer, Date> input) {

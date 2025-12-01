@@ -49,31 +49,31 @@ public class ObsoleteRemoveUnnecessaryCastSample {
     private Double doNotChangeDouble = 101d;
 
     public void refactorCast() {
-        Long localUsual = (long) 101;
-        Long localOctal = (long) 0121;
-        Long localHex = (long) 0xdafdaf;
-        Long localBinary = (long) 0b1110010111;
-        Float localUsualFloat = (float) 101;
-        Double localUsualDouble = (double) 101;
-        Double localFloatingDouble = (double) 101.01;
+        long localUsual = 101;
+        long localOctal = 0121;
+        long localHex = 0xdafdaf;
+        long localBinary = 0b1110010111;
+        float localUsualFloat = 101;
+        double localUsualDouble = 101;
+        double localFloatingDouble = 101.01;
     }
 
     public void refactorMethodParameter() {
         Calendar calendar = Calendar.getInstance();
 
-        calendar.setTimeInMillis((long) 101);
-        calendar.setTimeInMillis((long) 0121);
-        calendar.setTimeInMillis((long) 0xdafdaf);
-        calendar.setTimeInMillis((long) 0b1110010111);
-        int i = Float.floatToIntBits((float) 101);
-        long l1 = Double.doubleToRawLongBits((double) 101);
-        long l2 = Double.doubleToRawLongBits((double) 101.01);
+        calendar.setTimeInMillis(101);
+        calendar.setTimeInMillis(0121);
+        calendar.setTimeInMillis(0xdafdaf);
+        calendar.setTimeInMillis(0b1110010111);
+        int i = Float.floatToIntBits(101);
+        long l1 = Double.doubleToRawLongBits(101);
+        long l2 = Double.doubleToRawLongBits(101.01);
     }
 
     public void doNotRefactor() {
-        Long doNotChangeLocalLong = 101L;
-        Float doNotChangeLocalFloat = 101f;
-        Double doNotChangeLocalDouble = 101d;
+        long doNotChangeLocalLong = 101L;
+        float doNotChangeLocalFloat = 101f;
+        double doNotChangeLocalDouble = 101d;
     }
 
     public IllegalArgumentException doNotRefactorChatToInt() {
@@ -88,12 +88,12 @@ public class ObsoleteRemoveUnnecessaryCastSample {
 
     public Object removeCastToSameType(Integer i) {
         // Keep this comment
-        return (Integer) i;
+        return i;
     }
 
     public Object removeCastToIntegerWrapper(int i) {
         // Keep this comment
-        return (Integer) i;
+        return i;
     }
 
     public Integer doNotRemoveNarrowingCast1(Object o) {
@@ -106,12 +106,11 @@ public class ObsoleteRemoveUnnecessaryCastSample {
 
     public long removeWideningPrimitiveCast(int i) {
         // Keep this comment
-        return (long) i;
+        return i;
     }
 
     public Object[] doNotRemoveCastToArray(Object o) {
-        Object array[] = (Object[]) o;
-        return array;
+        return (Object[]) o;
     }
 
     public int doNotRemovePrimitiveNarrowingCast(long l) {
@@ -123,12 +122,12 @@ public class ObsoleteRemoveUnnecessaryCastSample {
         long l;
         int i;
         // Keep this comment
-        o1 = (Integer) oi;
-        o1 = (Integer) pi;
-        l = (long) pi;
-        i = (int) pi;
-        l += (long) pi;
-        i += (int) pi;
+        o1 = oi;
+        o1 = pi;
+        l = pi;
+        i = pi;
+        l += pi;
+        i += pi;
     }
 
     public void doNotRemoveAssignmentCasts(Object o, long l) {
@@ -142,9 +141,9 @@ public class ObsoleteRemoveUnnecessaryCastSample {
 
     public void removeVariableDeclarationFragmentCasts(Integer oi, int pi, Object o) {
         // Keep this comment
-        Object o1 = (Integer) oi;
-        Object o2 = (Integer) pi;
-        long l = (long) pi;
+        Object o1 = oi;
+        Object o2 = pi;
+        long l = pi;
     }
 
     public void doNotRemoveVariableDeclarationFragmentCasts(Object o, long l) {
@@ -159,8 +158,8 @@ public class ObsoleteRemoveUnnecessaryCastSample {
                 && (Integer) pi != oi
                 && (int) oi != pi
                 && pi != (int) oi
-                && l != (long) pi
-                && (long) pi != l;
+                && l != pi
+                && pi != l;
     }
 
     public boolean doNotRemoveCasts(Integer oi, int pi, long l, Object o) {
@@ -191,7 +190,7 @@ public class ObsoleteRemoveUnnecessaryCastSample {
 
     public long doNotRemoveWideningCastsWithExtendedOperands(int i, int j, int k) {
         // Keep this comment
-        return (long) i + j + (long) k;
+        return (long) i + j + k;
     }
 
     public int doNotRemovePrimitiveNarrowingCasts(int i, int j) {
@@ -204,7 +203,7 @@ public class ObsoleteRemoveUnnecessaryCastSample {
 
     public String removeCastsFromStringAppend(Integer oi, int pi, Object o) {
         // Keep this comment
-        return "" + (Object) oi + (Number) oi + (int) oi + (Integer) pi + (long) pi + (String) o;
+        return "" + oi + oi + oi + (Integer) pi + (long) pi + (String) o;
     }
 
     public String doNotRemoveCastsFromStringAppend(int pi, long l, float f) {
@@ -218,22 +217,22 @@ public class ObsoleteRemoveUnnecessaryCastSample {
 
     public double removeSomeCastsFromDivisionWithDifferentTypesWithExtendedOperands(int i, long l, short s) {
         // Keep this comment
-        return (double) i / (double) l / (double) s;
+        return (double) i / (double) l / s;
     }
 
     public double doNotRemoveCastsFromAdditionWhenResultIsWidened(Integer oi, int pi, long l) {
         // Keep this comment
-        return (long) oi + (Integer) pi + (double) l;
+        return (long) oi + pi + (double) l;
     }
 
     public double doNotRemoveCastsFromSoustractionWhenResultIsWidened(Integer oi, int pi, long l) {
         // Keep this comment
-        return (long) oi - (Integer) pi - (double) l;
+        return (long) oi - pi - (double) l;
     }
 
     public boolean removeCastsFromBooleanOperations(boolean b1, boolean b2) {
         // Keep this comment
-        return b1 && (Boolean) b2;
+        return b1 && b2;
     }
 
     public double doNotRemoveCastInFloatingPointDivision(int i, int j) {
@@ -242,12 +241,12 @@ public class ObsoleteRemoveUnnecessaryCastSample {
 
     public double removeOneCastInFloatingPointDivision(int i, int j, int k) {
         // Keep this comment
-        return i / (double) j / (double) k;
+        return i / (double) j / k;
     }
 
     public long removeCastsInIntegralDivision(int i, int j, int k) {
         // Keep this comment
-        return i / (long) j / (long) k;
+        return i / (long) j / k;
     }
 
     public int removeCastsFromDeclarationsToByte() {
@@ -256,10 +255,10 @@ public class ObsoleteRemoveUnnecessaryCastSample {
         byte b2 = (byte) 127;
         byte b3 = (byte) -128;
         byte b4 = (byte) ONE;
-        Byte b5 = (byte) -1;
-        Byte b6 = (byte) 127;
-        Byte b7 = (byte) -128;
-        Byte b8 = (byte) ONE;
+        byte b5 = (byte) -1;
+        byte b6 = (byte) 127;
+        byte b7 = (byte) -128;
+        byte b8 = (byte) ONE;
         b = (byte) 1;
         return b1 + b2 + b3 + b4 + b5 + b6 + b7 + b8 + b;
     }
@@ -297,9 +296,9 @@ public class ObsoleteRemoveUnnecessaryCastSample {
         char c1 = (char) 0;
         char c2 = (char) 65535;
         char c3 = (char) ONE;
-        Character c4 = (char) 0;
-        Character c5 = (char) 65535;
-        Character c6 = (char) ONE;
+        char c4 = (char) 0;
+        char c5 = (char) 65535;
+        char c6 = (char) ONE;
         c = (char) 1;
         return c1 + c2 + c3 + c4 + c5 + c6 + c;
     }
@@ -310,10 +309,10 @@ public class ObsoleteRemoveUnnecessaryCastSample {
         short s2 = (short) 32767;
         short s3 = (short) -32768;
         short s4 = (short) ONE;
-        Short s5 = (short) -1;
-        Short s6 = (short) 32767;
-        Short s7 = (short) -32768;
-        Short s8 = (short) ONE;
+        short s5 = (short) -1;
+        short s6 = (short) 32767;
+        short s7 = (short) -32768;
+        short s8 = (short) ONE;
         s = (short) 1;
         return s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s;
     }

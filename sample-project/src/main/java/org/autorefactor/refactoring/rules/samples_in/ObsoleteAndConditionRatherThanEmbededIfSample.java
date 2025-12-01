@@ -30,37 +30,33 @@ import java.util.List;
 public class ObsoleteAndConditionRatherThanEmbededIfSample {
     public void collapseIfStatements(boolean isActive, boolean isValid) {
         // Keep this comment
-        if (isActive) {
-            // Keep this comment too
-            if (isValid) {
-                // Keep this comment also
-                int i = 0;
-            }
+        // Keep this comment too
+        if (isActive && isValid) {
+            // Keep this comment also
+            int i = 0;
         }
     }
 
     public void collapseLoneIfStatements(boolean isActive, boolean isValid, List<String> texts) {
         // Keep this comment
-        if (isActive)
-            if (isValid)
-                texts.clear();
+        if (isActive && isValid) {
+            texts.clear();
+        }
     }
 
     public void collapseCommentedLoneIfStatements(boolean isActive, boolean isValid, List<String> texts) {
         // Keep this comment
-        if (isActive)
-            if (isValid)
-                texts.clear(); // Keep this comment too
+        if (isActive && isValid) {
+            texts.clear(); // Keep this comment too
+        }
     }
 
     public void collapseWithFourOperands(int i1, int i2) {
         // Keep this comment
-        if (0 < i1 && i1 < 10) {
-            // Keep this comment too
-            if (0 < i2 && i2 < 10) {
-                // Keep this comment also
-                int i = 0;
-            }
+        // Keep this comment too
+        if ((0 < i1 && i1 < 10) && (0 < i2 && i2 < 10)) {
+            // Keep this comment also
+            int i = 0;
         }
     }
 
@@ -77,23 +73,19 @@ public class ObsoleteAndConditionRatherThanEmbededIfSample {
 
     public void collapseIfStatementsAddParenthesesIfDifferentConditionalOperator(boolean isActive, boolean isValid, boolean isEditMode) {
         // Keep this comment
-        if (isActive) {
-            // Keep this comment too
-            if (isValid || isEditMode) {
-                // Keep this comment also
-                int i = 0;
-            }
+        // Keep this comment too
+        if (isActive && (isValid || isEditMode)) {
+            // Keep this comment also
+            int i = 0;
         }
     }
 
     public void collapseIfWithOROperator(boolean isActive, boolean isValid, boolean isEditMode) {
         // Keep this comment
-        if (isActive) {
-            // Keep this comment too
-            if (isValid | isEditMode) {
-                // Keep this comment also
-                int i = 0;
-            }
+        // Keep this comment too
+        if (isActive && (isValid | isEditMode)) {
+            // Keep this comment also
+            int i = 0;
         }
     }
 

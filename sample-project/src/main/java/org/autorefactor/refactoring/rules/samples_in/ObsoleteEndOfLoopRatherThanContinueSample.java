@@ -30,7 +30,6 @@ import java.util.List;
 public class ObsoleteEndOfLoopRatherThanContinueSample {
     public void removeUselessContinue(List<String> texts) {
         for (String text : texts) {
-            continue;
         }
     }
 
@@ -55,7 +54,6 @@ public class ObsoleteEndOfLoopRatherThanContinueSample {
     public void removeUselessContinueWithPreviousCode(List<String> texts) {
         for (String text : texts) {
             System.out.println("Keep this line");
-            continue;
         }
     }
 
@@ -72,7 +70,6 @@ public class ObsoleteEndOfLoopRatherThanContinueSample {
         for (String text : texts) {
             if (isValid) {
                 System.out.println("Keep this line");
-                continue;
             }
         }
     }
@@ -80,29 +77,28 @@ public class ObsoleteEndOfLoopRatherThanContinueSample {
     public void replaceByBlock(List<String> texts, boolean isValid) {
         for (String text : texts) {
             System.out.println("Keep this line");
-            if (isValid)
-                continue;
+            if (isValid) {
+            }
         }
     }
 
     public void removeElseStatement(List<String> texts, boolean isValid) {
         for (String text : texts) {
             System.out.println("Keep this line");
-            if (isValid)
-                System.out.println("isValid is true");
-            else
+            if (!isValid) {
                 continue;
+            }
+            System.out.println("isValid is true");
         }
     }
 
     public void removeElseBlock(List<String> texts, boolean isValid) {
         for (String text : texts) {
             System.out.println("Keep this line");
-            if (isValid) {
-                System.out.println("isValid is true");
-            } else {
+            if (!isValid) {
                 continue;
             }
+            System.out.println("isValid is true");
         }
     }
 
@@ -111,7 +107,6 @@ public class ObsoleteEndOfLoopRatherThanContinueSample {
             switch (myNumber) {
             case 0:
                 System.out.println("Keep this line");
-                continue;
             }
         }
     }
@@ -134,17 +129,14 @@ public class ObsoleteEndOfLoopRatherThanContinueSample {
             if (isValid) {
                 System.out.println("Keep this line");
                 continue;
-            } else {
-                System.out.println("Remove anyway");
             }
+            System.out.println("Remove anyway");
         }
     }
 
     public void doNotRemoveContinueWithFollowingCode(List<String> texts, boolean isValid) {
         for (String text : texts) {
             if (isValid) {
-                System.out.println("Keep this line");
-                continue;
             }
             System.out.println("Keep this line");
         }

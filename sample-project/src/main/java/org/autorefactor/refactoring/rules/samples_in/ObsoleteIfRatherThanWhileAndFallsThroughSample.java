@@ -28,7 +28,7 @@ package org.autorefactor.refactoring.rules.samples_in;
 public class ObsoleteIfRatherThanWhileAndFallsThroughSample {
     public void replaceWhileByIf(boolean isValid) {
         // Keep this comment
-        while (isValid) {
+        if (isValid) {
             System.out.println("foo");
             return;
         }
@@ -36,7 +36,7 @@ public class ObsoleteIfRatherThanWhileAndFallsThroughSample {
 
     public void replaceWhileThrowingExceptions(boolean isEnabled) {
         // Keep this comment
-        while (isEnabled) {
+        if (isEnabled) {
             System.out.println("foo");
             throw new NullPointerException();
         }
@@ -44,26 +44,23 @@ public class ObsoleteIfRatherThanWhileAndFallsThroughSample {
 
     public void replaceWhileByIfAndRemoveBreak(boolean isVisible) {
         // Keep this comment
-        while (isVisible) {
+        if (isVisible) {
             System.out.println("foo");
-            break;
         }
     }
 
     public void replaceWhileByIfAndReplaceBreaksByBlocks(boolean isVisible, int i) {
         // Keep this comment
         while (isVisible) {
-            if (i > 0)
-                break;
-            else
-                break;
+            if (i > 0) {
+            }
+            break;
         }
     }
 
     public void doNotReplaceWhileEndedByContinue(boolean b) {
         while (b) {
             System.out.println("foo");
-            continue;
         }
     }
 
@@ -80,14 +77,13 @@ public class ObsoleteIfRatherThanWhileAndFallsThroughSample {
 
     public void replaceWhileWithComplexCode(boolean b1, boolean b2) {
         // Keep this comment
-        while (b1) {
+        if (b1) {
             System.out.println("foo");
             if (b2) {
                 System.out.println("bar");
                 return;
-            } else {
-                throw new NullPointerException();
             }
+            throw new NullPointerException();
         }
     }
 
@@ -97,7 +93,8 @@ public class ObsoleteIfRatherThanWhileAndFallsThroughSample {
             if (i == 1) {
                 System.out.println("bar");
                 return;
-            } else if (i == 2) {
+            }
+            if (i == 2) {
                 throw new NullPointerException();
             }
         }
@@ -105,16 +102,14 @@ public class ObsoleteIfRatherThanWhileAndFallsThroughSample {
 
     public void replaceWhileButOnlyRemoveBreakForTheWhileLoop(boolean b, int magicValue) {
         // Keep this comment
-        while (b) {
+        if (b) {
             for (int i = 0; i < 10; i++) {
                 if (i == magicValue) {
                     System.out.println("Magic value! Goodbye!");
                     break;
-                } else {
-                    System.out.println("Current value: " + i);
                 }
+                System.out.println("Current value: " + i);
             }
-            break;
         }
     }
 

@@ -28,8 +28,6 @@ package org.autorefactor.refactoring.rules.samples_in;
 import java.io.File;
 import java.net.URI;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Arrays;
 
 public class NIORatherThanIOSample {
     private File fileOnDisk= new File("C:/");
@@ -105,10 +103,7 @@ public class NIORatherThanIOSample {
         // Keep this comment
         File fileOnDisk= new File(filepath);
 
-        // Keep this comment too
-        Path dateText2= fileOnDisk.toPath();
-
-        return dateText2;
+        return fileOnDisk.toPath();
     }
 
     public boolean doNotUsePathOnMisplacedUse(String filepath) {
@@ -118,9 +113,7 @@ public class NIORatherThanIOSample {
     }
 
     public Path doNotUsePathOnMisplacedParameter(File fileOnDisk) {
-        Path dateText1= fileOnDisk.toPath();
-
-        return dateText1;
+        return fileOnDisk.toPath();
     }
 
     public Path usePathFromVariable(String filepath) {

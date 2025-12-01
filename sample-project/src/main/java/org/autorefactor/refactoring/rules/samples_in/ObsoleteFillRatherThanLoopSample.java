@@ -25,6 +25,8 @@
  */
 package org.autorefactor.refactoring.rules.samples_in;
 
+import java.util.Arrays;
+
 public class ObsoleteFillRatherThanLoopSample {
     private boolean[] booleanArray = new boolean[10];
 
@@ -32,13 +34,9 @@ public class ObsoleteFillRatherThanLoopSample {
         boolean[] array = new boolean[10];
 
         // Keep this comment
-        for (int i = 0; i < array.length; i++) {
-            array[i] = true;
-        }
+        Arrays.fill(array, true);
         // Keep this comment too
-        for (int i = 0; i < array.length; ++i) {
-            array[i] = false;
-        }
+        Arrays.fill(array, false);
 
         return array;
     }
@@ -47,13 +45,9 @@ public class ObsoleteFillRatherThanLoopSample {
         int[] array = new int[10];
 
         // Keep this comment
-        for (int i = 0; i < array.length; i++) {
-            array[i] = 123;
-        }
+        Arrays.fill(array, 123);
         // Keep this comment too
-        for (int i = 0; i < array.length; i++) {
-            array[i] = Integer.MAX_VALUE;
-        }
+        Arrays.fill(array, Integer.MAX_VALUE);
 
         return array;
     }
@@ -62,13 +56,9 @@ public class ObsoleteFillRatherThanLoopSample {
         char[] array = new char[10];
 
         // Keep this comment
-        for (int i = 0; i < array.length; i++) {
-            array[i] = '!';
-        }
+        Arrays.fill(array, '!');
         // Keep this comment too
-        for (int j = 0; array.length > j; j++) {
-            array[j] = '\\';
-        }
+        Arrays.fill(array, '\\');
 
         return array;
     }
@@ -77,13 +67,9 @@ public class ObsoleteFillRatherThanLoopSample {
         String[] array = new String[10];
 
         // Keep this comment
-        for (int i = 0; i < array.length; i++) {
-            array[i] = "foo";
-        }
+        Arrays.fill(array, "foo");
         // Keep this comment too
-        for (int j = 0; array.length > j; j++) {
-            array[j] = null;
-        }
+        Arrays.fill(array, null);
 
         return array;
     }
@@ -92,26 +78,18 @@ public class ObsoleteFillRatherThanLoopSample {
         String[] array = new String[10];
 
         // Keep this comment
-        for (int i = array.length - 1; i >= 0; i--) {
-            array[i] = "foo";
-        }
+        Arrays.fill(array, "foo");
         // Keep this comment too
-        for (int i = array.length - 1; 0 <= i; --i) {
-            array[i] = "foo";
-        }
+        Arrays.fill(array, "foo");
 
         return array;
     }
 
     public void refactorExternalArray() {
         // Keep this comment
-        for (int i = 0; i < booleanArray.length; i++) {
-            booleanArray[i] = true;
-        }
+        Arrays.fill(booleanArray, true);
         // Keep this comment too
-        for (int i = 0; i < this.booleanArray.length; i++) {
-            this.booleanArray[i] = false;
-        }
+        Arrays.fill(this.booleanArray, false);
     }
 
     public boolean[] doNotReplaceNonForEachLoop() {

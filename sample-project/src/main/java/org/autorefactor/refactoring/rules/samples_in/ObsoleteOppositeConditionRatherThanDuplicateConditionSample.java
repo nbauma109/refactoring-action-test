@@ -33,21 +33,21 @@ public class ObsoleteOppositeConditionRatherThanDuplicateConditionSample {
         if (duplicateCondition && anotherCondition) {
             // Keep this comment also
             return 0;
-        } else if (duplicateCondition) {
-            return 10;
-        } else {
-            return 20;
         }
+        if (duplicateCondition) {
+            return 10;
+        }
+        return 20;
     }
 
     public int doNotMoveExtendedExpression(boolean duplicateCondition, boolean anotherCondition, boolean oneMoreCondition) {
         if (duplicateCondition && anotherCondition && oneMoreCondition) {
             return 0;
-        } else if (duplicateCondition) {
-            return 10;
-        } else {
-            return 20;
         }
+        if (duplicateCondition) {
+            return 10;
+        }
+        return 20;
     }
 
     public int mergeNegativeCondition(boolean duplicateCondition, boolean anotherCondition) {
@@ -55,11 +55,11 @@ public class ObsoleteOppositeConditionRatherThanDuplicateConditionSample {
         if (duplicateCondition && !anotherCondition) {
             // Keep this comment also
             return 0;
-        } else if (duplicateCondition) {
-            return 10;
-        } else {
-            return 20;
         }
+        if (duplicateCondition) {
+            return 10;
+        }
+        return 20;
     }
 
     public int mergeDuplicateCondition2(boolean duplicateCondition, boolean anotherCondition) {
@@ -67,13 +67,14 @@ public class ObsoleteOppositeConditionRatherThanDuplicateConditionSample {
         if (duplicateCondition && anotherCondition) {
             // Keep this comment also
             return 0;
-        } else if (duplicateCondition) {
-            return 10;
-        } else if (anotherCondition) {
-            return 20;
-        } else {
-            return 30;
         }
+        if (duplicateCondition) {
+            return 10;
+        }
+        if (anotherCondition) {
+            return 20;
+        }
+        return 30;
     }
 
     public void mergeDuplicateSecondCondition(boolean duplicateCondition, boolean anotherCondition) {
@@ -93,11 +94,11 @@ public class ObsoleteOppositeConditionRatherThanDuplicateConditionSample {
         if (duplicateCondition && anotherCondition) {
             // Keep this comment also
             return 0;
-        } else if (!duplicateCondition) {
-            return 1;
-        } else {
-            return 2;
         }
+        if (!duplicateCondition) {
+            return 1;
+        }
+        return 2;
     }
 
     public int mergeAnotherInvertedCondition(boolean duplicateCondition, boolean anotherCondition) {
@@ -105,11 +106,11 @@ public class ObsoleteOppositeConditionRatherThanDuplicateConditionSample {
         if (!duplicateCondition && anotherCondition) {
             // Keep this comment also
             return 0;
-        } else if (duplicateCondition) {
-            return 1;
-        } else {
-            return 2;
         }
+        if (duplicateCondition) {
+            return 1;
+        }
+        return 2;
     }
 
     public int mergeSeveralConditions(boolean duplicateCondition, boolean anotherCondition,
@@ -118,33 +119,35 @@ public class ObsoleteOppositeConditionRatherThanDuplicateConditionSample {
         if (duplicateCondition && anotherCondition) {
             // Keep this comment also
             return 100;
-        } else if (yetAnotherCondition && duplicateCondition) {
-            return 200;
-        } else if (duplicateCondition) {
-            return 300;
-        } else {
-            return 400;
         }
+        if (yetAnotherCondition && duplicateCondition) {
+            return 200;
+        }
+        if (duplicateCondition) {
+            return 300;
+        }
+        return 400;
     }
 
     public int doNotMergeExclusiveCondition(boolean duplicateCondition, boolean anotherCondition) {
         if (duplicateCondition ^ anotherCondition) {
             return 0;
-        } else if (duplicateCondition) {
-            return 10;
-        } else {
-            return 20;
         }
+        if (duplicateCondition) {
+            return 10;
+        }
+        return 20;
     }
 
     public int mergeDuplicateConditionWithoutBrackets(boolean duplicateCondition, boolean anotherCondition) {
         // Keep this comment
-        if (duplicateCondition && anotherCondition)
+        if (duplicateCondition && anotherCondition) {
             return 0;
-        else if (duplicateCondition)
+        }
+        if (duplicateCondition) {
             return 10;
-        else
-            return 20;
+        }
+        return 20;
     }
 
     public void mergeDuplicateEagerCondition(boolean duplicateCondition, boolean anotherCondition) {
@@ -165,11 +168,11 @@ public class ObsoleteOppositeConditionRatherThanDuplicateConditionSample {
             if (duplicateCondition && anotherCondition) {
                 // Keep this comment also
                 return 'g';
-            } else if (duplicateCondition) {
-                return 'm';
-            } else {
-                return 'd';
             }
+            if (duplicateCondition) {
+                return 'm';
+            }
+            return 'd';
         }
         return 'z';
     }
@@ -179,11 +182,11 @@ public class ObsoleteOppositeConditionRatherThanDuplicateConditionSample {
         if (i == 0 && anotherCondition) {
             // Keep this comment also
             return "foo bar";
-        } else if (i == 0) {
-            return "bar";
-        } else {
-            return "foo";
         }
+        if (i == 0) {
+            return "bar";
+        }
+        return "foo";
     }
 
     public double mergeDuplicateComplexCondition(int i, boolean anotherCondition) {
@@ -191,11 +194,11 @@ public class ObsoleteOppositeConditionRatherThanDuplicateConditionSample {
         if ((i < 10 || i > 20) && anotherCondition) {
             // Keep this comment also
             return 0.0;
-        } else if (i < 10 || i > 20) {
-            return 10.0;
-        } else {
-            return 20.0;
         }
+        if (i < 10 || i > 20) {
+            return 10.0;
+        }
+        return 20.0;
     }
 
     public double mergeOppositeCondition(int i, boolean anotherCondition) {
@@ -203,50 +206,51 @@ public class ObsoleteOppositeConditionRatherThanDuplicateConditionSample {
         if ((i < 10 || 20 < i) && anotherCondition) {
             // Keep this comment also
             return 0.0;
-        } else if (10 <= i && i <= 20) {
-            return 10.0;
-        } else {
-            return 20.0;
         }
+        if (10 <= i && i <= 20) {
+            return 10.0;
+        }
+        return 20.0;
     }
 
     public int doNotMergeAssignment(int i, boolean assignedCondition) {
         if (i == 0 && (assignedCondition = i == 0)) {
             return 0;
-        } else if (assignedCondition = i == 0) {
-            return 10;
-        } else {
-            return 20;
         }
+        assignedCondition = i == 0;
+        if (assignedCondition) {
+            return 10;
+        }
+        return 20;
     }
 
     public int doNotMergeIncrement(int i, int j) {
         if (i == 0 && (++j == 0)) {
             return 0;
-        } else if (++j == 0) {
-            return 10;
-        } else {
-            return 20;
         }
+        if (++j == 0) {
+            return 10;
+        }
+        return 20;
     }
 
     public int doNotMergeDecrement(int i, int j) {
         if (i == 0 && (j-- == 0)) {
             return 0;
-        } else if (j-- == 0) {
-            return 10;
-        } else {
-            return 20;
         }
+        if (j-- == 0) {
+            return 10;
+        }
+        return 20;
     }
 
     public int doNotMergeMethod(int i, List<String> changedList) {
         if (i == 0 && changedList.remove("foo")) {
             return 0;
-        } else if (changedList.remove("foo")) {
-            return 10;
-        } else {
-            return 20;
         }
+        if (changedList.remove("foo")) {
+            return 10;
+        }
+        return 20;
     }
 }

@@ -30,14 +30,10 @@ import java.util.List;
 public class ObsoleteDuplicateAlternativeSample {
     public void collapseIfStatements(boolean isActive, boolean isValid) {
         // Keep this comment
-        if (isActive) {
-            // Keep this comment too
-            if (isValid) {
-                // Keep this comment also
-                int i = 0;
-            } else {
-                System.out.println("Duplicate code");
-            }
+        // Keep this comment too
+        if (isActive && isValid) {
+            // Keep this comment also
+            int i = 0;
         } else {
             System.out.println("Duplicate code");
         }
@@ -45,51 +41,39 @@ public class ObsoleteDuplicateAlternativeSample {
 
     public void collapseInnerElse(boolean isActive, boolean isValid) {
         // Keep this comment
-        if (isActive) {
-            // Keep this comment too
-            if (isValid) {
-                System.out.println("Duplicate code");
-            } else {
-                // Keep this comment also
-                int j = 0;
-            }
-        } else {
+        // Keep this comment too
+        if (!isActive || isValid) {
             System.out.println("Duplicate code");
+        } else {
+            // Keep this comment also
+            int j = 0;
         }
     }
 
     public void collapseLoneIfStatements(boolean isActive, boolean isValid, List<String> texts) {
         // Keep this comment
-        if (isActive)
-            if (isValid)
-                texts.clear();
-            else
-                System.out.println("Duplicate code");
-        else
+        if (isActive && isValid) {
+            texts.clear();
+        } else {
             System.out.println("Duplicate code");
+        }
     }
 
     public void collapseCommentedLoneIfStatements(boolean isActive, boolean isValid, List<String> texts) {
         // Keep this comment
-        if (isActive)
-            if (isValid)
-                texts.clear(); // Keep this comment too
-            else
-                System.out.println("Duplicate code");
-        else
+        if (isActive && isValid) {
+            texts.clear(); // Keep this comment too
+        } else {
             System.out.println("Duplicate code");
+        }
     }
 
     public void collapseWithFourOperands(int i1, int i2) {
         // Keep this comment
-        if (0 < i1 && i1 < 10) {
-            // Keep this comment too
-            if (0 < i2 && i2 < 10) {
-                // Keep this comment also
-                int i = 0;
-            } else {
-                System.out.println("Duplicate code");
-            }
+        // Keep this comment too
+        if ((0 < i1 && i1 < 10) && (0 < i2 && i2 < 10)) {
+            // Keep this comment also
+            int i = 0;
         } else {
             System.out.println("Duplicate code");
         }
@@ -98,14 +82,10 @@ public class ObsoleteDuplicateAlternativeSample {
     public void collapseIfStatementsAddParenthesesIfDifferentConditionalOperator(boolean isActive, boolean isValid,
             boolean isEditMode) {
         // Keep this comment
-        if (isActive) {
-            // Keep this comment too
-            if (isValid || isEditMode) {
-                // Keep this comment also
-                int i = 0;
-            } else {
-                System.out.println("Duplicate code");
-            }
+        // Keep this comment too
+        if (isActive && (isValid || isEditMode)) {
+            // Keep this comment also
+            int i = 0;
         } else {
             System.out.println("Duplicate code");
         }
@@ -113,14 +93,10 @@ public class ObsoleteDuplicateAlternativeSample {
 
     public void collapseIfWithOROperator(boolean isActive, boolean isValid, boolean isEditMode) {
         // Keep this comment
-        if (isActive) {
-            // Keep this comment too
-            if (isValid | isEditMode) {
-                // Keep this comment also
-                int i = 0;
-            } else {
-                System.out.println("Duplicate code");
-            }
+        // Keep this comment too
+        if (isActive && (isValid | isEditMode)) {
+            // Keep this comment also
+            int i = 0;
         } else {
             System.out.println("Duplicate code");
         }
@@ -128,18 +104,13 @@ public class ObsoleteDuplicateAlternativeSample {
 
     public void mergeLongDuplicateCode(boolean isActive, boolean isValid, int number) {
         // Keep this comment
-        if (isActive) {
-            // Keep this comment too
-            if (isValid) {
-                // Keep this comment also
-                int i = 0;
-            } else {
-                int j = number + 123;
-                System.out.println((j == 0) ? "Duplicate" : "code");
-            }
+        // Keep this comment too
+        if (isActive && isValid) {
+            // Keep this comment also
+            int i = 0;
         } else {
-            int j = 123 + number;
-            System.out.println((0 != j) ? "code" : "Duplicate");
+            int j = number + 123;
+            System.out.println((j == 0) ? "Duplicate" : "code");
         }
     }
 

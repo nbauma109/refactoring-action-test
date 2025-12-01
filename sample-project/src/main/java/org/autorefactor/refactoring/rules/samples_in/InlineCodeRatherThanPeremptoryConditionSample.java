@@ -42,11 +42,12 @@ public class InlineCodeRatherThanPeremptoryConditionSample {
             j++;
         }
 
-        if (true)
+        if (true) {
             // Keep this comment
             i++;
-        else
+        } else {
             j++;
+        }
 
         if (false) {
             i++;
@@ -59,28 +60,28 @@ public class InlineCodeRatherThanPeremptoryConditionSample {
             j++;
         }
 
-        if (false)
+        if (false) {
             i++;
-        else
+        } else {
             // Keep this comment
             j++;
+        }
 
         return i + j;
     }
 
     public int replaceIfByBlock(int i) {
-        if (i < 0)
-            if (false) {
-                i++;
-            }
+        if ((i < 0) && false) {
+            i++;
+        }
 
         return i;
     }
 
     public int removeElse(int i) {
-        if (i < 0)
+        if (i < 0) {
             i--;
-        else if (false) {
+        } else if (false) {
             i++;
         }
 
@@ -91,8 +92,7 @@ public class InlineCodeRatherThanPeremptoryConditionSample {
         if (true) {
             int j = 0;
         }
-        int j = 1;
-        return j;
+        return 1;
     }
 
     public int removeConditionWithCompatibleVariables(int i) {
@@ -147,7 +147,7 @@ public class InlineCodeRatherThanPeremptoryConditionSample {
         }
 
         // Keep this comment 5
-        if (b == !b) {
+        if (b ^ b) {
             increment++;
         } else {
             increment--;
@@ -197,30 +197,25 @@ public class InlineCodeRatherThanPeremptoryConditionSample {
     }
 
     public int removeDeadCodeAfterEmbeddedIfTrueWithThrow(int i) {
-        if (true) {
-            if (true) {
-                System.out.println(i);
-                throw new RuntimeException();
-            }
-        }
-        return 2;
-    }
-
-    public int removeDeadCodeAfterIfFalseWithThrow(int i) {
-        if (false) {
-            i++;
-        } else {
+        if (true && true) {
             System.out.println(i);
             throw new RuntimeException();
         }
         return 2;
     }
 
-    public int doNotRemoveDeadCodeAfterEmbeddedIfTrueNoThrowOrReturn(int i) {
+    public int removeDeadCodeAfterIfFalseWithThrow(int i) {
         if (true) {
-            if (true) {
-                System.out.println(i);
-            }
+            System.out.println(i);
+            throw new RuntimeException();
+        }
+        i++;
+        return 2;
+    }
+
+    public int doNotRemoveDeadCodeAfterEmbeddedIfTrueNoThrowOrReturn(int i) {
+        if (true && true) {
+            System.out.println(i);
         }
         return 2;
     }
@@ -240,10 +235,9 @@ public class InlineCodeRatherThanPeremptoryConditionSample {
             if (b) {
                 toString();
                 return 1;
-            } else {
-                System.out.println(i);
-                throw new RuntimeException();
             }
+            System.out.println(i);
+            throw new RuntimeException();
         }
         return 2;
     }
@@ -262,11 +256,9 @@ public class InlineCodeRatherThanPeremptoryConditionSample {
 
     public int removeOnlyConstantConditionWithEmbeddedIfReturn(boolean b) {
         // Keep this comment
-        if (true) {
-            if (b) {
-                toString();
-                return 1;
-            }
+        if (true && b) {
+            toString();
+            return 1;
         }
         return 2;
     }
@@ -299,8 +291,7 @@ public class InlineCodeRatherThanPeremptoryConditionSample {
             int i = 0;
             i++;
         }
-        int i = 0;
-        return i;
+        return 0;
     }
 
     public void doNotRemoveTryWithResources() throws IOException {
@@ -317,8 +308,9 @@ public class InlineCodeRatherThanPeremptoryConditionSample {
     }
 
     public void inlineAlwaysTrueCondition() {
-        if (true)
+        if (true) {
             toString();
+        }
     }
 
     public void inlineBlockAlwaysTrueCondition() {
@@ -335,18 +327,17 @@ public class InlineCodeRatherThanPeremptoryConditionSample {
     }
 
     public void inlineAlwaysTrueConditionInStatement(List<String> aList) {
-        if (!aList.isEmpty())
-            if (true)
-                aList.remove("foo");
+        if (!aList.isEmpty() && true) {
+            aList.remove("foo");
+        }
     }
 
     public void inlineBlockAlwaysTrueConditionInStatement(List<String> aList) {
-        if (!aList.isEmpty())
-            if (true) {
-                // Keep this comment
-                String forbiddenValue = "foo";
-                aList.remove(forbiddenValue);
-            }
+        if (!aList.isEmpty() && true) {
+            // Keep this comment
+            String forbiddenValue = "foo";
+            aList.remove(forbiddenValue);
+        }
     }
 
     public int inlineAlwaysTrueConditionAndRemoveCodeAfterReturn() {
@@ -356,8 +347,7 @@ public class InlineCodeRatherThanPeremptoryConditionSample {
             return 0;
         }
         int i = 0;
-        i = i + 10;
-        return i;
+        return i + 10;
     }
 
     public int inlineAlwaysTrueConditionAndRemoveCodeAfterReturnOnSeveralBlock() {
@@ -438,8 +428,7 @@ public class InlineCodeRatherThanPeremptoryConditionSample {
             throw new NullPointerException();
         }
         int i = 0;
-        i = i + 10;
-        return i;
+        return i + 10;
     }
 
     public int removeAlwaysFalseConditionAndKeepCodeAfterThrow() {
@@ -448,8 +437,7 @@ public class InlineCodeRatherThanPeremptoryConditionSample {
             throw new NullPointerException();
         }
         int i = 0;
-        i = i + 10;
-        return i;
+        return i + 10;
     }
 
     public List<String> inlineBlockAlwaysTrueConditionInStatement(List<String> aList, int discriminant) {

@@ -43,7 +43,6 @@ public class ImplicitDefaultConstructorRatherThanWrittenOneSample {
 
     public class RemoveDefaultConstructorWithSuperCall {
         public RemoveDefaultConstructorWithSuperCall() {
-            super();
         }
     }
 
@@ -61,7 +60,6 @@ public class ImplicitDefaultConstructorRatherThanWrittenOneSample {
 
     public class DoNotRemoveConstructorWithSuperAndCode {
         public DoNotRemoveConstructorWithSuperAndCode() {
-            super();
             System.out.println("Don't lose me!");
         }
     }
@@ -72,7 +70,6 @@ public class ImplicitDefaultConstructorRatherThanWrittenOneSample {
 
     public class RemoveDefaultConstructorWithSuperInheritedCall extends Observable {
         public RemoveDefaultConstructorWithSuperInheritedCall() {
-            super();
         }
     }
 
@@ -84,7 +81,7 @@ public class ImplicitDefaultConstructorRatherThanWrittenOneSample {
         RemovePackageConstructor() {}
     }
 
-    private class RemovePrivateConstructor {
+    private static class RemovePrivateConstructor {
         private RemovePrivateConstructor() {}
     }
 
@@ -106,7 +103,6 @@ public class ImplicitDefaultConstructorRatherThanWrittenOneSample {
 
     public class DoNotRemoveProtectedConstructorWithSuperCall {
         protected DoNotRemoveProtectedConstructorWithSuperCall() {
-            super();
         }
     }
 
@@ -146,14 +142,20 @@ public class ImplicitDefaultConstructorRatherThanWrittenOneSample {
     }
 
     public class RemoveSerializableConstructorWithCheckedException implements Serializable {
+        private static final long serialVersionUID = 1L;
+
         public RemoveSerializableConstructorWithCheckedException() throws ParseException {}
     }
 
     public class DoNotRemoveInheritedCheckedException extends UnicastRemoteObject {
+        private static final long serialVersionUID = 1L;
+
         public DoNotRemoveInheritedCheckedException() throws RemoteException {}
     }
 
     public class RemoveDefaultConstructorWithRuntimeException extends Date {
+        private static final long serialVersionUID = 1L;
+
         public RemoveDefaultConstructorWithRuntimeException() throws NullPointerException {}
     }
 }

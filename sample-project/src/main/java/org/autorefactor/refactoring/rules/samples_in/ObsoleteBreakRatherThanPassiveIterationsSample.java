@@ -37,6 +37,7 @@ public class ObsoleteBreakRatherThanPassiveIterationsSample {
             if (i == 42) {
                 // Keep this comment
                 isFound = true;
+                break;
             }
         }
 
@@ -50,6 +51,7 @@ public class ObsoleteBreakRatherThanPassiveIterationsSample {
             if (i == 42) {
                 // Keep this comment
                 isFound = true;
+                break;
             }
         }
 
@@ -63,6 +65,7 @@ public class ObsoleteBreakRatherThanPassiveIterationsSample {
             if (i == 42) {
                 // Keep this comment
                 isFound = true;
+                break;
             }
         }
 
@@ -74,8 +77,10 @@ public class ObsoleteBreakRatherThanPassiveIterationsSample {
 
         for (int i : array) {
             // Keep this comment
-            if (i == 42)
+            if (i == 42) {
                 isFound = true;
+                break;
+            }
         }
 
         return isFound ? "The result has been found" : "The result has not been found";
@@ -87,14 +92,14 @@ public class ObsoleteBreakRatherThanPassiveIterationsSample {
                 // Keep this comment
                 isFound = true;
                 count = 1;
+                break;
             }
         }
 
         if (isFound) {
             return "We have found " + count + " result(s)";
-        } else {
-            return "The result has not been found";
         }
+        return "The result has not been found";
     }
 
     public String addBreakAfterComplexAssignment(int[] array) {
@@ -104,6 +109,7 @@ public class ObsoleteBreakRatherThanPassiveIterationsSample {
             if (dayNumber == 7) {
                 // Keep this comment
                 hourNumber = 7 * 24;
+                break;
             }
         }
 
@@ -119,6 +125,7 @@ public class ObsoleteBreakRatherThanPassiveIterationsSample {
             if (temporaryInteger == 42) {
                 // Keep this comment
                 isFound = true;
+                break;
             }
         }
 
@@ -169,6 +176,7 @@ public class ObsoleteBreakRatherThanPassiveIterationsSample {
             if (i == 42) {
                 // Keep this comment
                 isFound[index] = true;
+                break;
             }
         }
 
@@ -206,6 +214,7 @@ public class ObsoleteBreakRatherThanPassiveIterationsSample {
             if (i++ == 42) {
                 // Keep this comment
                 isFound = true;
+                break;
             }
         }
 

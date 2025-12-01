@@ -36,6 +36,8 @@ public class ObsoleteUseMultiCatchSample {
     }
 
     private static final class Ex1 extends Exception {
+        private static final long serialVersionUID = 1L;
+
         private void print() {
         }
 
@@ -45,11 +47,15 @@ public class ObsoleteUseMultiCatchSample {
     }
 
     private static final class Ex2 extends Exception {
+        private static final long serialVersionUID = 1L;
+
         private void print() {
         }
     }
 
     private static final class MyException extends RuntimeException {
+        private static final long serialVersionUID = 1L;
+
         private MyException(Ex1 ex1) {
         }
 
@@ -58,6 +64,8 @@ public class ObsoleteUseMultiCatchSample {
     }
 
     private static final class OverridingException1 extends Exception {
+        private static final long serialVersionUID = 1L;
+
         @Override
         public void printStackTrace() {
             super.printStackTrace();
@@ -65,6 +73,8 @@ public class ObsoleteUseMultiCatchSample {
     }
 
     private static final class OverridingException2 extends Exception {
+        private static final long serialVersionUID = 1L;
+
         @Override
         public void printStackTrace() {
             super.printStackTrace();
@@ -74,9 +84,7 @@ public class ObsoleteUseMultiCatchSample {
     public void refactorMultiCatch(ThrowingObject<IllegalArgumentException, IOException> obj) {
         try {
             obj.throwingMethod();
-        } catch (IllegalArgumentException iae) {
-            iae.printStackTrace();
-        } catch (IOException ioe) {
+        } catch (IllegalArgumentException | IOException ioe) {
             ioe.printStackTrace();
         }
     }
@@ -84,9 +92,7 @@ public class ObsoleteUseMultiCatchSample {
     public void refactorAddToMultiCatch(ThrowingObject<IllegalArgumentException, IOException> obj) {
         try {
             obj.throwingMethod();
-        } catch (IllegalArgumentException | IllegalStateException iae) {
-            iae.printStackTrace();
-        } catch (IOException ioe) {
+        } catch (IllegalArgumentException | IllegalStateException | IOException ioe) {
             ioe.printStackTrace();
         }
     }
@@ -94,8 +100,6 @@ public class ObsoleteUseMultiCatchSample {
     public void removeMoreSpecializedException(ThrowingObject<IllegalArgumentException, RuntimeException> obj) {
         try {
             obj.throwingMethod();
-        } catch (IllegalArgumentException iae) {
-            iae.printStackTrace();
         } catch (RuntimeException re) {
             re.printStackTrace();
         }
@@ -104,9 +108,7 @@ public class ObsoleteUseMultiCatchSample {
     public void refactorMultiCatchWithOverridenMethods(ThrowingObject<IllegalArgumentException, OverridingException1> obj) {
         try {
             obj.throwingMethod();
-        } catch (IllegalArgumentException iae) {
-            iae.printStackTrace();
-        } catch (OverridingException1 oe1) {
+        } catch (IllegalArgumentException | OverridingException1 oe1) {
             oe1.printStackTrace();
         }
     }
@@ -114,9 +116,7 @@ public class ObsoleteUseMultiCatchSample {
     public void refactorMultiCatchWithOverridenMethodsFromSupertype(ThrowingObject<OverridingException1, OverridingException2> obj) {
         try {
             obj.throwingMethod();
-        } catch (OverridingException1 oe1) {
-            oe1.printStackTrace();
-        } catch (OverridingException2 oe2) {
+        } catch (OverridingException1 | OverridingException2 oe2) {
             oe2.printStackTrace();
         }
     }
@@ -156,21 +156,16 @@ public class ObsoleteUseMultiCatchSample {
     public void refactorUp(ThrowingObject<IllegalArgumentException, NamingException> obj) {
         try {
             obj.throwingMethod();
-        } catch (IllegalArgumentException iae) {
+        } catch (IllegalArgumentException | NamingException iae) {
             iae.printStackTrace();
         } catch (RuntimeException re) {
             re.toString();
-        } catch (NamingException ne) {
-            ne.printStackTrace();
         }
     }
 
     public void refactorDown(ThrowingObject<NamingException, RuntimeException> obj, int errorCount) {
         try {
             obj.throwingMethod();
-        } catch (NamingException iae) {
-            errorCount++;
-            iae.printStackTrace();
         } catch (RuntimeException ioe) {
             errorCount++;
             ioe.toString();
@@ -184,11 +179,7 @@ public class ObsoleteUseMultiCatchSample {
     public void refactorMultiCatchWithLocalVariables(ThrowingObject<IllegalArgumentException, IOException> obj) {
         try {
             obj.throwingMethod();
-        } catch (IllegalArgumentException iae) {
-            String s = "[" + iae;
-            String s1 = "]";
-            System.out.println(s + s1);
-        } catch (IOException ioe) {
+        } catch (IllegalArgumentException | IOException ioe) {
             String s = "[" + ioe;
             String s2 = "]";
             System.out.println(s + s2);
@@ -205,20 +196,26 @@ public class ObsoleteUseMultiCatchSample {
         }
     }
 
-    public class EA extends Exception {}
-    public class EB extends Exception {}
-    public class EB1 extends EB {}
-    public class EC extends Exception {}
+    public class EA extends Exception {
+
+        private static final long serialVersionUID = 1L;}
+    public class EB extends Exception {
+
+        private static final long serialVersionUID = 1L;}
+    public class EB1 extends EB {
+
+        private static final long serialVersionUID = 1L;}
+    public class EC extends Exception {
+
+        private static final long serialVersionUID = 1L;}
 
     public String refactorUp2() {
         try {
             return throwingMethod();
-        } catch (EA | EB1 e) {
+        } catch (EA | EB1 | EC e) {
             throw new RuntimeException("v1", e);
         } catch (EB e) {
             throw new RuntimeException("v2", e);
-        } catch (EC e) {
-            throw new RuntimeException("v1", e);
         }
     }
 

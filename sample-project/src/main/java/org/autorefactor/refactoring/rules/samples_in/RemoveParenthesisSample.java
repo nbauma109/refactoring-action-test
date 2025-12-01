@@ -34,7 +34,7 @@ import java.util.Random;
 public class RemoveParenthesisSample {
     public void borderLineParenthezisedExpressions(Integer i) throws Exception {
         // Do not replace any because they are in a String concatenation
-        String s1 = ((Number) i).doubleValue() + " ";
+        String s1 = i.doubleValue() + " ";
         String s2 = (i instanceof Number) + " ";
         String s3 = (i + 0) + " ";
         String s4 = (i == null ? null : "i") + " ";
@@ -43,7 +43,7 @@ public class RemoveParenthesisSample {
         long l2   = (i != null && i == 0) ? 0 : i;
 
         // Replace
-        boolean b1 = ((Number) i).doubleValue() == 0;
+        boolean b1 = i.doubleValue() == 0;
         // Replace
         boolean b2 = (i instanceof Number);
         // Do not replace
@@ -78,8 +78,7 @@ public class RemoveParenthesisSample {
         int i;
         Collection<?> col = (null);
         i = (0);
-        int[] ar = new int[(i)];
-        ar = new int[] { (i) };
+        int[] ar = new int[] { (i) };
         ar[(i)] = (i);
         if ((b)) {
             throw (new Exception());
@@ -104,7 +103,6 @@ public class RemoveParenthesisSample {
 
     public int removeUselessParenthesesInStatements(int i) {
         int j = (i);
-        j = (i);
         if ((j == 0)) {
             removeUselessParenthesesInStatements((i));
             (this).removeUselessParenthesesInStatements(i);

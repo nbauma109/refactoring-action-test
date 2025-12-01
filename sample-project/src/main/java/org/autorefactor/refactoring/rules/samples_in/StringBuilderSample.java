@@ -74,37 +74,39 @@ public class StringBuilderSample {
 
     public String useConcatenationOnSeveralStatements() {
         // Keep this comment
-        StringBuffer buffer = new StringBuffer();
-        buffer.append("baz ");
-        buffer.append("bar");
-        String s1 = buffer.toString();
+        String str = """
+            baz \
+            bar""";
+        String s1 = str;
 
         // Keep this comment too
-        StringBuilder builder = new StringBuilder();
-        builder.append("baz ");
-        builder.append("bar");
-        String s2 = builder.toString();
+        String str1 = """
+            baz \
+            bar""";
+        String s2 = str1;
 
         return s1 + s2;
     }
 
     public String useConcatenationOnFluentAppending() {
         // Keep this comment
-        StringBuffer buffer = new StringBuffer();
-        buffer.append("baz ").append("bar");
-        String s1 = buffer.toString();
+        String str = """
+            baz \
+            bar""";
+        String s1 = str;
 
         // Keep this comment too
-        StringBuilder builder = new StringBuilder();
-        builder.append("baz ").append("bar");
-        String s2 = builder.toString();
+        String str1 = """
+            baz \
+            bar""";
+        String s2 = str1;
 
         return s1 + s2;
     }
 
     public String useConcatenationWithVariable(String text) {
         // Keep this comment
-        final StringBuffer buffer = new StringBuffer();
+        final StringBuilder buffer = new StringBuilder();
         buffer.append("baz ");
         buffer.append(text);
         String s1 = buffer.toString();
@@ -120,7 +122,7 @@ public class StringBuilderSample {
 
     public String useConcatenationWithReassignment(String text) {
         // Keep this comment
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         buffer = buffer.append("baz ");
         buffer = buffer.append(text);
         String s1 = buffer.toString();
@@ -136,21 +138,23 @@ public class StringBuilderSample {
 
     public String useConcatenationWithAppendingOnConstructor(String text) {
         // Keep this comment
-        StringBuffer buffer = new StringBuffer().append("baz ");
+        String str = """
+            baz """;
         buffer = buffer.append(text);
-        String s1 = buffer.toString();
+        String s1 = str;
 
         // Keep this comment too
-        StringBuilder builder = new StringBuilder().append("baz ");
+        String str1 = """
+            baz """;
         builder = builder.append(text);
-        String s2 = builder.toString();
+        String s2 = str1;
 
         return s1 + s2;
     }
 
     public String useConcatenationWithOnlyAppendingOnConstructor(String text) {
         // Keep this comment
-        StringBuffer buffer = new StringBuffer().append("baz ").append(text);
+        StringBuilder buffer = new StringBuilder().append("baz ").append(text);
         String s1 = buffer.toString();
 
         // Keep this comment too
@@ -162,7 +166,7 @@ public class StringBuilderSample {
 
     public int useConcatenationWithSpecialMethod() {
         // Keep this comment
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         buffer.append("baz ");
         buffer.append("bar");
         int s1 = buffer.length();
@@ -227,7 +231,7 @@ public class StringBuilderSample {
 
     public void removeUselessCallsToValueOfWithStringBufferAppend(
             Object o, boolean b, char c, int i, long l, float f, double d) {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         // Keep this comment
         sb.append(String.valueOf(o));
         sb.append(String.valueOf(b));
@@ -271,7 +275,7 @@ public class StringBuilderSample {
 
     public void removeUselessCallsToToStringOfWithStringBufferAppend(
             Object o, boolean bo, byte by, char c, short s, int i, long l, float f, double d) {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         // Keep this comment
         sb.append(toString());
         sb.append(o.toString());
@@ -315,23 +319,27 @@ public class StringBuilderSample {
     }
 
     public void replaceAppendByBlock(StringBuilder builder, StringBuffer buffer, boolean isValid) {
-        if (isValid)
+        if (isValid) {
             builder.append("");
+        }
 
-        if (isValid)
+        if (isValid) {
             buffer.append("");
+        }
     }
 
     public void removeElse(StringBuilder builder, StringBuffer buffer, boolean isValid) {
-        if (isValid)
+        if (isValid) {
             System.out.println("foo");
-        else
+        } else {
             builder.append("");
+        }
 
-        if (isValid)
+        if (isValid) {
             System.out.println("foo");
-        else
+        } else {
             buffer.append("");
+        }
     }
 
     public String formatTime(int hour, int min) {
@@ -359,12 +367,12 @@ public class StringBuilderSample {
         StringBuilder builder6 = new StringBuilder("foo " + 1 + " bar " + 2 + " foo " + "bar");
 
         // Keep this comment too
-        StringBuffer buffer = new StringBuffer("foo " + 1);
-        StringBuffer buffer2 = new StringBuffer("foo " + 1 + " bar");
-        StringBuffer buffer3 = new StringBuffer("foo " + 1 + " bar " + 2);
-        StringBuffer buffer4 = new StringBuffer("foo " + 1 + " bar " + 2 + " foo bar");
-        StringBuffer buffer5 = new StringBuffer("foo " + "bar " + 2 + " foo bar");
-        StringBuffer buffer6 = new StringBuffer("foo " + 1 + " bar " + 2 + " foo " + "bar");
+        StringBuilder buffer = new StringBuilder("foo " + 1);
+        StringBuilder buffer2 = new StringBuilder("foo " + 1 + " bar");
+        StringBuilder buffer3 = new StringBuilder("foo " + 1 + " bar " + 2);
+        StringBuilder buffer4 = new StringBuilder("foo " + 1 + " bar " + 2 + " foo bar");
+        StringBuilder buffer5 = new StringBuilder("foo " + "bar " + 2 + " foo bar");
+        StringBuilder buffer6 = new StringBuilder("foo " + 1 + " bar " + 2 + " foo " + "bar");
     }
 
     public void removeEmptyString() {
@@ -373,8 +381,8 @@ public class StringBuilderSample {
         StringBuilder builder3 = new StringBuilder("" + "foo");
 
         // Keep this comment too
-        StringBuffer buffer2 = new StringBuffer("foo" + "");
-        StringBuffer buffer3 = new StringBuffer("" + "foo");
+        StringBuilder buffer2 = new StringBuilder("foo" + "");
+        StringBuilder buffer3 = new StringBuilder("" + "foo");
     }
 
     public void replaceWithInteger() {
@@ -382,7 +390,7 @@ public class StringBuilderSample {
         StringBuilder builder = new StringBuilder(1 + " foo");
 
         // Keep this comment too
-        StringBuffer buffer = new StringBuffer(1 + " foo");
+        StringBuilder buffer = new StringBuilder(1 + " foo");
     }
 
     public void rewriteAppending() {
@@ -395,12 +403,12 @@ public class StringBuilderSample {
         StringBuilder builder6 = new StringBuilder("six: " + 6 + " bar " + 2 + " foo " + "bar").append(" end");
 
         // Keep this comment too
-        StringBuffer buffer = new StringBuffer("one: " + 1).append(" end");
-        StringBuffer buffer2 = new StringBuffer("two: " + 2 + " bar").append(" end");
-        StringBuffer buffer3 = new StringBuffer("three: " + 3 + " bar " + 2).append(" end");
-        StringBuffer buffer4 = new StringBuffer("four: " + 4 + " bar " + 2 + " foo bar").append(" end");
-        StringBuffer buffer5 = new StringBuffer("five" + ": " + 5 + " foo bar").append(" end");
-        StringBuffer buffer6 = new StringBuffer("six: " + 6 + " bar " + 2 + " foo " + "bar").append(" end");
+        StringBuilder buffer = new StringBuilder("one: " + 1).append(" end");
+        StringBuilder buffer2 = new StringBuilder("two: " + 2 + " bar").append(" end");
+        StringBuilder buffer3 = new StringBuilder("three: " + 3 + " bar " + 2).append(" end");
+        StringBuilder buffer4 = new StringBuilder("four: " + 4 + " bar " + 2 + " foo bar").append(" end");
+        StringBuilder buffer5 = new StringBuilder("five" + ": " + 5 + " foo bar").append(" end");
+        StringBuilder buffer6 = new StringBuilder("six: " + 6 + " bar " + 2 + " foo " + "bar").append(" end");
     }
 
     public void avoidStringCreation() {
@@ -411,10 +419,10 @@ public class StringBuilderSample {
         StringBuilder builder4 = new StringBuilder(String.valueOf(4)).append("...");
 
         // Keep this comment too
-        StringBuffer buffer = new StringBuffer(Integer.toString(1));
-        StringBuffer buffer2 = new StringBuffer(String.valueOf(2));
-        StringBuffer buffer3 = new StringBuffer(Integer.toString(3)).append("...");
-        StringBuffer buffer4 = new StringBuffer(String.valueOf(4)).append("...");
+        StringBuilder buffer = new StringBuilder(Integer.toString(1));
+        StringBuilder buffer2 = new StringBuilder(String.valueOf(2));
+        StringBuilder buffer3 = new StringBuilder(Integer.toString(3)).append("...");
+        StringBuilder buffer4 = new StringBuilder(String.valueOf(4)).append("...");
     }
 
     public void shortenExpression() {
@@ -422,11 +430,11 @@ public class StringBuilderSample {
         StringBuilder builder = new StringBuilder().append("Lorem ipsum");
 
         // Keep this comment too
-        StringBuffer buffer = new StringBuffer().append("Lorem ipsum");
+        StringBuilder buffer = new StringBuilder().append("Lorem ipsum");
     }
 
     public int doNotRefactorWithDangerousMethod() {
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         buffer.append("baz ");
         buffer.append("bar");
         int s1 = buffer.capacity();
@@ -440,17 +448,17 @@ public class StringBuilderSample {
     }
 
     public String doNotRefactorWithoutAppending() {
-        StringBuffer buffer = new StringBuffer();
-        String s1 = buffer.toString();
+        String s1 = """
+            """;
 
-        StringBuilder builder = new StringBuilder();
-        String s2 = builder.toString();
+        String s2 = """
+            """;
 
         return s1 + s2;
     }
 
     public String doNotRefactorWithoutUse(String text) {
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         buffer.append("baz ");
         buffer.append(text);
 
@@ -476,7 +484,7 @@ public class StringBuilderSample {
     }
 
     public String doNotRefactorWithLateAppending(String text) {
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         buffer.append("baz ");
         buffer.append(text);
         String s1 = buffer.toString();
@@ -492,7 +500,7 @@ public class StringBuilderSample {
     }
 
     public String doNotRefactorWithSelfAppending(String text) {
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         buffer.append("baz ");
         buffer.append(buffer);
         String s1 = buffer.toString();
@@ -506,7 +514,7 @@ public class StringBuilderSample {
     }
 
     public String doNotRefactorWithSelfAppending(int i) {
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         buffer.append(i++);
         buffer.append(i++);
         String s1 = buffer.toString();
@@ -536,6 +544,6 @@ public class StringBuilderSample {
         StringBuilder builder = new StringBuilder("Do not " + "replace");
 
         // Keep this comment too
-        StringBuffer buffer = new StringBuffer("Do not " + "replace");
+        StringBuilder buffer = new StringBuilder("Do not " + "replace");
     }
 }

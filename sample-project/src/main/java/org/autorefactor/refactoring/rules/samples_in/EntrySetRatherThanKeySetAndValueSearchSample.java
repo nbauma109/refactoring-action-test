@@ -27,7 +27,6 @@
 package org.autorefactor.refactoring.rules.samples_in;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -165,8 +164,7 @@ public class EntrySetRatherThanKeySetAndValueSearchSample {
     }
 
     public void doNotRefactor_forWithIterator(Map<String, Long> map) {
-        for (Iterator<String> iter = map.keySet().iterator(); iter.hasNext();) {
-            String key = iter.next();
+        for (String key : map.keySet()) {
             if (map.get(key) != null) {
                 System.out.println(map.get(key));
             }

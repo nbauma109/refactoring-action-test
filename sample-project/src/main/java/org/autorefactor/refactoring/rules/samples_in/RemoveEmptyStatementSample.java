@@ -31,25 +31,41 @@ import java.util.List;
 
 public class RemoveEmptyStatementSample {
     {
-        ;
+
     }
 
     public void removeEmptyStatement(boolean b, int i, String[] args) {
-        ;
-        if (b);
-        if (b);
-        else;
-        if (b) System.out.println(b);
-        else;
+
+        if (b) {
+
+        }
+        if (b) {
+
+        } else {
+
+        }
+        if (b) {
+            System.out.println(b);
+        } else {
+
+        }
         try {
-            ;
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-        for (String arg : args);
-        for (int j = 0; j < 10; j++);
-        while (i < 10);
-        do ; while (i < 10);
+        for (String arg : args) {
+
+        }
+        for (int j = 0; j < 10; j++) {
+
+        }
+        while (i < 10) {
+
+        }
+        do {
+
+        } while (i < 10);
     }
 
     public void removeEmptyBlock(boolean b, int i, String[] args) {
@@ -57,8 +73,9 @@ public class RemoveEmptyStatementSample {
         if (b) {}
         if (b) {}
         else {}
-        if (b) System.out.println(b);
-        else {}
+        if (b) {
+            System.out.println(b);
+        } else {}
         try {
             {}
         } catch (Exception e) {
@@ -77,14 +94,10 @@ public class RemoveEmptyStatementSample {
         if (b) {
             System.out.println("foo");
         }
+        System.out.println("foo");
         if (b) {
-            System.out.println("foo");
-        }
-        else {
-            System.out.println("foo");
-        }
-        if (b) System.out.println(b);
-        else {
+            System.out.println(b);
+        } else {
             System.out.println("foo");
         }
         try {
@@ -109,8 +122,9 @@ public class RemoveEmptyStatementSample {
     }
 
     public void doNotRemoveEmptyStatement(boolean b) {
-        if (b) {}
-        else System.out.println(b);
+        if (b) {} else {
+            System.out.println(b);
+        }
     }
 
     public void doNotRemoveWithMethodCall(List<String> filledList) {
@@ -118,7 +132,8 @@ public class RemoveEmptyStatementSample {
     }
 
     public boolean doNotRemoveWithAssignment(boolean b1, boolean b2) {
-        if (b2 = true) {}
+        b2 = true;
+        if (b2) {}
         return b1;
     }
 
@@ -149,12 +164,15 @@ public class RemoveEmptyStatementSample {
     }
 
     public void replaceStatementInLoopByBlock() {
-        for (int i = 0;;i++);
+        for (int i = 0;;i++) {
+
+        }
     }
 
     public void replaceStatementInIfByBlock(List<String> filledList) {
-        if (filledList.remove("foo"))
-            ;
+        if (filledList.remove("foo")) {
+
+        }
     }
 
     public void doNotRemoveAnotherInfiniteForLoop() {
@@ -179,6 +197,7 @@ public class RemoveEmptyStatementSample {
 
     public class ActiveIteratorList<E> extends ArrayList<E> {
 
+        private static final long serialVersionUID = 1L;
         private int readCount = 0;
 
         @Override

@@ -174,8 +174,7 @@ public class NoLoopIterationRatherThanEmptyCheckSample {
         // Keep this comment
         if (texts.length > 0) {
             // Keep this comment too
-            for (int i = 0; i < texts.length; i++) {
-                String text = texts[i];
+            for (String text : texts) {
                 builder.append(text);
             }
         }
@@ -200,8 +199,7 @@ public class NoLoopIterationRatherThanEmptyCheckSample {
         StringBuilder builder = new StringBuilder();
 
         if (texts.length > 0) {
-            for (int i = 0; i < texts.length; i++) {
-                String text = texts[i];
+            for (String text : texts) {
                 builder.append(text);
             }
         } else {
@@ -215,8 +213,7 @@ public class NoLoopIterationRatherThanEmptyCheckSample {
         StringBuilder builder = new StringBuilder();
 
         if (isEnabled && texts.length > 0) {
-            for (int i = 0; i < texts.length; i++) {
-                String text = texts[i];
+            for (String text : texts) {
                 builder.append(text);
             }
         } else {

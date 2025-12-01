@@ -27,6 +27,7 @@ package org.autorefactor.refactoring.rules.samples_in;
 
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Observable;
 
 public class ObsoleteJava7HashRatherThanEclipseJava6HashSample {
@@ -50,26 +51,8 @@ public class ObsoleteJava7HashRatherThanEclipseJava6HashSample {
         @Override
         public int hashCode() {
             // Keep this comment
-            final int prime = 31;
-            int result = 1;
-            result = prime * result + getEnclosingInstance().hashCode();
-            result = prime * result + (RefactoredClass.this.innerBoolean ? 1231 : 1237);
-            result = prime * result + this.innerByte;
-            result = prime * result + innerChar;
-            long temp = Double.doubleToLongBits(innerDouble);
-            result = prime * result + (int) ((temp >>> 32) ^ temp);
-            result = prime * result + Float.floatToIntBits(innerFloat);
-            result = result * prime + innerInt;
-            result = prime * result + Arrays.hashCode(innerIntegers);
-            result = prime * result + (int) (innerLong ^ (this.innerLong >>> 32));
-            result = prime * result + ((innerObservable == null) ? 0 : innerObservable.hashCode());
-            temp = Double.doubleToLongBits(innerOtherDouble);
-            result = prime * result + (int) (temp ^ (temp >>> 32));
-            result = prime * result + innerShort;
-            result = prime * result + ((innerText == null) ? 0 : innerText.hashCode());
-            result = prime * result + ((innerTextById != null) ? this.innerTextById.hashCode() : 0);
-            result = prime * result + ((this.innerBooleanWrapper != null) ? innerBooleanWrapper.hashCode() : 0);
-            return prime * result + Arrays.hashCode(innerTexts);
+            return Objects.hash(getEnclosingInstance().hashCode(), innerBoolean, innerByte, innerChar, innerDouble, innerFloat, innerInt, Arrays.hashCode(innerIntegers), innerLong,
+                    innerObservable, innerOtherDouble, innerShort, innerText, innerTextById, innerBooleanWrapper, Arrays.hashCode(innerTexts));
         }
 
         private ObsoleteJava7HashRatherThanEclipseJava6HashSample getEnclosingInstance() {
@@ -85,8 +68,7 @@ public class ObsoleteJava7HashRatherThanEclipseJava6HashSample {
             final int prime = 31;
             int result = 1;
             result = prime * result + getEnclosingInstance().hashCode();
-            result = prime * result + (innerBoolean ? 1231 : 1237);
-            return result;
+            return prime * result + (innerBoolean ? 1231 : 1237);
         }
 
         private ObsoleteJava7HashRatherThanEclipseJava6HashSample getEnclosingInstance() {
@@ -101,8 +83,7 @@ public class ObsoleteJava7HashRatherThanEclipseJava6HashSample {
         public int hashCode() {
             final int prime = 63;
             int result = 1;
-            result = prime * result + (innerBoolean ? 1231 : 1237);
-            return result;
+            return prime * result + (innerBoolean ? 1231 : 1237);
         }
     }
 
@@ -136,25 +117,7 @@ public class ObsoleteJava7HashRatherThanEclipseJava6HashSample {
     @Override
     public int hashCode() {
         // Keep this comment
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + (ObsoleteJava7HashRatherThanEclipseJava6HashSample.this.aBoolean ? 1231 : 1237);
-        result = prime * result + aByte;
-        result = prime * result + aChar;
-        result = prime * result + Float.floatToIntBits(aFloat);
-        result = prime * result + (int) (aLong ^ (aLong >>> 32));
-        long temp;
-        temp = Double.doubleToLongBits(aDouble);
-        result = prime * result + (int) (temp ^ (temp >>> 32));
-        result = prime * result + aShort;
-        result = prime * result + ((null == aText) ? 0 : aText.hashCode());
-        result = prime * result + anInt;
-        result = prime * result + ((anObservable == null) ? 0 : anObservable.hashCode());
-        result = prime * result + Arrays.hashCode(integers);
-        result = prime * result + ((textById == null) ? 0 : textById.hashCode());
-        result = prime * result + Arrays.hashCode(texts);
-        temp = Double.doubleToLongBits(anotherDouble);
-        result = prime * result + (int) (temp ^ (temp >>> 32));
-        return result;
+        return Objects.hash(aBoolean, aByte, aChar, aFloat, aLong, aDouble, aShort, aText, anInt, anObservable,
+                Arrays.hashCode(integers), textById, Arrays.hashCode(texts), anotherDouble);
     }
 }

@@ -55,56 +55,52 @@ public class ArrayListRatherThanVectorSample {
 
     public void replaceVectorVariableDeclaration() {
         // Keep this comment
-        Vector<String> list = new Vector<String>();
+        Vector<String> list = new Vector<>();
     }
 
     public void replaceCollectionVariableDeclaration() {
         // Keep this comment
-        Collection<String> list = new Vector<String>();
+        Collection<String> list = new Vector<>();
     }
 
     public void doNotReplaceInterface() {
         // Keep this comment
-        List<String> vector = new Vector<String>();
+        List<String> vector = new Vector<>();
     }
 
     public void replaceVectorVariableUse() {
         // Keep this comment
-        Vector<String> list = new Vector<String>();
+        Vector<String> list = new Vector<>();
         // Keep this comment too
         list.add("bar");
     }
 
     public void replaceCollectionVariableUse() {
         // Keep this comment
-        Collection<String> list = new Vector<String>();
+        Collection<String> list = new Vector<>();
         // Keep this comment too
         list.add("bar");
     }
 
     public void refactorWithListMethod() {
         // Keep this comment
-        Vector<Observable> list = new Vector<Observable>();
+        Vector<Observable> list = new Vector<>();
         // Keep this comment too
         list.toArray(new Observable[0]);
     }
 
     public void refactorWithCollectionMethod() {
         // Keep this comment
-        Collection<Observable> list = new Vector<Observable>();
+        Collection<Observable> list = new Vector<>();
         // Keep this comment too
         list.toArray();
     }
 
     public String replaceVectorWithLoop(List<Date> dates) {
         // Keep this comment
-        Vector<Date> list = new Vector<Date>();
-        for (Date date : dates) {
-            list.add(date);
-        }
-
+        Vector<Date> list = new Vector<>(dates);
         // Keep this comment too
-        Vector<Date> secondList = new Vector<Date>();
+        Vector<Date> secondList = new Vector<>();
         for (; list.isEmpty(); list.removeElementAt(0)) {
             secondList.add(list.elementAt(0));
         }
@@ -114,13 +110,9 @@ public class ArrayListRatherThanVectorSample {
 
     public Observable[] replaceCollectionWithLoop(List<Date> dates) {
         // Keep this comment
-        Collection<Date> list = new Vector<Date>();
-        for (Date date : dates) {
-            list.add(date);
-        }
-
+        Collection<Date> list = new Vector<>(dates);
         // Keep this comment too
-        Collection<String> secondList = new Vector<String>();
+        Collection<String> secondList = new Vector<>();
         for (; list.isEmpty(); list.remove(0)) {
             secondList.add(list.toString());
         }
@@ -130,31 +122,31 @@ public class ArrayListRatherThanVectorSample {
 
     public void replaceVectorWithModifier() {
         // Keep this comment
-        final Vector<String> list = new Vector<String>();
+        final Vector<String> list = new Vector<>();
         list.add("bar");
     }
 
     public void replaceCollectionWithModifier() {
         // Keep this comment
-        final Collection<String> list = new Vector<String>();
+        final Collection<String> list = new Vector<>();
         list.add("bar");
     }
 
     public void replaceVectorWithParameter() {
         // Keep this comment
-        Vector<String> list = new Vector<String>(10);
+        Vector<String> list = new Vector<>(10);
         list.add("bar");
     }
 
     public void replaceCollectionWithParameter() {
         // Keep this comment
-        Collection<String> list = new Vector<String>(10);
+        Collection<String> list = new Vector<>(10);
         list.add("bar");
     }
 
     public Object[] replaceReassignedVector() {
         // Keep this comment
-        Vector<String> list1 = new Vector<String>();
+        Vector<String> list1 = new Vector<>();
         list1.add("FOO");
 
         // Keep this comment too
@@ -166,7 +158,7 @@ public class ArrayListRatherThanVectorSample {
 
     public Object[] replaceReassignedCollection() {
         // Keep this comment
-        Collection<String> list1 = new Vector<String>();
+        Collection<String> list1 = new Vector<>();
         list1.add("FOO");
 
         // Keep this comment too
@@ -182,21 +174,21 @@ public class ArrayListRatherThanVectorSample {
     }
 
     public void doNotReplaceVectorPassedToAMethod() {
-        String text = String.valueOf(new Vector<String>());
+        String text = String.valueOf(new Vector<>());
     }
 
     public Vector<Date> doNotReplaceReturnedVector() {
-        return new Vector<Date>();
+        return new Vector<>();
     }
 
     public void doNotReplaceReassignedVariable() {
-        Vector<String> vector = new Vector<String>();
-        vector = new Vector<String>();
+        Vector<String> vector = new Vector<>();
+        vector = new Vector<>();
     }
 
     public void replaceOldMethod() {
         // Keep this comment
-        Vector<Integer> list = new Vector<Integer>();
+        Vector<Integer> list = new Vector<>();
         // Keep this comment too
         list.addElement(42);
         list.elementAt(0);
@@ -210,24 +202,24 @@ public class ArrayListRatherThanVectorSample {
     }
 
     public void doNotReplaceSpecificInstantiation() {
-        Vector<String> list = new Vector<String>(10, 10);
+        Vector<String> list = new Vector<>(10, 10);
         list.add("foo");
     }
 
     public String doNotReplaceSpecificMethod() {
-        Vector<String> list = new Vector<String>();
+        Vector<String> list = new Vector<>();
         list.add("foo");
         return list.firstElement();
     }
 
     public void replaceVectorWithRunnable() {
         // Keep this comment
-        final Vector<String> list = new Vector<String>();
+        final Vector<String> list = new Vector<>();
         new Runnable() {
 
             @Override
             public void run() {
-                final Vector<String> localList = new Vector<String>();
+                final Vector<String> localList = new Vector<>();
                 localList.add("Local, it's safe.");
             }
         };
@@ -235,19 +227,19 @@ public class ArrayListRatherThanVectorSample {
 
     public void replaceCollectionWithRunnable() {
         // Keep this comment
-        final Collection<String> list = new Vector<String>();
+        final Collection<String> list = new Vector<>();
         new Runnable() {
 
             @Override
             public void run() {
-                final Collection<String> localList = new Vector<String>();
+                final Collection<String> localList = new Vector<>();
                 localList.add("Local, it's safe.");
             }
         };
     }
 
     public void doNotReplaceThreadSharedVector() {
-        final Vector<String> vector = new Vector<String>();
+        final Vector<String> vector = new Vector<>();
         new Runnable() {
 
             @Override
@@ -258,7 +250,7 @@ public class ArrayListRatherThanVectorSample {
     }
 
     public void doNotReplaceAnonymousVector() {
-        Vector<String> list = new Vector<String>() {
+        Vector<String> list = new Vector<>() {
             private static final long serialVersionUID= 2598952380459765926L;
 
             @Override

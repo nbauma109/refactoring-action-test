@@ -28,17 +28,17 @@ package org.autorefactor.refactoring.rules.samples_in;
 public class ObsoleteInstanceofRatherThanIsInstanceSample {
     public boolean useInstanceof(Object o) {
         // Keep this comment
-        return String.class.isInstance(o);
+        return (o instanceof String);
     }
 
     public boolean useInstanceofOnComplexType(Object o) {
         // Keep this comment
-        return String[].class.isInstance(o);
+        return (o instanceof String[]);
     }
 
     public boolean useInstanceofOnQualifiedType(Object o) {
         // Keep this comment
-        return java.util.Date.class.isInstance(o);
+        return (o instanceof java.util.Date);
     }
 
     public boolean doNotUseInstanceofOnPrimitive(Object o) {

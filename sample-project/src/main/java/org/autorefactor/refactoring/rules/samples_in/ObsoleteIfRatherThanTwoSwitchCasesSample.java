@@ -91,19 +91,10 @@ public class ObsoleteIfRatherThanTwoSwitchCasesSample {
     public void replaceSwitchWithDefault(int i1) {
         int i = 0;
         // Keep this comment
-        switch (i1) {
-        case 0:
-        case 1:
-        case 2:
-            // Keep this comment too
-            i = 0;
-            break;
-
-        default:
-            // Keep this comment also
-            i = 150;
-            break;
-        }
+        i = switch (i1) {
+            case 0, 1, 2 -> /* Keep this comment too */ 0;
+            default -> /* Keep this comment also */ 150;
+        };
     }
 
     public void replaceSwitchWithEmptyDefault(int i1) {
@@ -163,20 +154,11 @@ public class ObsoleteIfRatherThanTwoSwitchCasesSample {
     public void replaceSwitchWithCharacterDiscriminant(char a1) {
         int i = 0;
         // Keep this comment
-        switch (a1) {
-        case 'b':
-        case 'c':
-        case 'd':
-        default:
-            i = 40;
-            break;
-
-        case 'a':
-            // Keep this comment too
-            i = 0;
-            // Keep this comment also
-            break;
-        }
+        i = switch (a1) {
+            case 'b', 'c', 'd' -> 40;
+            default -> 40;
+            case 'a' -> /* Keep this comment too */ 0;
+        };
     }
 
     public void replaceSwitchWithStringDiscriminant(String text) {
@@ -361,12 +343,11 @@ public class ObsoleteIfRatherThanTwoSwitchCasesSample {
             if (i2 == 2) {
                 // Keep this comment too
                 i = 0;
-                break;
             } else {
                 // Keep this comment again
                 i = 160;
-                break;
             }
+                break;
 
         case 3:
         default:
@@ -393,11 +374,10 @@ public class ObsoleteIfRatherThanTwoSwitchCasesSample {
                 // Keep this comment also
                 i = 150;
                 break;
-            } else {
+            }
                 // Keep this comment again
                 i = 160;
                 break;
-            }
         }
     }
 
@@ -440,19 +420,11 @@ public class ObsoleteIfRatherThanTwoSwitchCasesSample {
 
     public void doNotReplaceSwitchCaseThatDuplicatesActiveDiscriminant(List<String> texts, int j, int k) {
         int i = 0;
-        switch (texts.remove("foo") ? j : k) {
-        case 10:
-            i = 0;
-            break;
-
-        case 11:
-            i = 1;
-            break;
-
-        default:
-            i = 150;
-            break;
-        }
+        i = switch (texts.remove("foo") ? j : k) {
+            case 10 -> 0;
+            case 11 -> 1;
+            default -> 150;
+        };
     }
 
     public void doNotReplaceSwitchWithMoreThanTwoDistinctCases(int i1) {

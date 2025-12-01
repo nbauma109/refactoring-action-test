@@ -41,8 +41,9 @@ public class DoWhileRatherThanDuplicateCodeSample {
     public void replaceWhileWithoutBlock(int i) {
         i--;
         // Keep this comment
-        while (i > 0)
+        while (i > 0) {
             i--;
+        }
     }
 
     public void doNotReplaceWhileByDoWhile(int i) {

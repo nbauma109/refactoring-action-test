@@ -34,58 +34,58 @@ public class ObsoleteValueOfRatherThanInstantiationSample {
         boolean boPrimitive = true;
         char cPrimitive = 'c';
         double dPrimitive = 1;
-        Double dObject = Double.valueOf(1d);
+        Double dObject = 1d;
         float fPrimitive = 1f;
         long lPrimitive = 1;
         short shPrimitive = 1;
         int iPrimitive = 1;
 
         // Primitive literals
-        Byte by = new Byte((byte) 4);
-        Boolean bo = new Boolean(true);
-        Character c = new Character('c');
-        Double d = new Double(1);
-        Float f1 = new Float(1f);
-        Float f2 = new Float(1d);
-        Long l = new Long(1);
-        Short s = new Short((short) 1);
-        Integer i = new Integer(1);
+        Byte by = (byte) 4;
+        Boolean bo = true;
+        Character c = 'c';
+        Double d = (double) 1;
+        Float f1 = 1f;
+        Float f2 = (float) 1d;
+        Long l = (long) 1;
+        Short s = (short) 1;
+        Integer i = 1;
 
         // Primitive variables
-        by = new Byte(byPrimitive);
-        bo = new Boolean(boPrimitive);
-        c = new Character(cPrimitive);
-        d = new Double(dPrimitive);
-        f1 = new Float(fPrimitive);
-        f2 = new Float(dPrimitive);
-        l = new Long(lPrimitive);
-        s = new Short(shPrimitive);
-        i = new Integer(iPrimitive);
+        by = byPrimitive;
+        bo = boPrimitive;
+        c = cPrimitive;
+        d = dPrimitive;
+        f1 = fPrimitive;
+        f2 = (float) dPrimitive;
+        l = lPrimitive;
+        s = shPrimitive;
+        i = iPrimitive;
 
         // Implicit object narrowing
-        Float f3 = new Float(dObject);
+        Float f3 = dObject.floatValue();
     }
 
     public static void removeUnnecessaryObjectCreation() {
         // Keep this comment
-        new Byte("0").byteValue();
-        new Boolean("true").booleanValue();
-        new Integer("42").intValue();
-        new Short("42").shortValue();
-        new Long("42").longValue();
-        new Float("42.42").floatValue();
-        new Double("42.42").doubleValue();
+        Byte.parseByte("0");
+        Boolean.parseBoolean("true");
+        Integer.parseInt("42");
+        Short.parseShort("42");
+        Long.parseLong("42");
+        Float.parseFloat("42.42");
+        Double.parseDouble("42.42");
     }
 
     public static void removeUnnecessaryConstructorInvocationsInPrimitiveContext() {
         // Keep this comment
-        byte by = new Byte((byte) 0);
-        boolean bo = new Boolean(true);
-        int i = new Integer(42);
-        long l = new Long(42);
-        short s = new Short((short) 42);
-        float f = new Float(42.42F);
-        double d = new Double(42.42);
+        byte by = (byte) 0;
+        boolean bo = true;
+        int i = 42;
+        long l = 42;
+        short s = (short) 42;
+        float f = 42.42F;
+        double d = 42.42;
     }
 
     public static void removeUnnecessaryConstructorInvocationsInSwitch() {
@@ -95,22 +95,22 @@ public class ObsoleteValueOfRatherThanInstantiationSample {
         int i = 1;
 
         // Keep this comment
-        switch (new Byte(by)) {
+        switch (by) {
         // Keep this comment too
         default:
         }
-        switch (new Character(c)) {
+        switch (c) {
         default:
         }
-        switch (new Short(s)) {
+        switch (s) {
         default:
         }
-        switch (new Integer(i)) {
+        switch (i) {
         default:
         }
     }
 
     public static String removeUnnecessaryConstructorInvocationsInArrayAccess(String[] strings, int i) {
-        return strings[new Integer(i)];
+        return strings[i];
     }
 }

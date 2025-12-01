@@ -39,7 +39,7 @@ public class ObsoleteShortPrimitiveRatherThanWrapperSample {
 
     public void replaceWrapper(short s) {
         // Keep this comment
-        Short alwaysInitializedVar = Short.MIN_VALUE;
+        short alwaysInitializedVar = Short.MIN_VALUE;
         if (alwaysInitializedVar > s) {
             System.out.println("True!");
         }
@@ -47,7 +47,7 @@ public class ObsoleteShortPrimitiveRatherThanWrapperSample {
 
     public void replaceWrapperAndUseParsing(short s) {
         // Keep this comment
-        Short alwaysInitializedVar = Short.valueOf("0");
+        short alwaysInitializedVar = Short.parseShort("0");
         if (alwaysInitializedVar > s) {
             System.out.println("True!");
         }
@@ -55,7 +55,7 @@ public class ObsoleteShortPrimitiveRatherThanWrapperSample {
 
     public void replaceWrapperAndConstructor(short s) {
         // Keep this comment
-        Short alwaysInitializedVar = new Short("0");
+        short alwaysInitializedVar = Short.parseShort("0");
         if (alwaysInitializedVar > s) {
             System.out.println("True!");
         }
@@ -63,7 +63,7 @@ public class ObsoleteShortPrimitiveRatherThanWrapperSample {
 
     public void replaceFullyQualifiedWrapper(short s) {
         // Keep this comment
-        java.lang.Short alwaysInitializedVar = Short.MIN_VALUE;
+        short alwaysInitializedVar = Short.MIN_VALUE;
         if (alwaysInitializedVar < s) {
             System.out.println("True!");
         }
@@ -71,7 +71,7 @@ public class ObsoleteShortPrimitiveRatherThanWrapperSample {
 
     public short replacePreDecrementWrapper(short s) {
         // Keep this comment
-        Short preDecrementVar = --s;
+        short preDecrementVar = --s;
         if (preDecrementVar <= 0) {
             return -1;
         }
@@ -80,67 +80,67 @@ public class ObsoleteShortPrimitiveRatherThanWrapperSample {
 
     public short replacePreIncrementWrapper(short s) {
         // Keep this comment
-        Short preDecrementVar = ++s;
+        short preDecrementVar = ++s;
         return preDecrementVar++;
     }
 
     public short replacePostDecrementWrapper(short s) {
         // Keep this comment
-        Short postDecrementVar = s--;
+        short postDecrementVar = s--;
         return postDecrementVar++;
     }
 
     public short replacePostIncrementWrapper(short s) {
         // Keep this comment
-        Short postIncrementVar = s++;
+        short postIncrementVar = s++;
         return postIncrementVar++;
     }
 
     public short replaceWrapperFromValueOf(short s1) {
         // Keep this comment
-        Short varFromValueOf = Short.valueOf(s1);
+        short varFromValueOf = s1;
         return varFromValueOf++;
     }
 
     public short replaceParentherizedWrapper(short s1, short s2) {
         // Keep this comment
-        Short parentherizedVar = ((short)(s1 + s2));
+        short parentherizedVar = ((short)(s1 + s2));
         return parentherizedVar++;
     }
 
     public short replaceCastWrapper(Short s) {
         // Keep this comment
-        Short castVar = (short) s;
+        short castVar = s;
         return castVar++;
     }
 
     public short replaceWrapperInPreIncrement() {
         // Keep this comment
-        Short shortInPreIncrement = Short.MIN_VALUE;
+        short shortInPreIncrement = Short.MIN_VALUE;
         return ++shortInPreIncrement;
     }
 
     public short replaceWrapperInPreDecrement() {
         // Keep this comment
-        Short shortInPreDecrement = Short.MIN_VALUE;
+        short shortInPreDecrement = Short.MIN_VALUE;
         return --shortInPreDecrement;
     }
 
     public short replaceWrapperInPostDecrement() {
         // Keep this comment
-        Short shortInPostDecrement = Short.MIN_VALUE;
+        short shortInPostDecrement = Short.MIN_VALUE;
         return shortInPostDecrement--;
     }
 
     public short replaceWrapperInPostIncrement() {
         // Keep this comment
-        Short shortInPostIncrement = Short.MIN_VALUE;
+        short shortInPostIncrement = Short.MIN_VALUE;
         return shortInPostIncrement++;
     }
 
     public void replaceWrapperInSwitch() {
         // Keep this comment
-        Short shortInSwitch = Short.MIN_VALUE;
+        short shortInSwitch = Short.MIN_VALUE;
         switch (shortInSwitch) {
         case 1:
             System.out.println("One");
@@ -157,61 +157,53 @@ public class ObsoleteShortPrimitiveRatherThanWrapperSample {
 
     public String replaceWrapperInArrayAccess(String[] strings) {
         // Keep this comment
-        Short shortInArrayAccess = Short.MIN_VALUE;
+        short shortInArrayAccess = Short.MIN_VALUE;
         return strings[shortInArrayAccess];
     }
 
     public short replaceReturnedWrapper() {
-        // Keep this comment
-        Short returnedShort = Short.MIN_VALUE;
-        return returnedShort;
+        return Short.MIN_VALUE;
     }
 
     public Object doNotBreakAutoboxing() {
-        Short returnedObject = Short.MIN_VALUE;
-        return returnedObject;
+        return Short.MIN_VALUE;
     }
 
     public short replaceMultiReturnedWrapper(short s) {
         // Keep this comment
-        Short returnedShort = Short.MIN_VALUE;
+        short returnedShort = Short.MIN_VALUE;
         if (s > 0) {
             System.out.println("Positive");
             return returnedShort;
-        } else {
-            System.out.println("Negative");
-            return returnedShort;
         }
+        System.out.println("Negative");
+        return returnedShort;
     }
 
     public Short replaceReturnedAutoBoxedWrapper(short s) {
         // Keep this comment
-        Short returnedShort = Short.MIN_VALUE;
+        short returnedShort = Short.MIN_VALUE;
         if (s > 0) {
             System.out.println("Positive");
             return returnedShort;
-        } else {
-            System.out.println("Negative");
-            return returnedShort;
         }
+        System.out.println("Negative");
+        return returnedShort;
     }
 
     public void replaceReassignedWrapper() {
         // Keep this comment
-        Short reassignedShort = Short.MIN_VALUE;
-        reassignedShort = 123;
+        short reassignedShort = 123;
     }
 
     public void replaceMultiReassignedWrapper() {
         // Keep this comment
-        Short multiReassignedShort = Short.MIN_VALUE;
-        multiReassignedShort = 123;
+        short multiReassignedShort = 123;
         multiReassignedShort = 456;
     }
 
     public void doNotReplaceNullWrapper() {
-        Short reassignedShort = Short.MIN_VALUE;
-        reassignedShort = null;
+        Short reassignedShort = null;
     }
 
     public void doNotReplaceWrapperPassedAsObject(Map<Short, Observable> obsByShort) {
@@ -221,19 +213,19 @@ public class ObsoleteShortPrimitiveRatherThanWrapperSample {
 
     public void replaceAssignedWrapper() {
         // Keep this comment
-        Short assignedShort = Short.MIN_VALUE;
+        short assignedShort = Short.MIN_VALUE;
         Short anotherShort = assignedShort;
     }
 
     public void replaceWrapperAssignedOnShortField() {
         // Keep this comment
-        Short assignedShort = Short.MIN_VALUE;
+        short assignedShort = Short.MIN_VALUE;
         shortField = assignedShort;
     }
 
     public void replaceWrapperAssignedOnWrapperField() {
         // Keep this comment
-        Short assignedShort = Short.MIN_VALUE;
+        short assignedShort = Short.MIN_VALUE;
         wrapperField = assignedShort;
     }
 
@@ -251,7 +243,7 @@ public class ObsoleteShortPrimitiveRatherThanWrapperSample {
     public void replaceBitAssignedWrapper(Integer anInteger, Integer anotherInteger,
             Integer yetAnotherInteger) {
         // Keep this comment
-        Short assignedShort = Short.MIN_VALUE;
+        short assignedShort = Short.MIN_VALUE;
         anInteger |= assignedShort;
         anotherInteger += assignedShort;
         yetAnotherInteger ^= assignedShort;
@@ -259,35 +251,35 @@ public class ObsoleteShortPrimitiveRatherThanWrapperSample {
 
     public String replaceWrapperAndToStringMethod(short s) {
         // Keep this comment
-        Short alwaysInitializedVar = Short.MIN_VALUE;
+        short alwaysInitializedVar = Short.MIN_VALUE;
         if (alwaysInitializedVar > s) {
             System.out.println("True!");
         }
 
         // Keep this comment too
-        return alwaysInitializedVar.toString();
+        return Short.toString(alwaysInitializedVar);
     }
 
     public int replaceWrapperAndCompareToMethod(short s) {
         // Keep this comment
-        Short alwaysInitializedVar = Short.MIN_VALUE;
+        short alwaysInitializedVar = Short.MIN_VALUE;
         if (alwaysInitializedVar > s) {
             System.out.println("True!");
         }
 
         // Keep this comment too
-        return alwaysInitializedVar.compareTo(s);
+        return Short.compare(alwaysInitializedVar, s);
     }
 
     public short replaceWrapperAndPrimitiveValueMethod(short s) {
         // Keep this comment
-        Short alwaysInitializedVar = Short.MIN_VALUE;
+        short alwaysInitializedVar = Short.MIN_VALUE;
         if (alwaysInitializedVar > s) {
             System.out.println("True!");
         }
 
         // Keep this comment too
-        return alwaysInitializedVar.shortValue();
+        return alwaysInitializedVar;
     }
 
     public Short doNotReplaceMultiAutoBoxedWrapper() {
@@ -303,7 +295,6 @@ public class ObsoleteShortPrimitiveRatherThanWrapperSample {
 
     public Short doNotReplaceAssignedAndReturnedWrapper(Short s) {
         Short returnedObject = Short.MIN_VALUE;
-        returnedObject = s;
-        return returnedObject;
+        return s;
     }
 }

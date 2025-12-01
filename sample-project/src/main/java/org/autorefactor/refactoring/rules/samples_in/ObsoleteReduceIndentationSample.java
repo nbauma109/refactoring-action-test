@@ -36,20 +36,20 @@ public class ObsoleteReduceIndentationSample {
         // Keep this comment
         if (events == null) {
             throw new NullPointerException("Events null");
-        } else if (events.isEmpty()) {
+        }
+        if (events.isEmpty()) {
             throw new IllegalArgumentException("At least one event must be present");
+        }
+        Date firstEvent = events.get(0);
+        if (firstEvent.before(new Date())) {
+            throw new IllegalArgumentException("The first event should not be in the past");
         } else {
-            Date firstEvent = events.get(0);
-            if (firstEvent.before(new Date())) {
-                throw new IllegalArgumentException("The first event should not be in the past");
+            Calendar cal = Calendar.getInstance();
+            cal.set(2019, Calendar.JULY, 10);
+            if (events.contains(cal.getTime())) {
+                throw new IllegalArgumentException("2019-07-10 is forbidden");
             } else {
-                Calendar cal = Calendar.getInstance();
-                cal.set(2019, Calendar.JULY, 10);
-                if (events.contains(cal.getTime())) {
-                    throw new IllegalArgumentException("2019-07-10 is forbidden");
-                } else {
-                    return events.size();
-                }
+                return events.size();
             }
         }
     }
@@ -59,12 +59,8 @@ public class ObsoleteReduceIndentationSample {
         if (i > 0) {
             // Keep this comment too
             return 0;
-        } else {
-            // Keep this comment also
-            i = i + 1;
         }
-
-        return i;
+        return i + 1;
     }
 
     public int refactorWithTryCatch(int i) {
@@ -72,12 +68,11 @@ public class ObsoleteReduceIndentationSample {
         if (i > 0) {
             // Keep this comment too
             return 0;
-        } else {
-            // Keep this comment also
-            try {
-                throw new Exception();
-            } catch(Exception e) {
-            }
+        }
+        // Keep this comment also
+        try {
+            throw new Exception();
+        } catch(Exception e) {
         }
 
         return i;
@@ -85,15 +80,11 @@ public class ObsoleteReduceIndentationSample {
 
     public int refactorThen(int i) {
         // Keep this comment
-        if (i > 0) {
-            // Keep this comment too
-            i = i + 1;
-        } else {
+        if (i <= 0) {
             // Keep this comment also
             return 0;
         }
-
-        return i;
+        return i + 1;
     }
 
     public int refactorIndentation(int i) {
@@ -101,10 +92,9 @@ public class ObsoleteReduceIndentationSample {
         if (i > 0) {
             // Keep this comment too
             return 0;
-        } else {
-            // Keep this comment also
-            return 1;
         }
+        // Keep this comment also
+        return 1;
     }
 
     public int refactorInTry(int i) {
@@ -113,10 +103,9 @@ public class ObsoleteReduceIndentationSample {
             if (i > 0) {
                 // Keep this comment too
                 return 1;
-            } else {
-                // Keep this comment also
-                return 2;
             }
+            // Keep this comment also
+            return 2;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -128,45 +117,42 @@ public class ObsoleteReduceIndentationSample {
         if (i > 0) {
             // Keep this comment too
             return 0;
-        } else {
-            // Keep this comment also
-            for (Integer integer : integers) {
-                System.out.println("Reading " + integer);
-            }
-            return 51;
         }
+        // Keep this comment also
+        for (Integer integer : integers) {
+            System.out.println("Reading " + integer);
+        }
+        return 51;
     }
 
     public int reduceIndentationFromIf(int i, List<Integer> integers) {
         // Keep this comment
-        if (i > 0) {
-            // Keep this comment too
-            for (Integer integer : integers) {
-                System.out.println("Reading " + integer);
-            }
-            return 0;
-        } else {
+        if (i <= 0) {
             // Keep this comment also
             return 51;
         }
+        // Keep this comment too
+        for (Integer integer : integers) {
+            System.out.println("Reading " + integer);
+        }
+        return 0;
     }
 
     public int reduceBigIndentationFromIf(int i, List<String> integers) {
         // Keep this comment
-        if (i > 0) {
-            // Keep this comment too
-            try {
-                for (String integer : integers) {
-                    System.out.println("Reading " + (Integer.parseInt(integer) + 100));
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return 0;
-        } else {
+        if (i <= 0) {
             // Keep this comment also
             return 51;
         }
+        // Keep this comment too
+        try {
+            for (String integer : integers) {
+                System.out.println("Reading " + (Integer.parseInt(integer) + 100));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     public int refactorElseIf(int i) {
@@ -174,13 +160,13 @@ public class ObsoleteReduceIndentationSample {
         if (i < 0) {
             // Keep this comment too
             return -1;
-        } else if (i > 0) {
+        }
+        if (i > 0) {
             // Keep this comment also
             return 1;
-        } else {
-            // Keep this comment again
-            return 0;
         }
+        // Keep this comment again
+        return 0;
     }
 
     public int refactorElseIf(int i, List<Integer> integers, boolean isVisible) {
@@ -195,38 +181,38 @@ public class ObsoleteReduceIndentationSample {
                 }
             }
             return 51;
-        } else if (i > 0) {
+        }
+        if (i > 0) {
             // Keep this comment also
             return 1;
-        } else {
-            // Keep this comment again
-            return 0;
         }
+        // Keep this comment again
+        return 0;
     }
 
     public int refactorThenInUnbrackettedForLoop(int[] integers) {
-        for (int integer : integers)
-            if (integer > 0) {
-                // Keep this comment too
-                integer = integer + 1;
-            } else {
+        for (int integer : integers) {
+            if (integer <= 0) {
                 // Keep this comment
                 return 0;
             }
+            // Keep this comment too
+            integer = integer + 1;
+        }
 
         return -1;
     }
 
     public int refactorElseInUnbrackettedForLoop(double[] reals) {
-        for (double real : reals)
+        for (double real : reals) {
             if (real > 0) {
                 // Keep this comment
                 return 0;
-            } else {
-                // Keep this comment too
-                real = real + 1;
-                System.out.println("New value: " + real);
             }
+            // Keep this comment too
+            real = real + 1;
+            System.out.println("New value: " + real);
+        }
 
         return -1;
     }
@@ -237,11 +223,10 @@ public class ObsoleteReduceIndentationSample {
             if (isVisible) {
                 // Keep this comment
                 return 0;
-            } else {
+            }
                 // Keep this comment too
                 discriminant = discriminant + 1;
                 System.out.println("New value: " + discriminant);
-            }
         }
 
         return -1;
@@ -252,11 +237,10 @@ public class ObsoleteReduceIndentationSample {
             if (isVisible) {
                 // Keep this comment
                 return 0;
-            } else {
-                // Keep this comment too
-                discriminant = discriminant + 1;
-                System.out.println("New value: " + discriminant);
             }
+            // Keep this comment too
+            discriminant = discriminant + 1;
+            System.out.println("New value: " + discriminant);
         } finally {
             System.out.println("Finally");
         }
@@ -271,11 +255,10 @@ public class ObsoleteReduceIndentationSample {
             if (isVisible) {
                 // Keep this comment
                 return 0;
-            } else {
-                // Keep this comment too
-                discriminant = discriminant + 1;
-                System.out.println("New value: " + discriminant);
             }
+            // Keep this comment too
+            discriminant = discriminant + 1;
+            System.out.println("New value: " + discriminant);
         }
 
         return -1;
@@ -288,11 +271,10 @@ public class ObsoleteReduceIndentationSample {
             if (isVisible) {
                 // Keep this comment
                 return 0;
-            } else {
-                // Keep this comment too
-                discriminant = discriminant + 1;
-                System.out.println("New value: " + discriminant);
             }
+            // Keep this comment too
+            discriminant = discriminant + 1;
+            System.out.println("New value: " + discriminant);
         }
 
         return -1;
@@ -318,13 +300,10 @@ public class ObsoleteReduceIndentationSample {
         if (i > 0) {
             // Keep this comment too
             return 0;
-        } else {
-            // Keep this comment also
-            int conflictingName = 123;
-            i = i + conflictingName;
         }
-
-        return i;
+        // Keep this comment also
+        int conflictingName = 123;
+        return i + conflictingName;
     }
 
     public int doNotRefactorWithNameConfusion(int i) {
@@ -361,12 +340,8 @@ public class ObsoleteReduceIndentationSample {
         if (i > 0) {
             // Keep this comment too
             throw new IllegalArgumentException("Positive argument");
-        } else {
-            // Keep this comment also
-            i = i + 1;
         }
-
-        return i;
+        return i + 1;
     }
 
     public void refactorWithContinue(List<Integer> integers) {
@@ -375,10 +350,9 @@ public class ObsoleteReduceIndentationSample {
             if (integer > 0) {
                 // Keep this comment too
                 continue;
-            } else {
-                // Keep this comment also
-                System.out.println(integer);
             }
+            // Keep this comment also
+            System.out.println(integer);
         }
     }
 
@@ -388,10 +362,9 @@ public class ObsoleteReduceIndentationSample {
             if (integer > 0) {
                 // Keep this comment too
                 break;
-            } else {
-                // Keep this comment also
-                System.out.println(integer);
             }
+            // Keep this comment also
+            System.out.println(integer);
         }
     }
 
@@ -399,7 +372,7 @@ public class ObsoleteReduceIndentationSample {
         // Keep this comment
         if (dates.isEmpty()) {
             return 0;
-        } else
-            return 1;
+        }
+        return 1;
     }
 }

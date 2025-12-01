@@ -25,11 +25,7 @@
  */
 package org.autorefactor.refactoring.rules.samples_in;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 public class AssignRatherThanTernaryFilterThenAssignAnywaySample {
     private final String DEFAULT = "";
@@ -84,9 +80,10 @@ public class AssignRatherThanTernaryFilterThenAssignAnywaySample {
 
     public String refactorLocalVariable5(String input, boolean isValid) {
         String output = null;
-        if (isValid)
+        if (isValid) {
             // Keep this comment
             output = (input != null) ? input : null;
+        }
         return output;
     }
 

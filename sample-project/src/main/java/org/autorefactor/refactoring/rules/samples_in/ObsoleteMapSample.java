@@ -32,53 +32,47 @@ import java.util.Map;
 public class ObsoleteMapSample {
     public void replaceNewNoArgsAssignmentThenPutAll(Map<String, String> map, Map<String, String> output) {
         // Keep this comment
-        output = new HashMap<String, String>();
-        output.putAll(map);
+        output = new HashMap<>(map);
     }
 
     public Map<String, String> replaceNewNoArgsThenPutAll(Map<String, String> map) {
         // Keep this comment
-        final Map<String, String> output = new HashMap<String, String>();
-        output.putAll(map);
+        final Map<String, String> output = new HashMap<>(map);
         return output;
     }
 
     public Map<String, String> replaceNew0ArgThenPutAll(Map<String, String> map) {
         // Keep this comment
-        final Map<String, String> output = new HashMap<String, String>(0);
-        output.putAll(map);
+        final Map<String, String> output = new HashMap<>(map);
         return output;
     }
 
     public Map<String, String> replaceNew1ArgThenPutAll(Map<String, String> map) {
         // Keep this comment
-        final Map<String, String> output = new HashMap<String, String>(0);
-        output.putAll(map);
+        final Map<String, String> output = new HashMap<>(map);
         return output;
     }
 
     public Map<String, String> replaceNewMapSizeThenPutAll(Map<String, String> map) {
         // Keep this comment
-        final Map<String, String> output = new HashMap<String, String>(map.size());
-        output.putAll(map);
+        final Map<String, String> output = new HashMap<>(map);
         return output;
     }
 
     public Map<String, String> replaceWithSizeOfSubMap(List<Map<String, String>> listOfMap) {
         // Keep this comment
-        final Map<String, String> output = new HashMap<String, String>(listOfMap.get(0).size());
-        output.putAll(listOfMap.get(0));
+        final Map<String, String> output = new HashMap<>(listOfMap.get(0));
         return output;
     }
 
     public Map<String, String> doNotReplaceAlreadyInitedMap(Map<String, String> map1, Map<String, String> map2) {
-        final Map<String, String> output = new HashMap<String, String>(map1);
+        final Map<String, String> output = new HashMap<>(map1);
         output.putAll(map2);
         return output;
     }
 
     public Map<String, String> doNotReplaceWithSpecificSize(Map<String, String> map) {
-        final Map<String, String> output = new HashMap<String, String>(10);
+        final Map<String, String> output = new HashMap<>(10);
         output.putAll(map);
         return output;
     }
@@ -90,7 +84,7 @@ public class ObsoleteMapSample {
     }
 
     public Map<String, String> doNotReplaceAnonymousMap(Map<String, String> map) {
-        final Map<String, String> output = new HashMap<String, String>() {
+        final Map<String, String> output = new HashMap<>() {
             private static final long serialVersionUID= 1L;
 
             @Override

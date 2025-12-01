@@ -34,7 +34,7 @@ public class ElseRatherThanNegatedConditionSample {
         // Keep this comment
         if (isActive && isEnabled) {
             i = 0;
-        } else if (!isEnabled || !isActive) {
+        } else {
             i = 1;
         }
 
@@ -46,10 +46,8 @@ public class ElseRatherThanNegatedConditionSample {
         // Keep this comment
         if (i1 < i2) {
             i = 0;
-        } else if (i2 <= i1) {
-            i = 1;
         } else {
-            i = 2;
+            i = 1;
         }
 
         return i;
@@ -62,7 +60,7 @@ public class ElseRatherThanNegatedConditionSample {
             i = -1;
         } else if (i1 < i2 + 1) {
             i = 0;
-        } else if (1 + i2 <= i1) {
+        } else {
             i = 1;
         }
 
@@ -75,7 +73,7 @@ public class ElseRatherThanNegatedConditionSample {
             // Keep this comment
             if (b1 && b2) {
                 i = 0;
-            } else if (!b2 || !b1) {
+            } else {
                 throw new IOException();
             }
         } catch (IOException e) {
@@ -91,10 +89,8 @@ public class ElseRatherThanNegatedConditionSample {
             // Keep this comment
             if (b1 && b2) {
                 i = 0;
-            } else if (!b2 || !b1) {
-                i = 1;
             } else {
-                throw new NullPointerException();
+                i = 1;
             }
         } finally {
             System.out.println("I should be reachable");
@@ -107,9 +103,9 @@ public class ElseRatherThanNegatedConditionSample {
         if (number > 123) {
             System.out.println("Do something");
             return;
-        } else if (number <= 123) {
+        }
+        if (number <= 123) {
             System.out.println("Do something else");
-            return;
         }
     }
 
@@ -166,7 +162,8 @@ public class ElseRatherThanNegatedConditionSample {
     public int doNotRefactorFallThroughBlocks(boolean b1, boolean b2) {
         if (b1 && b2) {
             return 0;
-        } else if (!b2 || !b1) {
+        }
+        if (!b2 || !b1) {
             return 1;
         }
 
@@ -177,7 +174,8 @@ public class ElseRatherThanNegatedConditionSample {
         {
             if (b1 && b2) {
                 return 0;
-            } else if (!b2 || !b1) {
+            }
+            if (!b2 || !b1) {
                 return 1;
             }
         }

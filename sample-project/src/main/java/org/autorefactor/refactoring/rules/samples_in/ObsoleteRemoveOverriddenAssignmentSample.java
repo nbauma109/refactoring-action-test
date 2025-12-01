@@ -32,36 +32,31 @@ public class ObsoleteRemoveOverriddenAssignmentSample {
     public boolean removeUselessInitialization() {
         // Keep this comment
         boolean reassignedVar = true;
-        reassignedVar = "\n".equals(System.lineSeparator());
-        return reassignedVar;
+        return "\n".equals(System.lineSeparator());
     }
 
     public long removeInitForLong() {
         // Keep this comment
         long reassignedVar = 0;
-        reassignedVar = System.currentTimeMillis();
-        return reassignedVar;
+        return System.currentTimeMillis();
     }
 
     public String removeInitForString() {
         // Keep this comment
         String reassignedVar = "";
-        reassignedVar = System.lineSeparator();
-        return reassignedVar;
+        return System.lineSeparator();
     }
 
     public long doNotRemoveWithPlusAssignment() {
         long incrementedVar = 123;
         incrementedVar += 456;
-        incrementedVar = 789;
-        return incrementedVar;
+        return 789;
     }
 
     public long doNotRemoveWithMinusAssignment() {
         long decrementedVar = 123;
         decrementedVar -= 456;
-        decrementedVar = 789;
-        return decrementedVar;
+        return 789;
     }
 
     public List<String> doNotRemoveActiveInit() {
@@ -73,15 +68,13 @@ public class ObsoleteRemoveOverriddenAssignmentSample {
     }
 
     public String doNotRemoveInitWithoutOverriding() {
-        String usedVar = "";
-        return usedVar;
+        return "";
     }
 
     public String doNotRemoveInitWithUse() {
         String usedVar = "";
         System.out.println(usedVar);
-        usedVar = System.lineSeparator();
-        return usedVar;
+        return System.lineSeparator();
     }
 
     public String doNotRemoveInitWithUseInIf() {
@@ -89,28 +82,24 @@ public class ObsoleteRemoveOverriddenAssignmentSample {
         if ("\n".equals(System.lineSeparator())) {
             System.out.println(usedVar);
         }
-        usedVar = System.lineSeparator();
-        return usedVar;
+        return System.lineSeparator();
     }
 
     public String doNotRemoveInitWithCall() {
         String usedVar = "";
         usedVar.length();
-        usedVar = System.lineSeparator();
-        return usedVar;
+        return System.lineSeparator();
     }
 
     public char[] doNotRemoveInitWithIndex() {
-        char[] usedVar = new char[] {'a', 'b', 'c'};
+        char[] usedVar = {'a', 'b', 'c'};
         char oneChar = usedVar[1];
-        usedVar = new char[] {'d', 'e', 'f'};
-        return usedVar;
+        return new char[] {'d', 'e', 'f'};
     }
 
     public byte doNotRemoveInitWhenUsed() {
         byte usedVar = 0;
-        usedVar = usedVar++;
-        return usedVar;
+        return usedVar++;
     }
 
     public String doNotRemoveInitWhenOverriddenInIf() {
@@ -123,8 +112,7 @@ public class ObsoleteRemoveOverriddenAssignmentSample {
 
     public boolean doNotRemoveActiveInitialization(List<String> aList) {
         boolean reassignedActiveVar = aList.remove("foo");
-        reassignedActiveVar = "\n".equals(System.lineSeparator());
-        return reassignedActiveVar;
+        return "\n".equals(System.lineSeparator());
     }
 
     public int doNotRemoveInitializationWithIncrement(int i) {
@@ -142,7 +130,6 @@ public class ObsoleteRemoveOverriddenAssignmentSample {
     public boolean removePassiveInitialization(int i) {
         // Keep this comment
         boolean reassignedPassiveVar = i > 0;
-        reassignedPassiveVar = "\n".equals(System.lineSeparator());
-        return reassignedPassiveVar;
+        return "\n".equals(System.lineSeparator());
     }
 }

@@ -35,19 +35,17 @@ import java.io.InputStream;
  * Keep the JavaDoc.
  */
 @Deprecated
-abstract public interface ObsoleteRedundantModifiersSample {
+public interface ObsoleteRedundantModifiersSample {
     /**
      * Keep the JavaDoc.
      */
-    @Deprecated
-    abstract interface RemoveAbstractModifier {
+    @Deprecated interface RemoveAbstractModifier {
     }
 
-    @Deprecated
-    static interface RemoveStaticModifier {
+    @Deprecated interface RemoveStaticModifier {
     }
 
-    abstract public interface RefactorUnorderedSubInterface {
+    public interface RefactorUnorderedSubInterface {
     }
 
     @Deprecated
@@ -62,9 +60,9 @@ abstract public interface ObsoleteRedundantModifiersSample {
     abstract @interface DoNotRefactorAnnotation {
     }
 
-    public static final String MY_FIELD = "";
+    String MY_FIELD = "";
 
-    abstract public void removeAbstractAndPublicModifier(final String removeFinalModifier);
+    void removeAbstractAndPublicModifier(final String removeFinalModifier);
 
     abstract static public class FixModifierOrderSampleClass implements Closeable {
 
@@ -98,17 +96,17 @@ abstract public interface ObsoleteRedundantModifiersSample {
     }
 
     class Sample {
-        private static final void refactorIt(){};
-        private final void refactorIt2(){};
+        private static final void refactorIt(){}
+        private final void refactorIt2(){}
 
-        final void doNotRefactor(){};
-        private void doNotRefactor2(){};
+        final void doNotRefactor(){}
+        private void doNotRefactor2(){}
     }
 
-    static public enum RemoveStaticSampleEnum {
+    public enum RemoveStaticSampleEnum {
         VALUE1("1"), VALUE2("2");
 
-        private RemoveStaticSampleEnum(String string) {
+        RemoveStaticSampleEnum(String string) {
         }
     }
 
@@ -123,10 +121,11 @@ abstract public interface ObsoleteRedundantModifiersSample {
 
         protected void doIt(){}
 
-        protected final void doItThisWay(){}
+        protected void doItThisWay(){}
     }
 
     final class InheritedClass<E> extends javax.swing.JComboBox<E> {
+        private static final long serialVersionUID = 1L;
         protected String refactorThisField = "someStr";
 
         protected InheritedClass(boolean isActive) {}

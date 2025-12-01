@@ -28,16 +28,14 @@ package org.autorefactor.refactoring.rules.samples_in;
 public class ObsoleteRemoveUnnecessaryLocalBeforeReturnSample {
     private int i;
 
-    private double[] arrayField = new double[] { 42.42 };
+    private double[] arrayField = { 42.42 };
 
     public int inlineLocalVariableDeclaration() {
-        int i = 0;
-        return i;
+        return 0;
     }
 
     public int inlineLocalVariableAssignment(int i) {
-        i = 0;
-        return i;
+        return 0;
     }
 
     /**
@@ -47,84 +45,69 @@ public class ObsoleteRemoveUnnecessaryLocalBeforeReturnSample {
      * <p>
      */
     public String[] inlineStringArrayConstants() {
-        String[] array = { "test" };
-        return array;
+        return new String[] { "test" };
     }
 
     public String[][] inlineStringArray2Constants() {
-        String[][] array = { { "test" } };
-        return array;
+        return new String[][] { { "test" } };
     }
-    
+
     public String[] inlineCStyleStringArrayConstants() {
-        String array[] = { "test" };
-        return array;
+        return new String[] { "test" };
     }
 
     public String[][] inlineCStyleStringArray2Constants() {
-        String array[][] = { { "test" } };
-        return array;
+        return new String[][] { { "test" } };
     }
-    
+
     public String[][] inlineMixedStyleStringArrayConstantsNotSupportedYet() {
         String[] array[] = { { "mixtest" } };
         return array;
     }
-    
+
     public boolean[] inlineBooleanArrayConstants() {
-        boolean[] array = { true };
-        return array;
+        return new boolean[] { true };
     }
 
     public char[] inlineCharArrayConstants() {
-        char[] array = { 'a' };
-        return array;
+        return new char[] { 'a' };
     }
 
     public byte[] inlineByteArrayConstants() {
-        byte[] array = { 42 };
-        return array;
+        return new byte[] { 42 };
     }
 
     public short[] inlineShortArrayConstants() {
-        short[] array = { 42 };
-        return array;
+        return new short[] { 42 };
     }
 
     public int[] inlineIntArrayConstants() {
-        int[] array = { 42 };
-        return array;
+        return new int[] { 42 };
     }
 
     public long[] inlineLongArrayConstants() {
-        long[] array = { 42 };
-        return array;
+        return new long[] { 42 };
     }
 
     public float[] inlineFloatArrayConstants() {
-        float[] array = { 42.42f };
-        return array;
+        return new float[] { 42.42f };
     }
 
     public double[] inlineDoubleArrayConstants() {
-        double[] array = { 42.42 };
-        return array;
+        return new double[] { 42.42 };
     }
 
     public double[] inlineDoubleArrayCreation() {
-        double[] array = new double[] { 42.42 };
-        return array;
+        return new double[] { 42.42 };
     }
 
     public double[] inlineDoubleArrayVariableDeclaration() {
-        double[] array = arrayField;
-        return array;
+        return arrayField;
     }
 
     public double[] inlineDoubleArrayAssignment() {
         double[] array = null;
-        array = arrayField;
-        return array;
+        return arrayField;
     }
 
     public int notInlineFieldAssignment1() {
@@ -138,28 +121,23 @@ public class ObsoleteRemoveUnnecessaryLocalBeforeReturnSample {
     }
 
     public Throwable[] inlineStatementWithEmptyArray() {
-        Throwable[] t = {};
-        return t;
+        return new Throwable[] {};
     }
 
     public Throwable[] inlineExpressionWithEmptyArray(Throwable[] t) {
-        t = new Throwable[] {};
-        return t;
+        return new Throwable[] {};
     }
 
     public char[] refactorMethodCall(String s) {
-        char[] res = s.toCharArray();
-        return res;
+        return s.toCharArray();
     }
 
     public int inlineSeveralReturns(int i1, int i2) {
         if (i1 == 0) {
             i1 = 10;
             return i1;
-        } else {
-            i2 = 11;
-            return i2;
         }
+        return 11;
     }
 
     public int doNotInlineVariableInFinally() {
@@ -187,8 +165,7 @@ public class ObsoleteRemoveUnnecessaryLocalBeforeReturnSample {
     public int inlineUnusedVariableInFinally() {
         int i = 0;
         try {
-            i = 1;
-            return i;
+            return 1;
         } finally {
             System.out.println("Finished");
         }

@@ -48,13 +48,13 @@ public class RemoveFieldsDefaultValuesSample {
     private char c1 = 0, c2 = '\u0000';
     private short sh = 0;
     private int i = 0;
-    private long l1 = 0, l2 = 0l, l3 = 0L;
+    private long l1 = 0, l2 = 0L, l3 = 0L;
     private float f1 = 0, f2 = 0f, f3 = 0F, f4 = 0.0f;
     private double d1 = 0, d2 = 0.0;
-    private Predicate<String> doNotRemoveLambdaExpression = x -> "foo".equals(x);
+    private Predicate<String> doNotRemoveLambdaExpression = "foo"::equals;
 
     public Iterable<String> getIterable() {
-        return new Iterable<String>() {
+        return new Iterable<>() {
             private Collection<String> aField = null;
 
             @Override

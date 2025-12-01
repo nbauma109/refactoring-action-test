@@ -32,18 +32,18 @@ import java.util.Map;
 public class MethodOnMapRatherThanMethodOnKeySetSample {
     public int replaceUnnecesaryCallsToMapKeySet(Map<String, String> map) {
         // Keep this comment
-        int x = map.keySet().size();
-        if (map.keySet().contains("hello")) {
-            map.keySet().remove("hello");
+        int x = map.size();
+        if (map.containsKey("hello")) {
+            map.remove("hello");
         }
         if (map.keySet().remove("world")) {
             // Cannot replace, because `map.removeKey("world") != null` is not strictly equivalent
             System.out.println(map);
         }
         // Keep this comment also
-        map.keySet().clear();
+        map.clear();
         // Keep this comment too
-        if (map.keySet().isEmpty()) {
+        if (map.isEmpty()) {
             x++;
         }
         return x;

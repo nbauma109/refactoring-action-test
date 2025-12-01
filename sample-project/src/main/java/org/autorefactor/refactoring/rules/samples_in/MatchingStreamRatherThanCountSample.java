@@ -26,13 +26,10 @@
  */
 package org.autorefactor.refactoring.rules.samples_in;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 import java.util.Spliterator;
 import java.util.function.BiConsumer;
@@ -151,19 +148,19 @@ public class MatchingStreamRatherThanCountSample {
 
     public void replaceChecksOnSizeWithBody(DoubleStream stream) {
         // Keep this comment
-        System.out.println(stream.filter(i -> {return i > 0;}).count() > 0);
-        System.out.println(stream.filter(i -> {return i > 0;}).count() == 0);
-        System.out.println(stream.filter(i -> {return i > 0;}).count() != 0);
-        System.out.println(stream.filter(i -> {return i > 0;}).count() <= 0);
-        System.out.println(stream.filter(i -> {return i > 0;}).count() < 1);
-        System.out.println(stream.filter(i -> {return i > 0;}).count() >= 1);
+        System.out.println(stream.filter(i -> (i > 0)).count() > 0);
+        System.out.println(stream.filter(i -> (i > 0)).count() == 0);
+        System.out.println(stream.filter(i -> (i > 0)).count() != 0);
+        System.out.println(stream.filter(i -> (i > 0)).count() <= 0);
+        System.out.println(stream.filter(i -> (i > 0)).count() < 1);
+        System.out.println(stream.filter(i -> (i > 0)).count() >= 1);
 
-        System.out.println(0 < stream.filter(i -> {return i > 0;}).count());
-        System.out.println(0 == stream.filter(i -> {return i > 0;}).count());
-        System.out.println(0 != stream.filter(i -> {return i > 0;}).count());
-        System.out.println(0 >= stream.filter(i -> {return i > 0;}).count());
-        System.out.println(1 > stream.filter(i -> {return i > 0;}).count());
-        System.out.println(1 <= stream.filter(i -> {return i > 0;}).count());
+        System.out.println(0 < stream.filter(i -> (i > 0)).count());
+        System.out.println(0 == stream.filter(i -> (i > 0)).count());
+        System.out.println(0 != stream.filter(i -> (i > 0)).count());
+        System.out.println(0 >= stream.filter(i -> (i > 0)).count());
+        System.out.println(1 > stream.filter(i -> (i > 0)).count());
+        System.out.println(1 <= stream.filter(i -> (i > 0)).count());
     }
 
     public void doNotRefactorOnOtherOptionalMethods(Stream<Integer> stream) {
@@ -201,21 +198,21 @@ public class MatchingStreamRatherThanCountSample {
     }
 
     public void doNotRefactorChecksOtherThanEmptinessWithBody(DoubleStream stream) {
-        System.out.println(stream.filter(i -> {return i > 0;}).count() >= 0);
-        System.out.println(stream.filter(i -> {return i > 0;}).count() < 0);
-        System.out.println(stream.filter(i -> {return i > 0;}).count() == 1);
-        System.out.println(stream.filter(i -> {return i > 0;}).count() != 1);
-        System.out.println(stream.filter(i -> {return i > 0;}).count() > 1);
-        System.out.println(stream.filter(i -> {return i > 0;}).count() <= 1);
-        System.out.println(stream.filter(i -> {return i > 0;}).count() >= 2);
+        System.out.println(stream.filter(i -> (i > 0)).count() >= 0);
+        System.out.println(stream.filter(i -> (i > 0)).count() < 0);
+        System.out.println(stream.filter(i -> (i > 0)).count() == 1);
+        System.out.println(stream.filter(i -> (i > 0)).count() != 1);
+        System.out.println(stream.filter(i -> (i > 0)).count() > 1);
+        System.out.println(stream.filter(i -> (i > 0)).count() <= 1);
+        System.out.println(stream.filter(i -> (i > 0)).count() >= 2);
 
-        System.out.println(0 <= stream.filter(i -> {return i > 0;}).count());
-        System.out.println(0 > stream.filter(i -> {return i > 0;}).count());
-        System.out.println(1 == stream.filter(i -> {return i > 0;}).count());
-        System.out.println(1 != stream.filter(i -> {return i > 0;}).count());
-        System.out.println(1 < stream.filter(i -> {return i > 0;}).count());
-        System.out.println(1 >= stream.filter(i -> {return i > 0;}).count());
-        System.out.println(2 <= stream.filter(i -> {return i > 0;}).count());
+        System.out.println(0 <= stream.filter(i -> (i > 0)).count());
+        System.out.println(0 > stream.filter(i -> (i > 0)).count());
+        System.out.println(1 == stream.filter(i -> (i > 0)).count());
+        System.out.println(1 != stream.filter(i -> (i > 0)).count());
+        System.out.println(1 < stream.filter(i -> (i > 0)).count());
+        System.out.println(1 >= stream.filter(i -> (i > 0)).count());
+        System.out.println(2 <= stream.filter(i -> (i > 0)).count());
     }
 
     public boolean doNotRefactorActiveChecks(LongStream stream, List<Long> numbers) {

@@ -39,108 +39,100 @@ public class ArrayListRatherThanLinkedListSample {
         // Keep this comment
         boolean isFooContained = new LinkedList<String>().contains("foo");
         // Keep this comment too
-        int size = new LinkedList<String>(new java.util.ArrayList<String>()).size();
+        int size = new LinkedList<>(new java.util.ArrayList<>()).size();
     }
 
     public void replaceRawLinkedList() {
         // Keep this comment
         String[] objectArray = new LinkedList<Integer>().toArray(new String[0]);
         // Keep this comment too
-        int size = new LinkedList(new java.util.ArrayList<String>()).size();
+        int size = new LinkedList(new java.util.ArrayList<>()).size();
     }
 
     public void replaceFullyQualifiedLinkedList() {
         // Keep this comment
         boolean isFooContained = new java.util.LinkedList<Date>().contains("foo");
         // Keep this comment too
-        int size = new java.util.LinkedList(new java.util.ArrayList<String>()).size();
+        int size = new java.util.LinkedList(new java.util.ArrayList<>()).size();
     }
 
     public void replaceLinkedListVariableDeclaration() {
         // Keep this comment
-        LinkedList<LinkedList<String>> list = new LinkedList<LinkedList<String>>();
+        LinkedList<LinkedList<String>> list = new LinkedList<>();
     }
 
     public void replaceInterface() {
         // Keep this comment
-        List<String> list = new LinkedList<String>();
+        List<String> list = new LinkedList<>();
     }
 
     public void replaceLinkedListVariableUse() {
         // Keep this comment
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         // Keep this comment too
         list.add("bar");
     }
 
     public void refactorListVariableUse() {
         // Keep this comment
-        List<String> list = new LinkedList<String>();
+        List<String> list = new LinkedList<>();
         // Keep this comment too
         list.add("bar");
     }
 
     public void refactorWithMethod() {
         // Keep this comment
-        LinkedList<Observable> list = new LinkedList<Observable>();
+        LinkedList<Observable> list = new LinkedList<>();
         // Keep this comment too
         list.toArray();
     }
 
     public void refactorListWithMethod() {
         // Keep this comment
-        List<Observable> list = new LinkedList<Observable>();
+        List<Observable> list = new LinkedList<>();
         // Keep this comment too
         list.toArray();
     }
 
     public String replaceLinkedListWithLoop(List<Date> dates) {
         // Keep this comment
-        LinkedList<Date> list = new LinkedList<Date>();
-        for (Date date : dates) {
-            list.add(date);
-        }
-
+        LinkedList<Date> list = new LinkedList<>(dates);
         return list.toString();
     }
 
     public String refactorListWithLoop(List<boolean[][]> flags) {
         // Keep this comment
-        List<boolean[][]> list = new LinkedList<boolean[][]>();
-        for (boolean[][] flag : flags) {
-            list.add(flag);
-        }
-
+        List<boolean[][]> list = new LinkedList<>(flags);
         return list.toString();
     }
 
     public void replaceLinkedListWithModifier() {
         // Keep this comment
-        final LinkedList<String> list = new LinkedList<String>();
+        final LinkedList<String> list = new LinkedList<>();
         list.add("bar");
     }
 
     public void refactorListWithModifier() {
         // Keep this comment
-        final List<String> list = new LinkedList<String>();
+        final List<String> list = new LinkedList<>();
         list.add("bar");
     }
 
     public void replaceLinkedListWithParameter() {
         // Keep this comment
-        LinkedList<String> list = new LinkedList<String>(new java.util.ArrayList<String>());
+        LinkedList<String> list = new LinkedList<>(new java.util.ArrayList<>());
         list.add("bar");
     }
 
     public void refactorListWithParameter() {
         // Keep this comment
-        List<String> list = new LinkedList<String>(new java.util.ArrayList<String>());
+        List<String> list = new LinkedList<>(new java.util.ArrayList<>());
         list.add("bar");
     }
 
     public boolean replaceReassignedLinkedList() {
         // Keep this comment
-        LinkedList<String> list1 = new LinkedList<String>();
+        LinkedList<String> list1 = new LinkedList<>();
         list1.add("FOO");
 
         // Keep this comment too
@@ -152,7 +144,7 @@ public class ArrayListRatherThanLinkedListSample {
 
     public boolean replaceReassignedList() {
         // Keep this comment
-        LinkedList<String> list1 = new LinkedList<String>();
+        LinkedList<String> list1 = new LinkedList<>();
         list1.add("FOO");
 
         // Keep this comment too
@@ -163,7 +155,7 @@ public class ArrayListRatherThanLinkedListSample {
     }
 
     public boolean doNotReplaceMultipleAssignment(LinkedList<String> list3) {
-        LinkedList<String> list1 = new LinkedList<String>();
+        LinkedList<String> list1 = new LinkedList<>();
         list1.add("FOO");
 
         LinkedList<String> list2 = list1, list4 = list3;
@@ -178,171 +170,171 @@ public class ArrayListRatherThanLinkedListSample {
     }
 
     public void doNotReplaceLinkedListPassedToAMethod() {
-        String text = String.valueOf(new LinkedList<String>());
+        String text = String.valueOf(new LinkedList<>());
     }
 
     public LinkedList<Date> doNotReplaceReturnedLinkedList() {
-        return new LinkedList<Date>();
+        return new LinkedList<>();
     }
 
     public void doNotReplaceReassignedVariable() {
-        LinkedList<String> list = new LinkedList<String>();
-        list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
+        list = new LinkedList<>();
     }
 
     public void doNotReplaceAdd(int index, String element) {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         list.add(index, element);
     }
 
     public boolean doNotReplaceAddAll(int index, Collection<String> c) {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         return list.addAll(index, c);
     }
 
     public void doNotReplaceAddFirst(String e) {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         list.addFirst(e);
     }
 
     public void doNotReplaceAddLast(String e) {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         list.addLast(e);
     }
 
     public Iterator<String> doNotReplaceDescendingIterator() {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         return list.descendingIterator();
     }
 
     public String doNotReplaceElement() {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         return list.element();
     }
 
     public String doNotReplaceGetFirst() {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         return list.getFirst();
     }
 
     public String doNotReplaceGetLast() {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         return list.getLast();
     }
 
     public ListIterator<String> doNotReplaceListIterator(int index) {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         return list.listIterator(index);
     }
 
     public boolean doNotReplaceOffer(String e) {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         return list.offer(e);
     }
 
     public boolean doNotReplaceOfferFirst(String e) {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         return list.offerFirst(e);
     }
 
     public boolean doNotReplaceOfferLast(String e) {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         return list.offerLast(e);
     }
 
     public String doNotReplacePeek() {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         return list.peek();
     }
 
     public String doNotReplacePeekFirst() {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         return list.peekFirst();
     }
 
     public String doNotReplacePeekLast() {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         return list.peekLast();
     }
 
     public String doNotReplacePoll() {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         return list.poll();
     }
 
     public String doNotReplacePollFirst() {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         return list.pollFirst();
     }
 
     public long[][] doNotReplacePollLast() {
-        LinkedList<long[][]> list = new LinkedList<long[][]>();
+        LinkedList<long[][]> list = new LinkedList<>();
         return list.pollLast();
     }
 
     public String doNotReplacePop() {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         return list.pop();
     }
 
     public void doNotReplacePush(String e) {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         list.push(e);
     }
 
     public String doNotReplaceRemove() {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         return list.remove();
     }
 
     public String doNotReplaceRemove(int index) {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         return list.remove(index);
     }
 
     public boolean doNotReplaceRemove(Object o) {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         return list.remove(o);
     }
 
     public String doNotReplaceRemoveFirst() {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         return list.removeFirst();
     }
 
     public boolean doNotReplaceRemoveFirstOccurrence(Object o) {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         return list.removeFirstOccurrence(o);
     }
 
     public String doNotReplaceRemoveLast() {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         return list.removeLast();
     }
 
     public boolean doNotReplaceRemoveLastOccurrence(Object o) {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         return list.removeLastOccurrence(o);
     }
 
     public String doNotReplaceSet(int index, String element) {
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         return list.set(index, element);
     }
 
     public String doNotReplaceSetOnList(int index, String element) {
-        List<String> list = new LinkedList<String>();
+        List<String> list = new LinkedList<>();
         return list.set(index, element);
     }
 
     public void replaceLinkedListWithRunnable() {
         // Keep this comment
-        final LinkedList<String> list = new LinkedList<String>();
+        final LinkedList<String> list = new LinkedList<>();
         new Runnable() {
 
             @Override
             public void run() {
-                final LinkedList<String> localList = new LinkedList<String>();
+                final LinkedList<String> localList = new LinkedList<>();
                 localList.add("foo");
             }
         };
@@ -350,23 +342,23 @@ public class ArrayListRatherThanLinkedListSample {
 
     public void replaceListWithRunnable() {
         // Keep this comment
-        final List<String> list = new LinkedList<String>();
+        final List<String> list = new LinkedList<>();
         new Runnable() {
 
             @Override
             public void run() {
-                final List<String> localList = new LinkedList<String>();
+                final List<String> localList = new LinkedList<>();
                 localList.add("foo");
             }
         };
     }
 
     public void doNotReplaceField() {
-        Comparator<String> c = new Comparator<String>() {
+        Comparator<String> c = new Comparator<>() {
 
             private boolean doNotRefactorTheExpression = new LinkedList<String>().contains("foo");
 
-            private LinkedList<String> doNotReplaceField = new LinkedList<String>();
+            private LinkedList<String> doNotReplaceField = new LinkedList<>();
 
             @Override
             public int compare(String arg0, String arg1) {

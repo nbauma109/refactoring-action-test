@@ -32,10 +32,8 @@ public class ObsoleteTryWithResourceSample {
         // Keep this comment
         final FileInputStream inputStream = new FileInputStream("out.txt");
         // Keep this comment too
-        try {
+        try (inputStream) {
             System.out.println(inputStream.read());
-        } finally {
-            inputStream.close();
         }
     }
 
@@ -43,50 +41,34 @@ public class ObsoleteTryWithResourceSample {
         // Keep this comment
         final FileInputStream inputStream = new FileInputStream("out.txt");
         // Keep this comment too
-        try {
+        try (inputStream) {
             System.out.println(inputStream.read());
         } finally {
-            inputStream.close();
             System.out.println("Done");
         }
     }
 
     public void refactorNullInitializedResourceRemoveFinally() throws Exception {
         // Keep this comment
-        FileInputStream inputStream = null;
         // Keep this comment too
-        try {
-            inputStream = new FileInputStream("out.txt");
+        try (FileInputStream inputStream = new FileInputStream("out.txt")) {
             System.out.println(inputStream.read());
-        } finally {
-            if (inputStream != null) {
-                inputStream.close();
-            }
         }
     }
 
     public void refactorNullInitializedResourceDoNotRemoveFinally() throws Exception {
         // Keep this comment
-        FileInputStream inputStream = null;
         // Keep this comment too
-        try {
-            inputStream = new FileInputStream("out.txt");
+        try (FileInputStream inputStream = new FileInputStream("out.txt")) {
             System.out.println(inputStream.read());
         } finally {
-            if (inputStream != null) {
-                inputStream.close();
-            }
             System.out.println("Done");
         }
     }
 
     public void doNotRefactorNonEffectivelyFinalResource() throws Exception {
-        FileInputStream inputStream = null;
-        try {
-            inputStream = new FileInputStream("out.txt");
+        try (FileInputStream inputStream = new FileInputStream("out.txt")) {
             System.out.println(inputStream.read());
-        } finally {
-            inputStream.close();
         }
     }
 

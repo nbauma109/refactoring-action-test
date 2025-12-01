@@ -27,58 +27,50 @@ package org.autorefactor.refactoring.rules.samples_in;
 
 public class ObsoleteDoubleCompareRatherThanEqualitySample {
     public boolean rewriteThoseprimitiveDoubleComparisons(double primitiveDouble1, double primitiveDouble2) {
-        boolean b;
+        
 
         // Keep this comment
-        b = primitiveDouble1 == primitiveDouble2;
+        boolean b = primitiveDouble1 == primitiveDouble2;
         b = primitiveDouble1 != primitiveDouble2;
         b = primitiveDouble1 < primitiveDouble2;
         b = primitiveDouble1 > primitiveDouble2;
         b = primitiveDouble1 <= primitiveDouble2;
-        b = primitiveDouble1 >= primitiveDouble2;
-
-        return b;
+        return primitiveDouble1 >= primitiveDouble2;
     }
 
     public boolean rewriteThoseObjectDoubleComparisons(Double objectDouble1, Double objectDouble2) {
-        boolean b;
+        
 
         // Keep this comment
-        b = objectDouble1 == objectDouble2;
+        boolean b = objectDouble1 == objectDouble2;
         b = objectDouble1 != objectDouble2;
         b = objectDouble1 < objectDouble2;
         b = objectDouble1 > objectDouble2;
         b = objectDouble1 <= objectDouble2;
-        b = objectDouble1 >= objectDouble2;
-
-        return b;
+        return objectDouble1 >= objectDouble2;
     }
 
     public boolean rewriteThoseDoubleComparisons(double primitiveDouble, Double objectDouble) {
-        boolean b;
+        
 
         // Keep this comment
-        b = primitiveDouble == objectDouble;
+        boolean b = primitiveDouble == objectDouble;
         b = primitiveDouble != objectDouble;
         b = primitiveDouble < objectDouble;
         b = primitiveDouble > objectDouble;
         b = primitiveDouble <= objectDouble;
-        b = primitiveDouble >= objectDouble;
-
-        return b;
+        return primitiveDouble >= objectDouble;
     }
 
     public boolean rewriteThoseExpression(double primitiveDouble, Double objectDouble) {
-        boolean b;
+        
 
         // Keep this comment
-        b = primitiveDouble == objectDouble * 2;
+        boolean b = primitiveDouble == objectDouble * 2;
         b = primitiveDouble != objectDouble * 2;
         b = primitiveDouble < objectDouble * 2;
         b = primitiveDouble > objectDouble * 2;
         b = primitiveDouble <= objectDouble * 2;
-        b = primitiveDouble >= objectDouble * 2;
-
-        return b;
+        return primitiveDouble >= objectDouble * 2;
     }
 }

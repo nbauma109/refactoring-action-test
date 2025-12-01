@@ -37,45 +37,39 @@ import java.util.TreeSet;
 
 public class ObsoleteUseDiamondOperatorSample {
     public List<String> refactorVariableDeclarationStatement() {
-        // Keep this comment
-        List<String> l = new ArrayList<String>();
-        return l;
+        return new ArrayList<>();
     }
 
     public List<String> refactorVariableDeclarationStatementWithParentheses() {
-        // Keep this comment
-        List<String> l = ((new ArrayList<String>()));
-        return l;
+        return ((new ArrayList<>()));
     }
 
     public List<String> refactorAssignment() {
         List<String> l;
-        // Keep this comment
-        l = new ArrayList<String>();
-        return l;
+        return new ArrayList<>();
     }
 
     public List<String> refactorReturnStatement() {
         // Keep this comment
-        return new ArrayList<String>();
+        return new ArrayList<>();
     }
 
     public List<String> refactorReturnStatementWithParameter(List<String> l) {
         // Keep this comment
-        return new ArrayList<String>(l);
+        return new ArrayList<>(l);
     }
 
     public Map<String, String> refactorReturnStatementWithParameter(Map<String, String> l) {
         // Keep this comment
-        return new HashMap<String, String>(l);
+        return new HashMap<>(l);
     }
 
     public List<Object> doNotRefactorChangeOfType(List<String> col) {
-        return new ArrayList<Object>(col);
+        return new ArrayList<>(col);
     }
 
     public Map<String, Object> doNotRefactorChangeOfType(Map<String, String> col) {
-        return new HashMap<String, Object>(col);
+        return new HashMap<>(col);
     }
 
     /**
@@ -92,7 +86,7 @@ public class ObsoleteUseDiamondOperatorSample {
      * When Should Diamond Be Used?</a>
      */
     public void refactorMethodArgumentInferToObject() {
-        List<Object> list3 = Collections.synchronizedList(new ArrayList<Object>()); // FIXME refactor
+        List<Object> list3 = Collections.synchronizedList(new ArrayList<>()); // FIXME refactor
         System.out.println(list3);
     }
 
@@ -101,7 +95,7 @@ public class ObsoleteUseDiamondOperatorSample {
      * When Should Diamond Be Used?</a>
      */
     public void refactorMethodArgumentInferTypeFromOutside(List<String> l) {
-        List<String> list4 = Collections.synchronizedList(new ArrayList<String>(l)); // FIXME refactor
+        List<String> list4 = Collections.synchronizedList(new ArrayList<>(l)); // FIXME refactor
         System.out.println(list4);
     }
 
@@ -110,7 +104,7 @@ public class ObsoleteUseDiamondOperatorSample {
      * When Should Diamond Be Used?</a>
      */
     public void refactorMethodArgumentInferTypeFromOutside2(List<String> l) {
-        List<? extends String> list6 = Collections.synchronizedList(new ArrayList<String>(l)); // FIXME refactor
+        List<? extends String> list6 = Collections.synchronizedList(new ArrayList<>(l)); // FIXME refactor
         System.out.println(list6);
     }
 
@@ -119,13 +113,12 @@ public class ObsoleteUseDiamondOperatorSample {
      * Type Inference for Generic Instance Creation</a>
      */
     public List<String> doNotRefactor() {
-        List<String> list = new ArrayList<>();
-        list.addAll(new ArrayList<String>());
+        List<String> list = new ArrayList<>(new ArrayList<String>());
         return list;
     }
 
     public List<String> doNotRefactorAnonymousClass() {
-        return new ArrayList<String>() {
+        return new ArrayList<>() {
             @Override
             public String toString() {
                 return super.toString();
@@ -141,14 +134,11 @@ public class ObsoleteUseDiamondOperatorSample {
     }
 
     public Set<String> noExceptionThrownByRefactoringRule() {
-        Set<String> s = new TreeSet<>(new StringComparator());
-        return s;
+        return new TreeSet<>(new StringComparator());
     }
 
     public Set<String> refactorRemoveGenericType() {
-        // Keep this comment
-        Set<String> s = new TreeSet<String>(new StringComparator());
-        return s;
+        return new TreeSet<>(new StringComparator());
     }
 
     public static final ParameterizedType EMPTY_NODE = null;

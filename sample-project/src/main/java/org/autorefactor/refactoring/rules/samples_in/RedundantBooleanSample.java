@@ -25,12 +25,6 @@
  */
 package org.autorefactor.refactoring.rules.samples_in;
 
-import java.io.IOException;
-import java.io.Reader;
-import java.util.Collection;
-import java.util.List;
-import java.util.Random;
-
 public class RedundantBooleanSample {
     private boolean addedToMakeCodeFail(boolean b1, boolean b2, Object o) {
         return !b1 && b2 && o != null && addedToMakeCodeFail(b1, b2, o);

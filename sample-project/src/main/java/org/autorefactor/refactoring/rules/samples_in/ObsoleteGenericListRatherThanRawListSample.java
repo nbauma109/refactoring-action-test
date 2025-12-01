@@ -28,6 +28,7 @@ package org.autorefactor.refactoring.rules.samples_in;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -136,31 +137,19 @@ public class ObsoleteGenericListRatherThanRawListSample {
 
     public void replaceLinkedListWithLoop(Date[] dates) {
         // Keep this comment
-        java.util.LinkedList list = new java.util.LinkedList();
-        for (Date date : dates) {
-            list.add(date);
-        }
-
+        java.util.LinkedList list = new java.util.LinkedList(Arrays.asList(dates));
         list.removeFirst();
     }
 
     public void replaceArrayListWithLoop(Date[] dates) {
         // Keep this comment
-        java.util.ArrayList list = new java.util.ArrayList();
-        for (Date date : dates) {
-            list.add(date);
-        }
-
+        java.util.ArrayList list = new java.util.ArrayList(Arrays.asList(dates));
         list.remove(0);
     }
 
     public String refactorListWithLoop(Date[] dates) {
         // Keep this comment
-        List list = new java.util.LinkedList();
-        for (Date date : dates) {
-            list.add(date);
-        }
-
+        List list = new java.util.LinkedList(Arrays.asList(dates));
         return list.toString();
     }
 
@@ -184,19 +173,19 @@ public class ObsoleteGenericListRatherThanRawListSample {
 
     public void replaceLinkedListWithParameter() {
         // Keep this comment
-        java.util.LinkedList list = new java.util.LinkedList(new java.util.LinkedList<String>());
+        java.util.LinkedList list = new java.util.LinkedList(new java.util.LinkedList<>());
         list.add("bar");
     }
 
     public void replaceArrayListWithParameter() {
         // Keep this comment
-        java.util.ArrayList list = new java.util.ArrayList(new java.util.LinkedList<String>());
+        java.util.ArrayList list = new java.util.ArrayList(new java.util.LinkedList<>());
         list.add("bar");
     }
 
     public void refactorListWithParameter() {
         // Keep this comment
-        List list = new java.util.LinkedList(new java.util.LinkedList<String>());
+        List list = new java.util.LinkedList(new java.util.LinkedList<>());
         list.add("bar");
     }
 
@@ -418,13 +407,13 @@ public class ObsoleteGenericListRatherThanRawListSample {
     public void genericizeForEach() {
         ArrayList list = new ArrayList();
         list.add("foo");
-        list.forEach(o -> o.notifyAll());
+        list.forEach(Object::notifyAll);
     }
 
     public boolean genericizeRemoveIf() {
         ArrayList list = new ArrayList();
         list.add("foo");
-        return list.removeIf(o -> o.equals("bar"));
+        return list.removeIf("bar"::equals);
     }
 
     public void genericizeSort() {

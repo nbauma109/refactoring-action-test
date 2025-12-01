@@ -26,25 +26,29 @@
 package org.autorefactor.refactoring.rules.samples_in;
 
 import java.util.Arrays;
+import java.util.regex.Pattern;
 
 public class ObsoletePatternRatherThanRegExStringSample {
     private String dateValidation= ".*";
+    private static final Pattern dateValidation_pattern = Pattern.compile("\\d{4}\\-\\d{2}\\-\\d{2}");
 
     public boolean usePattern(String date1, String date2) {
         // Keep this comment
-        String dateValidation= "\\d{4}\\-\\d{2}\\-\\d{2}";
+        Pattern dateValidation= dateValidation_pattern;
 
         // Keep this comment too
-        return date1.matches(dateValidation) && date2.matches(dateValidation);
+        return dateValidation.matcher(date1).matches() && dateValidation.matcher(date2).matches();
     }
+
+    private static final Pattern dateValidation_pattern2 = Pattern.compile("\\d{4}\\-\\d{2}\\-\\d{2}");
 
     public boolean usePatternAmongStatements(String date1, String date2) {
         // Keep this comment
-        String dateValidation= "\\d{4}\\-\\d{2}\\-\\d{2}";
+        Pattern dateValidation= dateValidation_pattern2;
         System.out.println("Do other things");
 
         // Keep this comment too
-        return date1.matches(dateValidation) && date2.matches(dateValidation);
+        return dateValidation.matcher(date1).matches() && dateValidation.matcher(date2).matches();
     }
 
     public boolean doNotUsePatternForOneUse(String date) {
@@ -66,26 +70,30 @@ public class ObsoletePatternRatherThanRegExStringSample {
         return date1.matches(dateValidation) && "".equals(date2.replace(dateValidation, ""));
     }
 
+    private static final Pattern dateValidation_pattern3 = Pattern.compile("\\d{4}\\-\\d{2}\\-\\d{2}");
+
     public String usePatternForReplace(String date1, String date2) {
         // Keep this comment
-        String dateValidation= "\\d{4}\\-\\d{2}\\-\\d{2}";
+        Pattern dateValidation= dateValidation_pattern3;
 
         // Keep this comment too
-        String dateText1= date1.replaceFirst(dateValidation, "0000-00-00");
+        String dateText1= dateValidation.matcher(date1).replaceFirst("0000-00-00");
         // Keep this comment also
-        String dateText2= date2.replaceAll(dateValidation, "0000-00-00");
+        String dateText2= dateValidation.matcher(date2).replaceAll("0000-00-00");
 
         return dateText1 + dateText2;
     }
 
+    private static final Pattern line_pattern = Pattern.compile("\\r?\\n");
+
     public String usePatternForSplit(String speech1, String speech2) {
         // Keep this comment
-        String line= "\\r?\\n";
+        Pattern line= line_pattern;
 
         // Keep this comment too
-        String[] phrases1= speech1.split(line);
+        String[] phrases1= line.split(speech1);
         // Keep this comment also
-        String[] phrases2= speech2.split(line, 123);
+        String[] phrases2= line.split(speech2, 123);
 
         return Arrays.toString(phrases1) + Arrays.toString(phrases2);
     }
@@ -96,15 +104,17 @@ public class ObsoletePatternRatherThanRegExStringSample {
         return date1.matches(dateValidation) && date2.matches(dateValidation);
     }
 
+    private static final Pattern dateValidation_pattern4 = Pattern.compile("\\d{4}\\-\\d{2}\\-\\d{2}");
+
     public String usePatternForLocalVariableOnly(String date1, String date2, String date3) {
         String dateText1= date1.replaceFirst(dateValidation, "0000-00-00");
         // Keep this comment
-        String dateValidation= "\\d{4}\\-\\d{2}\\-\\d{2}";
+        Pattern dateValidation= dateValidation_pattern4;
 
         // Keep this comment too
-        String dateText2= date2.replaceFirst(dateValidation, "0000-00-00");
+        String dateText2= dateValidation.matcher(date2).replaceFirst("0000-00-00");
         // Keep this comment also
-        String dateText3= date3.replaceAll(dateValidation, "0000-00-00");
+        String dateText3= dateValidation.matcher(date3).replaceAll("0000-00-00");
 
         return dateText1 + dateText2 + dateText3;
     }
@@ -126,9 +136,9 @@ public class ObsoletePatternRatherThanRegExStringSample {
 
     public boolean usePatternFromVariable(String regex, String date1, String date2) {
         // Keep this comment
-        String dateValidation= regex;
+        Pattern dateValidation= Pattern.compile(regex);
 
         // Keep this comment too
-        return date1.matches(dateValidation) && "".equals(date2.replaceFirst(dateValidation, ""));
+        return dateValidation.matcher(date1).matches() && "".equals(dateValidation.matcher(date2).replaceFirst(""));
     }
 }

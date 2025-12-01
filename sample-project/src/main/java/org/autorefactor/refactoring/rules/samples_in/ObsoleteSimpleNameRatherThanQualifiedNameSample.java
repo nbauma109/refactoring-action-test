@@ -49,12 +49,12 @@ public class ObsoleteSimpleNameRatherThanQualifiedNameSample {
     java.lang.Long instanceField = java.lang.Long.MIN_VALUE;
 
     static {
-        long classField = 0l;
+        long classField = 0L;
         ObsoleteSimpleNameRatherThanQualifiedNameSample.classField = java.lang.Long.MAX_VALUE + classField;
     }
 
     public ObsoleteSimpleNameRatherThanQualifiedNameSample(java.lang.Long long1) {
-        java.lang.Long long2 = java.lang.Long.valueOf(long1 + 1);
+        long long2 = long1 + 1;
     }
 
     public java.util.List<String> removeQualifiedNameForImportNoWildcard(List<String> l) {
@@ -124,7 +124,7 @@ public class ObsoleteSimpleNameRatherThanQualifiedNameSample {
     }
 
     public java.lang.Integer doNotRemoveQualifiedNameForConflictingTypeFromJavaLangPackage() {
-        return new java.lang.Integer(0);
+        return Integer.valueOf(0);
     }
 
     public Integer removeQualifiedNameForNonConflictingLocalType() {

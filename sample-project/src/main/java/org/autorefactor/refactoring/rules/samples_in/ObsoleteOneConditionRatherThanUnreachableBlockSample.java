@@ -33,7 +33,8 @@ public class ObsoleteOneConditionRatherThanUnreachableBlockSample {
         // Keep this comment
         if (b1 && b2) {
             return 0;
-        } else if (b2 && b1) {
+        }
+        if (b2 && b1) {
             return 1;
         }
 
@@ -44,21 +45,20 @@ public class ObsoleteOneConditionRatherThanUnreachableBlockSample {
         // Keep this comment
         if (i1 < i2) {
             return 0;
-        } else if (i2 > i1) {
-            return 1;
-        } else {
-            return 2;
         }
+        if (i2 > i1) {
+            return 1;
+        }
+        return 2;
     }
 
     public int removeDuplicateConditionAmongOthers(int i1, int i2) {
         // Keep this comment
         if (i1 == 0) {
             return -1;
-        } else if (i1 < i2 + 1) {
+        }
+        if (i1 < i2 + 1) {
             return 0;
-        } else if (1 + i2 > i1) {
-            return 1;
         }
 
         return 2;
@@ -69,7 +69,8 @@ public class ObsoleteOneConditionRatherThanUnreachableBlockSample {
             // Keep this comment
             if (b1 && b2) {
                 return 0;
-            } else if (b2 && b1) {
+            }
+            if (b2 && b1) {
                 throw new IOException();
             }
         } catch (NullPointerException e) {
@@ -84,18 +85,19 @@ public class ObsoleteOneConditionRatherThanUnreachableBlockSample {
         if (aNumber < anotherNumber) {
             System.out.println("Do something");
             return;
-        } else if (anotherNumber > aNumber) {
+        }
+        if (anotherNumber > aNumber) {
             System.out.println("Does not fall through");
         } else {
             System.out.println("Do something else");
-            return;
         }
     }
 
     public String doNotCreateUnreachable(int i1, int i2) {
         if (i1 < i2) {
             return "Falls through";
-        } else if (i2 > i1) {
+        }
+        if (i2 > i1) {
             System.out.println("Does not fall through");
         } else {
             return "Falls through too";
@@ -107,7 +109,8 @@ public class ObsoleteOneConditionRatherThanUnreachableBlockSample {
     public int doNotRemoveDifferentCondition(boolean b1, boolean b2) {
         if (b1 && b2) {
             return 0;
-        } else if (b2 || b1) {
+        }
+        if (b2 || b1) {
             return 1;
         }
 
@@ -117,7 +120,8 @@ public class ObsoleteOneConditionRatherThanUnreachableBlockSample {
     public int doNotRemoveActiveCondition(List<String> myList) {
         if (myList.remove("I will be removed")) {
             return 0;
-        } else if (myList.remove("I will be removed")) {
+        }
+        if (myList.remove("I will be removed")) {
             return 1;
         }
 
@@ -128,7 +132,8 @@ public class ObsoleteOneConditionRatherThanUnreachableBlockSample {
         try {
             if (b1 && b2) {
                 return 0;
-            } else if (b2 && b1) {
+            }
+            if (b2 && b1) {
                 throw new IOException();
             }
         } catch (IOException e) {

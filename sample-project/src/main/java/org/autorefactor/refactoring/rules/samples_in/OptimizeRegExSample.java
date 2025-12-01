@@ -25,8 +25,6 @@
  */
 package org.autorefactor.refactoring.rules.samples_in;
 
-import java.util.Arrays;
-
 public class OptimizeRegExSample {
     public boolean optimizeParameter(String text) {
         // Keep this comment
@@ -46,9 +44,7 @@ public class OptimizeRegExSample {
 
     public boolean optimizeWithReassignment(String text) {
         // Keep this comment
-        String dateValidation= "[0-9]{4}\\-\\d{3}\\-\\d{2}";
-        dateValidation = "foo";
-
+        String dateValidation= "foo";
         return text.matches(dateValidation);
     }
 

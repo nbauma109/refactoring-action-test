@@ -25,11 +25,6 @@
  */
 package org.autorefactor.refactoring.rules.samples_in;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.List;
-
 public class WhileConditionRatherThanInnerIfSample {
     public void moveConditionIntoWhileCondition(int i, boolean isEnabled) {
         // Keep this comment
@@ -54,11 +49,10 @@ public class WhileConditionRatherThanInnerIfSample {
     public void moveOppositeConditionIntoWhileCondition(int i, boolean isEnabled) {
         // Keep this comment
         while (i < 10) {
-            if (isEnabled) {
-                System.out.println("Keep this code");
-            } else {
+            if (!isEnabled) {
                 break;
             }
+            System.out.println("Keep this code");
             i++;
         }
     }
@@ -68,9 +62,8 @@ public class WhileConditionRatherThanInnerIfSample {
         while (i < 10) {
             if (isEnabled) {
                 break;
-            } else {
-                System.out.println("Keep this code");
             }
+            System.out.println("Keep this code");
             i++;
         }
     }
@@ -80,11 +73,10 @@ public class WhileConditionRatherThanInnerIfSample {
         while (i < 10) {
             if (isEnabled) {
                 break;
-            } else {
-                System.out.println("Keep this code");
-
-                System.out.println("And this code too!");
             }
+            System.out.println("Keep this code");
+
+            System.out.println("And this code too!");
             i++;
         }
     }
@@ -102,40 +94,42 @@ public class WhileConditionRatherThanInnerIfSample {
     public void moveConditionWithoutBrackets(int i, boolean isEnabled) {
         // Keep this comment
         while (i < 10) {
-            if (isEnabled)
+            if (isEnabled) {
                 break;
+            }
             i++;
         }
     }
 
     public void moveConditionIntoUnbrackettedWhileCondition(int i, boolean isEnabled) {
         // Keep this comment
-        while (i < 10)
+        while (i < 10) {
             if (isEnabled) {
                 break;
             }
+        }
     }
 
     public void moveConditionIntoUnbrackettedWhileConditionAndMoveCode(int i, boolean isEnabled) {
         // Keep this comment
-        while (i < 10)
+        while (i < 10) {
             if (isEnabled) {
                 break;
-            } else {
-                System.out.println("Keep this code");
             }
+            System.out.println("Keep this code");
+        }
     }
 
     public void moveConditionIntoUnbrackettedWhileConditionAndMoveSeveralStatements(int i, boolean isEnabled) {
         // Keep this comment
-        while (i < 10)
+        while (i < 10) {
             if (isEnabled) {
                 break;
-            } else {
-                System.out.println("Keep this code");
-
-                System.out.println("And this code too!");
             }
+            System.out.println("Keep this code");
+
+            System.out.println("And this code too!");
+        }
     }
 
     public void doNotMoveConditionThatIsNotAtTheBeginning(int i, boolean isEnabled) {

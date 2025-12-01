@@ -47,6 +47,7 @@ public class CommentsSample implements Runnable, Callable<Void>, Closeable {
      * @since
      * @version
      */
+    @Deprecated
     public Object f(int i) throws Exception {
         return null;
     }

@@ -32,7 +32,7 @@ public class ObsoleteRemoveEmptySuperConstrInvocationSample {
 
         A() {
             // Keep this comment
-            super();
+            
         }
 
     }
@@ -46,7 +46,7 @@ public class ObsoleteRemoveEmptySuperConstrInvocationSample {
 
         B() {
             // Keep this comment
-            super();
+            
         }
     }
 

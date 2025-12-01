@@ -39,23 +39,23 @@ public class StringBuilderRatherThanStringBufferSample {
         String p5 = new StringBuffer().append(true).toString();
         String p6 = new StringBuffer().append('h').toString();
         String p8 = new StringBuffer().append(12.56).toString();
-        String p9 = new StringBuffer().append(12l).toString();
+        String p9 = new StringBuffer().append(12L).toString();
         String p10 = new StringBuffer().append(new Object()).toString();
     }
 
     public void replaceStringBuffer() {
         // Keep this comment
-        StringBuffer buffer = new java.lang.StringBuffer();
-        StringBuffer buffer1 = new StringBuffer("foo");
-        StringBuffer buffer2 = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
+        StringBuilder buffer1 = new StringBuilder("foo");
+        StringBuilder buffer2 = new StringBuilder();
         buffer2.append("bar");
 
-        StringBuffer buffer3 = new StringBuffer().append(true);
+        StringBuilder buffer3 = new StringBuilder().append(true);
     }
 
     public String replaceStringBufferWithLoop(List<Date> dates) {
         // Keep this comment
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         for (Date date : dates) {
             buffer.append(date.getTime()).append(";");
         }
@@ -65,22 +65,22 @@ public class StringBuilderRatherThanStringBufferSample {
 
     public void replaceStringBufferWithModifier() {
         // Keep this comment
-        final StringBuffer buffer = new StringBuffer();
+        final StringBuilder buffer = new StringBuilder();
         buffer.append("foo");
     }
 
     public void replaceStringBufferWithParameter() {
         // Keep this comment
-        StringBuffer buffer = new StringBuffer("foo");
+        StringBuilder buffer = new StringBuilder("foo");
         buffer.append('h');
     }
 
     public String replaceReassignedStringBuffer() {
         // Keep this comment
-        StringBuffer buffer1 = new StringBuffer();
+        StringBuilder buffer1 = new StringBuilder();
         buffer1.append("foo");
 
-        StringBuffer buffer2 = buffer1;
+        StringBuilder buffer2 = buffer1;
         buffer2.append("bar");
 
         return buffer2.toString();
@@ -89,15 +89,12 @@ public class StringBuilderRatherThanStringBufferSample {
     public String replaceStringBufferWithSameName(boolean b) {
         if (b) {
             // Keep this comment
-            StringBuffer buffer = new StringBuffer();
+            StringBuilder buffer = new StringBuilder();
             buffer.append("foo");
         }
 
-        // Keep this comment too
-        StringBuffer buffer = new StringBuffer();
-        buffer.append("foo");
-
-        return buffer.toString();
+        return """
+            foo""";
     }
 
     public void doNotReplaceObject() {
@@ -110,12 +107,12 @@ public class StringBuilderRatherThanStringBufferSample {
     }
 
     public void doNotReplaceCastedStringBuffer() {
-        StringBuffer buffer = (StringBuffer) new StringBuffer();
+        StringBuffer buffer = new StringBuffer();
         buffer.append("foo");
     }
 
     public void doNotReplaceStringBufferWithInstanceof() {
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         if (buffer instanceof StringBuffer) {
             buffer.append("foo");
         }
@@ -130,15 +127,15 @@ public class StringBuilderRatherThanStringBufferSample {
     }
 
     public void doNotReplaceReassignedVariable() {
-        StringBuffer buf = new StringBuffer();
-        buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
+        buf = new StringBuilder();
 
-        StringBuffer buf2 = new StringBuffer().append("foo");
-        buf2 = new StringBuffer();
+        StringBuilder buf2 = new StringBuilder().append("foo");
+        buf2 = new StringBuilder();
     }
 
     public void doNotReplaceThreadSharedStringBuffer() {
-        final StringBuffer buffer = new StringBuffer();
+        final StringBuilder buffer = new StringBuilder();
         new Runnable() {
 
             @Override

@@ -39,7 +39,7 @@ public class ObsoleteFloatPrimitiveRatherThanWrapperSample {
 
     public void replaceWrapper(float f) {
         // Keep this comment
-        Float alwaysInitializedVar = Float.MIN_VALUE;
+        float alwaysInitializedVar = Float.MIN_VALUE;
         if (alwaysInitializedVar > f) {
             System.out.println("True!");
         }
@@ -47,7 +47,7 @@ public class ObsoleteFloatPrimitiveRatherThanWrapperSample {
 
     public void replaceWrapperAndUseParsing(float f) {
         // Keep this comment
-        Float alwaysInitializedVar = Float.valueOf("0");
+        float alwaysInitializedVar = Float.parseFloat("0");
         if (alwaysInitializedVar > f) {
             System.out.println("True!");
         }
@@ -55,7 +55,7 @@ public class ObsoleteFloatPrimitiveRatherThanWrapperSample {
 
     public void replaceFullyQualifiedWrapper(float f) {
         // Keep this comment
-        java.lang.Float alwaysInitializedVar = Float.MIN_VALUE;
+        float alwaysInitializedVar = Float.MIN_VALUE;
         if (alwaysInitializedVar < f) {
             System.out.println("True!");
         }
@@ -63,25 +63,25 @@ public class ObsoleteFloatPrimitiveRatherThanWrapperSample {
 
     public boolean replacePlusWrapper(float f1, float f2) {
         // Keep this comment
-        Float plusVar = f1 + f2;
+        float plusVar = f1 + f2;
         return plusVar > 0;
     }
 
     public float replaceLessWrapper(float f1, float f2) {
         // Keep this comment
-        Float lessVar = f1 - f2;
+        float lessVar = f1 - f2;
         return -lessVar;
     }
 
     public float replaceTimesWrapper(float f1, float f2) {
         // Keep this comment
-        Float timesVar = f1 * f2;
+        float timesVar = f1 * f2;
         return timesVar + 100;
     }
 
     public float replaceDivideWrapper(float f1, float f2) {
         // Keep this comment
-        Float divideVar = f1 / f2;
+        float divideVar = f1 / f2;
         if (divideVar <= 0) {
             return -1;
         }
@@ -90,133 +90,125 @@ public class ObsoleteFloatPrimitiveRatherThanWrapperSample {
 
     public float replaceMinusWrapper(float f) {
         // Keep this comment
-        Float minusVar = -f;
+        float minusVar = -f;
         return minusVar++;
     }
 
     public float replacePreDecrementWrapper(float f) {
         // Keep this comment
-        Float preDecrementVar = --f;
+        float preDecrementVar = --f;
         return preDecrementVar++;
     }
 
     public float replacePreIncrementWrapper(float f) {
         // Keep this comment
-        Float preDecrementVar = ++f;
+        float preDecrementVar = ++f;
         return preDecrementVar++;
     }
 
     public float replacePostDecrementWrapper(float f) {
         // Keep this comment
-        Float postDecrementVar = f--;
+        float postDecrementVar = f--;
         return postDecrementVar++;
     }
 
     public float replacePostIncrementWrapper(float f) {
         // Keep this comment
-        Float postIncrementVar = f++;
+        float postIncrementVar = f++;
         return postIncrementVar++;
     }
 
     public float replaceWrapperFromValueOf(float f1) {
         // Keep this comment
-        Float varFromValueOf = Float.valueOf(f1);
+        float varFromValueOf = f1;
         return varFromValueOf++;
     }
 
     public float replaceParentherizedWrapper(float f1, float f2) {
         // Keep this comment
-        Float parentherizedVar = (f1 + f2);
+        float parentherizedVar = (f1 + f2);
         return parentherizedVar++;
     }
 
     public float replaceComplexExprWrapper(float f1, float f2, float f3, float f4) {
         // Keep this comment
-        Float complexVar = f1 + f2 / (f3 - f4);
+        float complexVar = f1 + f2 / (f3 - f4);
         return complexVar++;
     }
 
     public float replaceCastWrapper(Float f) {
         // Keep this comment
-        Float castVar = (float) f;
+        float castVar = f;
         return castVar++;
     }
 
     public float replaceWrapperInPreIncrement() {
         // Keep this comment
-        Float floatInPreIncrement = Float.MIN_VALUE;
+        float floatInPreIncrement = Float.MIN_VALUE;
         return ++floatInPreIncrement;
     }
 
     public float replaceWrapperInPreDecrement() {
         // Keep this comment
-        Float floatInPreDecrement = Float.MIN_VALUE;
+        float floatInPreDecrement = Float.MIN_VALUE;
         return --floatInPreDecrement;
     }
 
     public float replaceWrapperInPostDecrement() {
         // Keep this comment
-        Float floatInPostDecrement = Float.MIN_VALUE;
+        float floatInPostDecrement = Float.MIN_VALUE;
         return floatInPostDecrement--;
     }
 
     public float replaceWrapperInPostIncrement() {
         // Keep this comment
-        Float floatInPostIncrement = Float.MIN_VALUE;
+        float floatInPostIncrement = Float.MIN_VALUE;
         return floatInPostIncrement++;
     }
 
     public float replaceReturnedWrapper() {
-        // Keep this comment
-        Float returnedFloat = Float.MIN_VALUE;
-        return returnedFloat;
+        return Float.MIN_VALUE;
     }
 
     public Object doNotBreakAutoboxing() {
-        Float returnedObject = Float.MIN_VALUE;
-        return returnedObject;
+        return Float.MIN_VALUE;
     }
 
     public float replaceMultiReturnedWrapper(float f) {
         // Keep this comment
-        Float returnedFloat = Float.MIN_VALUE;
+        float returnedFloat = Float.MIN_VALUE;
         if (f > 0) {
             System.out.println("Positive");
             return returnedFloat;
-        } else {
-            System.out.println("Negative");
-            return returnedFloat;
         }
+        System.out.println("Negative");
+        return returnedFloat;
     }
 
     public Float replaceReturnedAutoBoxedWrapper(float f) {
         // Keep this comment
-        Float returnedFloat = Float.MIN_VALUE;
+        float returnedFloat = Float.MIN_VALUE;
         if (f > 0) {
             System.out.println("Positive");
             return returnedFloat;
-        } else {
-            System.out.println("Negative");
-            return returnedFloat;
         }
+        System.out.println("Negative");
+        return returnedFloat;
     }
 
     public void replaceReassignedWrapper() {
         // Keep this comment
-        Float reassignedFloat = Float.MIN_VALUE;
-        reassignedFloat = 123f;
+        float reassignedFloat = 123f;
     }
 
     public void replaceMultiReassignedWrapper() {
         // Keep this comment
-        Float multiReassignedFloat = Float.MIN_VALUE;
-        multiReassignedFloat = 123f;
+        float multiReassignedFloat = 123f;
         multiReassignedFloat = 456f;
     }
 
     public void doNotReplaceNullWrapper() {
-        Float reassignedFloat = Float.MIN_VALUE;
-        reassignedFloat = null;
+        Float reassignedFloat = null;
     }
 
     public void doNotReplaceWrapperPassedAsObject(Map<Float, Observable> obsByFloat) {
@@ -226,19 +218,19 @@ public class ObsoleteFloatPrimitiveRatherThanWrapperSample {
 
     public void replaceAssignedWrapper() {
         // Keep this comment
-        Float assignedLocal = Float.MIN_VALUE;
+        float assignedLocal = Float.MIN_VALUE;
         Float anotherFloat = assignedLocal;
     }
 
     public void replaceWrapperAssignedOnFloatField() {
         // Keep this comment
-        Float assignedFloat = Float.MIN_VALUE;
+        float assignedFloat = Float.MIN_VALUE;
         floatField = assignedFloat;
     }
 
     public void replaceWrapperAssignedOnWrapperField() {
         // Keep this comment
-        Float assignedWrapper = Float.MIN_VALUE;
+        float assignedWrapper = Float.MIN_VALUE;
         wrapperField = assignedWrapper;
     }
 
@@ -256,7 +248,7 @@ public class ObsoleteFloatPrimitiveRatherThanWrapperSample {
     public void replaceBitAssignedWrapper(Float aFloat, Float anotherFloat,
             Float yetAnotherFloat, Float evenAnotherFloat) {
         // Keep this comment
-        Float assignedFloat = Float.MIN_VALUE;
+        float assignedFloat = Float.MIN_VALUE;
         aFloat += assignedFloat;
         anotherFloat -= assignedFloat;
         yetAnotherFloat *= assignedFloat;
@@ -265,35 +257,35 @@ public class ObsoleteFloatPrimitiveRatherThanWrapperSample {
 
     public String replaceWrapperAndToStringMethod(float f) {
         // Keep this comment
-        Float alwaysInitializedVar = Float.MIN_VALUE;
+        float alwaysInitializedVar = Float.MIN_VALUE;
         if (alwaysInitializedVar > f) {
             System.out.println("True!");
         }
 
         // Keep this comment too
-        return alwaysInitializedVar.toString();
+        return Float.toString(alwaysInitializedVar);
     }
 
     public int replaceWrapperAndCompareToMethod(float f) {
         // Keep this comment
-        Float alwaysInitializedVar = Float.MIN_VALUE;
+        float alwaysInitializedVar = Float.MIN_VALUE;
         if (alwaysInitializedVar > f) {
             System.out.println("True!");
         }
 
         // Keep this comment too
-        return alwaysInitializedVar.compareTo(f);
+        return Float.compare(alwaysInitializedVar, f);
     }
 
     public float replaceWrapperAndPrimitiveValueMethod(float f) {
         // Keep this comment
-        Float alwaysInitializedVar = Float.MIN_VALUE;
+        float alwaysInitializedVar = Float.MIN_VALUE;
         if (alwaysInitializedVar > f) {
             System.out.println("True!");
         }
 
         // Keep this comment too
-        return alwaysInitializedVar.floatValue();
+        return alwaysInitializedVar;
     }
 
     public Float doNotReplaceMultiAutoBoxedWrapper() {
@@ -309,7 +301,6 @@ public class ObsoleteFloatPrimitiveRatherThanWrapperSample {
 
     public Float doNotReplaceAssignedAndReturnedWrapper(Float f) {
         Float returnedObject = Float.MIN_VALUE;
-        returnedObject = f;
-        return returnedObject;
+        return f;
     }
 }

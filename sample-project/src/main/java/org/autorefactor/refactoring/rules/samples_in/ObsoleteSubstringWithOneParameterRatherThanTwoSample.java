@@ -32,17 +32,17 @@ public class ObsoleteSubstringWithOneParameterRatherThanTwoSample {
 
     public String reduceSubstring(String text) {
         // Keep this comment
-        return text.substring(2, text.length());
+        return text.substring(2);
     }
 
     public String reduceSubstringOnField() {
         // Keep this comment
-        return textInInstance.substring(3, textInInstance.length());
+        return textInInstance.substring(3);
     }
 
     public String reduceSubstringOnExpression(String text) {
         // Keep this comment
-        return (textInInstance + text).substring(4, (textInInstance + text).length());
+        return (textInInstance + text).substring(4);
     }
 
     public String doNotReduceSubstringOnOtherExpression(String text) {

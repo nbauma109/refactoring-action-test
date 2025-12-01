@@ -32,8 +32,9 @@ public class ObsoleteNoAssignmentInIfConditionSample {
     public void moveLeftHandSideAssignmentBeforeIf(Queue<Integer> q) {
         Integer i;
         System.out.println("Before polling");
+        i = q.poll();
         // Keep this comment
-        if ((i = q.poll()) != null) {
+        if (i != null) {
             System.out.println("Value=" + i);
         } else {
             System.out.println("Empty");
@@ -43,8 +44,9 @@ public class ObsoleteNoAssignmentInIfConditionSample {
     public void moveRightHandSideAssignmentBeforeIf(Queue<Integer> q) {
         Integer i;
         System.out.println("Before polling");
+        i = q.poll();
         // Keep this comment
-        if (null != (i = q.poll())) {
+        if (null != i) {
             System.out.println("Value=" + i);
         } else {
             System.out.println("Empty");
@@ -54,8 +56,9 @@ public class ObsoleteNoAssignmentInIfConditionSample {
     public void moveAssignmentBeforeIfMultipleParenthesesToRemove(Queue<Integer> q) {
         Integer i;
         System.out.println("Before polling");
+        i = q.poll();
         // Keep this comment
-        if ((((i = q.poll()))) != null) {
+        if (i != null) {
             System.out.println("Value=" + i);
         } else {
             System.out.println("Empty");
@@ -63,9 +66,9 @@ public class ObsoleteNoAssignmentInIfConditionSample {
     }
 
     public void moveAssignmentBeforeIfAndMergeWithDeclaration(Queue<Integer> q) {
-        Integer i;
+        Integer i = q.poll();
         // Keep this comment
-        if ((i = q.poll()) != null) {
+        if (i != null) {
             System.out.println("Value=" + i);
         } else {
             System.out.println("Empty");
@@ -74,8 +77,9 @@ public class ObsoleteNoAssignmentInIfConditionSample {
 
     public void moveAssignmentBelowDeclaration(Queue<Integer> q) {
         Integer i = q.poll();
+        i = q.poll();
         // Keep this comment
-        if ((i = q.poll()) != null) {
+        if (i != null) {
             System.out.println("Value=" + i);
         } else {
             System.out.println("Empty");
@@ -83,9 +87,9 @@ public class ObsoleteNoAssignmentInIfConditionSample {
     }
 
     public void erasePassiveValue(Queue<Integer> q) {
-        Integer i = 0;
+        Integer i = q.poll();
         // Keep this comment
-        if ((i = q.poll()) != null) {
+        if (i != null) {
             System.out.println("Value=" + i);
         } else {
             System.out.println("Empty");
@@ -93,9 +97,9 @@ public class ObsoleteNoAssignmentInIfConditionSample {
     }
 
     public void moveAssignmentWithoutParenthesis(Queue<Boolean> q) {
-        Boolean b;
+        Boolean b = q.poll();
         // Keep this comment
-        if (b = q.poll()) {
+        if (b) {
             System.out.println("Value=" + b);
         } else {
             System.out.println("Empty");
@@ -116,9 +120,9 @@ public class ObsoleteNoAssignmentInIfConditionSample {
     }
 
     public void moveAssignmentBeforeIfAtConditionOfTernaryExpression(String s, int i) {
-        final char c;
+        final char c = s.charAt(i);
         // Keep this comment
-        if ((c = s.charAt(i)) == 'A' ? c == 'B' : c == 'C') {
+        if (c == 'A' ? c == 'B' : c == 'C') {
             System.out.println("A, B or C");
         } else {
             System.out.println("Not A, B or C");
@@ -142,9 +146,9 @@ public class ObsoleteNoAssignmentInIfConditionSample {
     }
 
     public void moveAssignmentBeforeIfAtStartOfInfixExpression(String s, int i) {
-        final char c;
+        final char c = s.charAt(i);
         // Keep this comment
-        if ((c = s.charAt(i)) == 'A' || c == 'B' || c == 'C') {
+        if (c == 'A' || c == 'B' || c == 'C') {
             System.out.println("A, B or C");
         } else {
             System.out.println("Not A, B or C");
@@ -152,9 +156,9 @@ public class ObsoleteNoAssignmentInIfConditionSample {
     }
 
     public void moveNotConditionalAssignment(String s, int i, boolean isValid) {
-        final char c;
+        final char c = s.charAt(i);
         // Keep this comment
-        if (isValid | (c = s.charAt(i)) == 'A') {
+        if (isValid | c == 'A') {
             System.out.println("valid or A");
         } else {
             System.out.println("Not A, B or C");
@@ -162,9 +166,9 @@ public class ObsoleteNoAssignmentInIfConditionSample {
     }
 
     public void moveAssignmentInComplexExpression(String s, int i, boolean isValid) {
-        final char c;
+        final char c = s.charAt(i);
         // Keep this comment
-        if (!(isValid | (i == 10 & (c = s.charAt(i)) == 'A'))) {
+        if (!(isValid | (i == 10 & c == 'A'))) {
             System.out.println("valid or A");
         } else {
             System.out.println("Not A, B or C");
@@ -188,9 +192,12 @@ public class ObsoleteNoAssignmentInIfConditionSample {
     }
 
     public boolean refactorSingleStatementBlock(int i, int j) {
-        if (i > 0)
-            if ((i = j) < 10)
+        if (i > 0) {
+            i = j;
+            if (i < 10) {
                 return true;
+            }
+        }
         return false;
     }
 
@@ -208,8 +215,9 @@ public class ObsoleteNoAssignmentInIfConditionSample {
         System.out.println("Before polling");
         switch (discriminant) {
         case 0:
-            // Keep this comment
-            if ((i = q.poll()) != null) {
+                i = q.poll();
+                // Keep this comment
+            if (i != null) {
                 System.out.println("Value=" + i);
             } else {
                 System.out.println("Empty");

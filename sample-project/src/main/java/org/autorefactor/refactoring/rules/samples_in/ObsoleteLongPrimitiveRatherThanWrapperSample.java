@@ -39,7 +39,7 @@ public class ObsoleteLongPrimitiveRatherThanWrapperSample {
 
     public void replaceWrapper(long l) {
         // Keep this comment
-        Long alwaysInitializedVar = Long.MIN_VALUE;
+        long alwaysInitializedVar = Long.MIN_VALUE;
         if (alwaysInitializedVar > l) {
             System.out.println("True!");
         }
@@ -47,7 +47,7 @@ public class ObsoleteLongPrimitiveRatherThanWrapperSample {
 
     public void replaceWrapperAndUseParsing(long l) {
         // Keep this comment
-        Long alwaysInitializedVar = Long.valueOf("0");
+        long alwaysInitializedVar = Long.parseLong("0");
         if (alwaysInitializedVar > l) {
             System.out.println("True!");
         }
@@ -55,7 +55,7 @@ public class ObsoleteLongPrimitiveRatherThanWrapperSample {
 
     public void replaceWrapperAndUseParsingWithRadix(long l) {
         // Keep this comment
-        Long alwaysInitializedVar = Long.valueOf("0", 10);
+        long alwaysInitializedVar = Long.parseLong("0", 10);
         if (alwaysInitializedVar > l) {
             System.out.println("True!");
         }
@@ -63,7 +63,7 @@ public class ObsoleteLongPrimitiveRatherThanWrapperSample {
 
     public void replaceWrapperAndConstructor(long l) {
         // Keep this comment
-        Long alwaysInitializedVar = new Long("0");
+        long alwaysInitializedVar = Long.parseLong("0");
         if (alwaysInitializedVar > l) {
             System.out.println("True!");
         }
@@ -71,40 +71,40 @@ public class ObsoleteLongPrimitiveRatherThanWrapperSample {
 
     public String replaceWrapperAndToStringMethod(long l) {
         // Keep this comment
-        Long alwaysInitializedVar = Long.MIN_VALUE;
+        long alwaysInitializedVar = Long.MIN_VALUE;
         if (alwaysInitializedVar > l) {
             System.out.println("True!");
         }
 
         // Keep this comment too
-        return alwaysInitializedVar.toString();
+        return Long.toString(alwaysInitializedVar);
     }
 
     public int replaceWrapperAndCompareToMethod(long l) {
         // Keep this comment
-        Long alwaysInitializedVar = Long.MIN_VALUE;
+        long alwaysInitializedVar = Long.MIN_VALUE;
         if (alwaysInitializedVar > l) {
             System.out.println("True!");
         }
 
         // Keep this comment too
-        return alwaysInitializedVar.compareTo(l);
+        return Long.compare(alwaysInitializedVar, l);
     }
 
     public long replaceWrapperAndPrimitiveValueMethod(long l) {
         // Keep this comment
-        Long alwaysInitializedVar = Long.MIN_VALUE;
+        long alwaysInitializedVar = Long.MIN_VALUE;
         if (alwaysInitializedVar > l) {
             System.out.println("True!");
         }
 
         // Keep this comment too
-        return alwaysInitializedVar.longValue();
+        return alwaysInitializedVar;
     }
 
     public void replaceFullyQualifiedWrapper(long l) {
         // Keep this comment
-        java.lang.Long alwaysInitializedVar = Long.MIN_VALUE;
+        long alwaysInitializedVar = Long.MIN_VALUE;
         if (alwaysInitializedVar < l) {
             System.out.println("True!");
         }
@@ -112,25 +112,25 @@ public class ObsoleteLongPrimitiveRatherThanWrapperSample {
 
     public boolean replacePlusWrapper(long l1, long l2) {
         // Keep this comment
-        Long plusVar = l1 + l2;
+        long plusVar = l1 + l2;
         return plusVar > 0;
     }
 
     public long replaceLessWrapper(long l1, long l2) {
         // Keep this comment
-        Long lessVar = l1 - l2;
+        long lessVar = l1 - l2;
         return -lessVar;
     }
 
     public long replaceTimesWrapper(long l1, long l2) {
         // Keep this comment
-        Long timesVar = l1 * l2;
+        long timesVar = l1 * l2;
         return timesVar + 100;
     }
 
     public long replaceDivideWrapper(long l1, long l2) {
         // Keep this comment
-        Long divideVar = l1 / l2;
+        long divideVar = l1 / l2;
         if (divideVar <= 0) {
             return -1;
         }
@@ -139,178 +139,170 @@ public class ObsoleteLongPrimitiveRatherThanWrapperSample {
 
     public long replaceAndMaskWrapper(long l1, long l2) {
         // Keep this comment
-        Long divideVar = l1 & l2;
+        long divideVar = l1 & l2;
         return divideVar++;
     }
 
     public long replaceOrMaskWrapper(long l1, long l2) {
         // Keep this comment
-        Long divideVar = l1 | l2;
+        long divideVar = l1 | l2;
         return divideVar++;
     }
 
     public long replaceShiftMaskWrapper(long l1, long l2) {
         // Keep this comment
-        Long divideVar = l1 ^ l2;
+        long divideVar = l1 ^ l2;
         return divideVar++;
     }
 
     public long replaceMinusWrapper(long l) {
         // Keep this comment
-        Long minusVar = -l;
+        long minusVar = -l;
         return minusVar++;
     }
 
     public long replacePreDecrementWrapper(long l) {
         // Keep this comment
-        Long preDecrementVar = --l;
+        long preDecrementVar = --l;
         return preDecrementVar++;
     }
 
     public long replacePreIncrementWrapper(long l) {
         // Keep this comment
-        Long preDecrementVar = ++l;
+        long preDecrementVar = ++l;
         return preDecrementVar++;
     }
 
     public long replacePostDecrementWrapper(long l) {
         // Keep this comment
-        Long postDecrementVar = l--;
+        long postDecrementVar = l--;
         return postDecrementVar++;
     }
 
     public long replacePostIncrementWrapper(long l) {
         // Keep this comment
-        Long postIncrementVar = l++;
+        long postIncrementVar = l++;
         return postIncrementVar++;
     }
 
     public long replaceWrapperFromValueOf(long l1) {
         // Keep this comment
-        Long varFromValueOf = Long.valueOf(l1);
+        long varFromValueOf = l1;
         return varFromValueOf++;
     }
 
     public long replaceParentherizedWrapper(long l1, long l2) {
         // Keep this comment
-        Long parentherizedVar = (l1 + l2);
+        long parentherizedVar = (l1 + l2);
         return parentherizedVar++;
     }
 
     public long replaceComplexExprWrapper(long l1, long l2, long l3, long l4) {
         // Keep this comment
-        Long complexVar = l1 + l2 / (l3 - l4);
+        long complexVar = l1 + l2 / (l3 - l4);
         return complexVar++;
     }
 
     public long replaceCastWrapper(Long l) {
         // Keep this comment
-        Long castVar = (long) l;
+        long castVar = l;
         return castVar++;
     }
 
     public long replaceWrapperInPreIncrement() {
         // Keep this comment
-        Long longInPreIncrement = Long.MIN_VALUE;
+        long longInPreIncrement = Long.MIN_VALUE;
         return ++longInPreIncrement;
     }
 
     public long replaceWrapperInPreDecrement() {
         // Keep this comment
-        Long longInPreDecrement = Long.MIN_VALUE;
+        long longInPreDecrement = Long.MIN_VALUE;
         return --longInPreDecrement;
     }
 
     public long replaceWrapperInPostDecrement() {
         // Keep this comment
-        Long longInPostDecrement = Long.MIN_VALUE;
+        long longInPostDecrement = Long.MIN_VALUE;
         return longInPostDecrement--;
     }
 
     public long replaceWrapperInPostIncrement() {
         // Keep this comment
-        Long longInPostIncrement = Long.MIN_VALUE;
+        long longInPostIncrement = Long.MIN_VALUE;
         return longInPostIncrement++;
     }
 
     public long replaceReturnedWrapper() {
-        // Keep this comment
-        Long returnedLong = Long.MIN_VALUE;
-        return returnedLong;
+        return Long.MIN_VALUE;
     }
 
     public long replaceMultiReturnedWrapper(long l) {
         // Keep this comment
-        Long returnedLong = Long.MIN_VALUE;
+        long returnedLong = Long.MIN_VALUE;
         if (l > 0) {
             System.out.println("Positive");
             return returnedLong;
-        } else {
-            System.out.println("Negative");
-            return returnedLong;
         }
+        System.out.println("Negative");
+        return returnedLong;
     }
 
     public Long replaceReturnedAutoBoxedWrapper(long l) {
         // Keep this comment
-        Long returnedLong = Long.MIN_VALUE;
+        long returnedLong = Long.MIN_VALUE;
         if (l > 0) {
             System.out.println("Positive");
             return returnedLong;
-        } else {
-            System.out.println("Negative");
-            return returnedLong;
         }
+        System.out.println("Negative");
+        return returnedLong;
     }
 
     public void replaceReassignedWrapper() {
         // Keep this comment
-        Long reassignedLong = Long.MIN_VALUE;
-        reassignedLong = 123L;
+        long reassignedLong = 123L;
     }
 
     public void replaceMultiReassignedWrapper() {
         // Keep this comment
-        Long multiReassignedLong = Long.MIN_VALUE;
-        multiReassignedLong = 123L;
+        long multiReassignedLong = 123L;
         multiReassignedLong = 456L;
     }
 
     public void replaceAssignedWrapper() {
         // Keep this comment
-        Long assignedLong = Long.MIN_VALUE;
+        long assignedLong = Long.MIN_VALUE;
         Long anotherLong = assignedLong;
     }
 
     public void replaceWrapperAssignedOnLongField() {
         // Keep this comment
-        Long assignedLong = Long.MIN_VALUE;
+        long assignedLong = Long.MIN_VALUE;
         longField = assignedLong;
     }
 
     public void replaceWrapperAssignedOnWrapperField() {
         // Keep this comment
-        Long assignedLong = Long.MIN_VALUE;
+        long assignedLong = Long.MIN_VALUE;
         wrapperField = assignedLong;
     }
 
     public void replaceBitAssignedWrapper(Long aLong, Long anotherLong,
             Long yetAnotherLong) {
         // Keep this comment
-        Long assignedLong = Long.MIN_VALUE;
+        long assignedLong = Long.MIN_VALUE;
         aLong &= assignedLong;
         anotherLong += assignedLong;
         yetAnotherLong ^= assignedLong;
     }
 
     public Object doNotBreakAutoboxing() {
-        Long returnedObject = Long.MIN_VALUE;
-        return returnedObject;
+        return Long.MIN_VALUE;
     }
 
     public void doNotReplaceNullWrapper() {
-        Long reassignedLong = Long.MIN_VALUE;
-        reassignedLong = null;
+        Long reassignedLong = null;
     }
 
     public void doNotReplaceWrapperPassedAsObject(Map<Long, Observable> obsByLong) {
@@ -342,7 +334,6 @@ public class ObsoleteLongPrimitiveRatherThanWrapperSample {
 
     public Long doNotReplaceAssignedAndReturnedWrapper(Long l) {
         Long returnedObject = Long.MIN_VALUE;
-        returnedObject = l;
-        return returnedObject;
+        return l;
     }
 }

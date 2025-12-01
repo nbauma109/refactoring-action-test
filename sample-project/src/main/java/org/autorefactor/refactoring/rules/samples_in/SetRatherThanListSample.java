@@ -38,12 +38,12 @@ import java.util.Properties;
 public class SetRatherThanListSample {
     public void replaceArrayListInstanceCreation() {
         new ArrayList<String>().contains("foo");
-        new ArrayList<String>(new java.util.ArrayList<String>()).contains("bar");
+        new ArrayList<>(new java.util.ArrayList<>()).contains("bar");
     }
 
     public void replaceLinkedListInstanceCreation() {
         new LinkedList<String>().contains("foo");
-        new LinkedList<String>(new java.util.LinkedList<String>()).contains("bar");
+        new LinkedList<>(new java.util.LinkedList<>()).contains("bar");
     }
 
     public void replaceOnlyWithContainsMethod() {
@@ -58,12 +58,12 @@ public class SetRatherThanListSample {
 
     public void replaceRawArrayList() {
         new ArrayList().contains("foo");
-        new ArrayList(new java.util.ArrayList<String>()).contains("bar");
+        new ArrayList(new java.util.ArrayList<>()).contains("bar");
     }
 
     public void replaceRawLinkedList() {
         new LinkedList().contains("foo");
-        new LinkedList(new java.util.LinkedList<String>()).contains("bar");
+        new LinkedList(new java.util.LinkedList<>()).contains("bar");
     }
 
     public void replaceFullyQualifiedArrayList() {
@@ -86,49 +86,49 @@ public class SetRatherThanListSample {
 
     public void replaceArrayListVariableUse() {
         // Keep this comment
-        ArrayList<String> collection = new ArrayList<String>();
+        ArrayList<String> collection = new ArrayList<>();
         // Keep this comment too
         collection.contains("foo");
     }
 
     public void replaceLinkedListVariableUse() {
         // Keep this comment
-        LinkedList<String> collection = new LinkedList<String>();
+        LinkedList<String> collection = new LinkedList<>();
         // Keep this comment too
         collection.contains("foo");
     }
 
     public void replaceArrayListAndListInterface() {
         // Keep this comment
-        List<String> collection = new ArrayList<String>();
+        List<String> collection = new ArrayList<>();
         // Keep this comment too
         collection.contains("foo");
     }
 
     public void replaceLinkedListAndListInterface() {
         // Keep this comment
-        List<String> collection = new LinkedList<String>();
+        List<String> collection = new LinkedList<>();
         // Keep this comment too
         collection.contains("foo");
     }
 
     public void replaceArrayListAndCollectionInterface() {
         // Keep this comment
-        Collection<String> collection = new ArrayList<String>();
+        Collection<String> collection = new ArrayList<>();
         // Keep this comment too
         collection.contains("foo");
     }
 
     public void replaceLinkedListAndCollectionInterface() {
         // Keep this comment
-        Collection<String> collection = new LinkedList<String>();
+        Collection<String> collection = new LinkedList<>();
         // Keep this comment too
         collection.contains("foo");
     }
 
     public boolean refactorWithMethod() {
         // Keep this comment
-        ArrayList<Observable[][]> collection = new ArrayList<Observable[][]>();
+        ArrayList<Observable[][]> collection = new ArrayList<>();
         // Keep this comment too
         collection.add(0, new Observable[0][]);
         return collection.contains(new Observable[0][]);
@@ -136,7 +136,7 @@ public class SetRatherThanListSample {
 
     public boolean refactorWithLinkedListMethod() {
         // Keep this comment
-        LinkedList<Observable> collection = new LinkedList<Observable>();
+        LinkedList<Observable> collection = new LinkedList<>();
         // Keep this comment too
         collection.add(0, new Observable());
         return collection.contains(new Observable());
@@ -144,55 +144,47 @@ public class SetRatherThanListSample {
 
     public boolean replaceArrayListWithLoop(List<Date> dates) {
         // Keep this comment
-        Collection<Date> collection = new ArrayList<Date>();
-        for (Date date : dates) {
-            collection.add(date);
-        }
-
+        Collection<Date> collection = new ArrayList<>(dates);
         return collection.contains("foo");
     }
 
     public boolean replaceLinkedListWithLoop(List<Date> dates) {
         // Keep this comment
-        Collection<Date> collection = new LinkedList<Date>();
-        for (Date date : dates) {
-            collection.add(date);
-        }
-
+        Collection<Date> collection = new LinkedList<>(dates);
         return collection.contains("foo");
     }
 
     public boolean replaceArrayListWithModifier() {
         // Keep this comment
-        final ArrayList<byte[]> collection = new ArrayList<byte[]>();
+        final ArrayList<byte[]> collection = new ArrayList<>();
         collection.add(new byte[] {1});
         return collection.contains(new byte[] {2});
     }
 
     public boolean replaceLinkedListWithModifier() {
         // Keep this comment
-        final LinkedList<byte[]> collection = new LinkedList<byte[]>();
+        final LinkedList<byte[]> collection = new LinkedList<>();
         collection.add(new byte[] {1});
         return collection.contains(new byte[] {2});
     }
 
     public boolean replaceArrayListWithParameter() {
         // Keep this comment
-        ArrayList<Integer> collection = new ArrayList<Integer>(new java.util.ArrayList<Integer>());
+        ArrayList<Integer> collection = new ArrayList<>(new java.util.ArrayList<>());
         collection.add(1);
         return collection.contains(2);
     }
 
     public boolean replaceLinkedListWithParameter() {
         // Keep this comment
-        LinkedList<Integer> collection = new LinkedList<Integer>(new java.util.ArrayList<Integer>());
+        LinkedList<Integer> collection = new LinkedList<>(new java.util.ArrayList<>());
         collection.add(1);
         return collection.contains(2);
     }
 
     public boolean replaceReassignedArrayList() {
         // Keep this comment
-        ArrayList<String> collection1 = new ArrayList<String>();
+        ArrayList<String> collection1 = new ArrayList<>();
         collection1.add("FOO");
 
         // Keep this comment too
@@ -204,7 +196,7 @@ public class SetRatherThanListSample {
 
     public boolean replaceReassignedLinkedList() {
         // Keep this comment
-        LinkedList<String> collection1 = new LinkedList<String>();
+        LinkedList<String> collection1 = new LinkedList<>();
         collection1.add("FOO");
 
         // Keep this comment too
@@ -215,7 +207,7 @@ public class SetRatherThanListSample {
     }
 
     public void doNotReplaceArrayListWithImplicitItertor() {
-        ArrayList<Properties> iterableList = new ArrayList<Properties>();
+        ArrayList<Properties> iterableList = new ArrayList<>();
         for (Properties properties : iterableList) {
             System.out.println("The properties: " + properties);
         }
@@ -228,11 +220,11 @@ public class SetRatherThanListSample {
     }
 
     public void doNotReplaceArrayListPassedToAMethod() {
-        String.valueOf(new ArrayList<String>());
+        String.valueOf(new ArrayList<>());
     }
 
     public ArrayList<Date> doNotReplaceReturnedArrayList() {
-        return new ArrayList<Date>();
+        return new ArrayList<>();
     }
 
     public void doNotReplaceReassignedVariable() {
@@ -241,61 +233,61 @@ public class SetRatherThanListSample {
     }
 
     public void doNotReplaceEnsureCapacity(int index) {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.contains("bar");
         list.ensureCapacity(index);
     }
 
     public String doNotReplaceGet(int index) {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.contains("bar");
         return list.get(index);
     }
 
     public int doNotReplaceIndexOf(Object o) {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.contains("bar");
         return list.indexOf(o);
     }
 
     public Iterator<String> doNotReplaceIterator() {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.contains("bar");
         return list.iterator();
     }
 
     public int doNotReplaceLastIndexOf(Object o) {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.contains("bar");
         return list.lastIndexOf(o);
     }
 
     public ListIterator<String> doNotReplaceListIterator() {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.contains("bar");
         return list.listIterator();
     }
 
     public ListIterator<String> doNotReplaceListIterator(int index) {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.contains("bar");
         return list.listIterator(index);
     }
 
     public String doNotReplaceRemove(int index) {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.contains("bar");
         return list.remove(index);
     }
 
     public boolean doNotReplaceRemove(Object o) {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.contains("bar");
         return list.remove(o);
     }
 
     public boolean doNotReplaceRemoveAll(Collection<?> c) {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.contains("bar");
         return list.removeAll(c);
     }
@@ -313,19 +305,19 @@ public class SetRatherThanListSample {
 //    }
 
     public boolean doNotReplaceRetainAll(Collection<?> c) {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.contains("bar");
         return list.retainAll(c);
     }
 
     public String doNotReplaceSet(int index, String element) {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.contains("bar");
         return list.set(index, element);
     }
 
     public int doNotReplaceSize() {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.contains("bar");
         return list.size();
     }
@@ -343,32 +335,32 @@ public class SetRatherThanListSample {
 //    }
 
     public List<String> doNotReplaceSubList(int fromIndex, int toIndex) {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.contains("bar");
         return list.subList(fromIndex, toIndex);
     }
 
     public Object[] doNotReplaceToArray() {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.contains("bar");
         return list.toArray();
     }
 
     public String[] doNotReplaceToArray(String[] a) {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.contains("bar");
         return list.toArray(a);
     }
 
     public void doNotReplaceTrimToSize() {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.contains("bar");
         list.trimToSize();
     }
 
     public boolean refactorMethods(Collection collection) {
         // Keep this comment
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.add(0, "bar");
         list.addAll(1, collection);
         return list.contains("foo");
@@ -376,7 +368,7 @@ public class SetRatherThanListSample {
 
     public boolean refactorLinkedListMethods(Collection collection) {
         // Keep this comment
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         list.add(0, "bar");
         list.addAll(1, collection);
         return list.contains("foo");
@@ -384,7 +376,7 @@ public class SetRatherThanListSample {
 
     public void replaceListInRunnable() {
         // Keep this comment
-        final ArrayList<String> list = new ArrayList<String>();
+        final ArrayList<String> list = new ArrayList<>();
         new Runnable() {
 
             @Override
@@ -397,7 +389,7 @@ public class SetRatherThanListSample {
 
     public void replaceLinkedListInRunnable() {
         // Keep this comment
-        final LinkedList<String> list = new LinkedList<String>();
+        final LinkedList<String> list = new LinkedList<>();
         new Runnable() {
 
             @Override
@@ -410,14 +402,14 @@ public class SetRatherThanListSample {
 
     public void replaceListInsideRunnable() {
         // Keep this comment
-        final List<String> list = new ArrayList<String>();
+        final List<String> list = new ArrayList<>();
         list.contains("bar");
         new Runnable() {
 
             @Override
             public void run() {
                 // Keep this comment too
-                final ArrayList<String> localList = new ArrayList<String>();
+                final ArrayList<String> localList = new ArrayList<>();
                 localList.add("foo");
                 localList.contains("bar");
             }
@@ -426,14 +418,14 @@ public class SetRatherThanListSample {
 
     public void replaceLinkedListInsideRunnable() {
         // Keep this comment
-        final List<String> list = new LinkedList<String>();
+        final List<String> list = new LinkedList<>();
         list.contains("bar");
         new Runnable() {
 
             @Override
             public void run() {
                 // Keep this comment too
-                final LinkedList<String> localList = new LinkedList<String>();
+                final LinkedList<String> localList = new LinkedList<>();
                 localList.add("foo");
                 localList.contains("bar");
             }
