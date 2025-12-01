@@ -32,62 +32,52 @@ public class ObsoleteOperandFactorizationSample {
 
     public void replaceDuplicateConditionsWithPrimitiveTypes(boolean repeatedBoolean, boolean isValid, boolean isActive) {
         // Keep this comment
-        boolean newBoolean1 = repeatedBoolean && isValid || repeatedBoolean && isActive;
-        boolean newBoolean2 = repeatedBoolean && !isValid || repeatedBoolean && isActive;
-        boolean newBoolean3 = repeatedBoolean && isValid || repeatedBoolean && !isActive;
-        boolean newBoolean4 = repeatedBoolean && !isValid || repeatedBoolean && !isActive;
-        boolean newBoolean5 = !repeatedBoolean && isValid || !repeatedBoolean && isActive;
-        boolean newBoolean6 = !repeatedBoolean && !isValid || !repeatedBoolean && isActive;
-        boolean newBoolean7 = !repeatedBoolean && isValid || !repeatedBoolean && !isActive;
-        boolean newBoolean8 = !repeatedBoolean && !isValid || !repeatedBoolean && !isActive;
+        boolean newBoolean1 = (repeatedBoolean && (isValid || isActive));
+        boolean newBoolean2 = (repeatedBoolean && (!isValid || isActive));
+        boolean newBoolean3 = (repeatedBoolean && (isValid || !isActive));
+        boolean newBoolean4 = (repeatedBoolean && (!isValid || !isActive));
+        boolean newBoolean5 = (!repeatedBoolean && (isValid || isActive));
+        boolean newBoolean6 = (!repeatedBoolean && (!isValid || isActive));
+        boolean newBoolean7 = (!repeatedBoolean && (isValid || !isActive));
+        boolean newBoolean8 = (!repeatedBoolean && (!isValid || !isActive));
     }
 
     public void replaceDuplicateConditionsWithEagerOperator(boolean repeatedBoolean, boolean isValid, boolean isEnable) {
         // Keep this comment
-        boolean newBoolean1 = repeatedBoolean & isValid | repeatedBoolean & isEnable;
-        boolean newBoolean2 = repeatedBoolean & !isValid | repeatedBoolean & isEnable;
-        boolean newBoolean3 = repeatedBoolean & isValid | repeatedBoolean & !isEnable;
-        boolean newBoolean4 = repeatedBoolean & !isValid | repeatedBoolean & !isEnable;
-        boolean newBoolean5 = !repeatedBoolean & isValid | !repeatedBoolean & isEnable;
-        boolean newBoolean6 = !repeatedBoolean & !isValid | !repeatedBoolean & isEnable;
-        boolean newBoolean7 = !repeatedBoolean & isValid | !repeatedBoolean & !isEnable;
-        boolean newBoolean8 = !repeatedBoolean & !isValid | !repeatedBoolean & !isEnable;
+        boolean newBoolean1 = (repeatedBoolean & (isValid | isEnable));
+        boolean newBoolean2 = (repeatedBoolean & (!isValid | isEnable));
+        boolean newBoolean3 = (repeatedBoolean & (isValid | !isEnable));
+        boolean newBoolean4 = (repeatedBoolean & (!isValid | !isEnable));
+        boolean newBoolean5 = (!repeatedBoolean & (isValid | isEnable));
+        boolean newBoolean6 = (!repeatedBoolean & (!isValid | isEnable));
+        boolean newBoolean7 = (!repeatedBoolean & (isValid | !isEnable));
+        boolean newBoolean8 = (!repeatedBoolean & (!isValid | !isEnable));
     }
 
     public void replaceDuplicateConditionsWithPermutedBooleans(boolean repeatedBoolean, boolean isValid, boolean isActive) {
-        // Keep this comment
-        boolean newBoolean1 = repeatedBoolean && isValid || isActive && repeatedBoolean;
-        boolean newBoolean2 = repeatedBoolean && !isValid || isActive && repeatedBoolean;
-        boolean newBoolean3 = repeatedBoolean && isValid || !isActive && repeatedBoolean;
-        boolean newBoolean4 = repeatedBoolean && !isValid || !isActive && repeatedBoolean;
-        boolean newBoolean5 = !repeatedBoolean && isValid || isActive && !repeatedBoolean;
-        boolean newBoolean6 = !repeatedBoolean && !isValid || isActive && !repeatedBoolean;
-        boolean newBoolean7 = !repeatedBoolean && isValid || !isActive && !repeatedBoolean;
-        boolean newBoolean8 = !repeatedBoolean && !isValid || !isActive && !repeatedBoolean;
-
-        newBoolean1 = isValid && repeatedBoolean || repeatedBoolean && isActive;
-        newBoolean2 = !isValid && repeatedBoolean || repeatedBoolean && isActive;
-        newBoolean3 = isValid && repeatedBoolean || repeatedBoolean && !isActive;
-        newBoolean4 = !isValid && repeatedBoolean || repeatedBoolean && !isActive;
-        newBoolean5 = !repeatedBoolean && isValid || !repeatedBoolean && isActive;
-        newBoolean6 = !repeatedBoolean && !isValid || !repeatedBoolean && isActive;
-        newBoolean7 = !repeatedBoolean && isValid || !repeatedBoolean && !isActive;
-        newBoolean8 = !repeatedBoolean && !isValid || !repeatedBoolean && !isActive;
+        boolean newBoolean1 = (repeatedBoolean && (isValid || isActive));
+        boolean newBoolean2 = (repeatedBoolean && (!isValid || isActive));
+        boolean newBoolean3 = (repeatedBoolean && (isValid || !isActive));
+        boolean newBoolean4 = (repeatedBoolean && (!isValid || !isActive));
+        boolean newBoolean5 = (!repeatedBoolean && (isValid || isActive));
+        boolean newBoolean6 = (!repeatedBoolean && (!isValid || isActive));
+        boolean newBoolean7 = (!repeatedBoolean && (isValid || !isActive));
+        boolean newBoolean8 = (!repeatedBoolean && (!isValid || !isActive));
     }
 
     public void replaceDuplicateConditionsWithExpressions(int i1, int i2, int i3, int i4, int i5, int i6) {
         // Keep this comment
-        boolean newBoolean1 = (i1 == i2 * 2) && !(i3 == i4) || (i1 == 2 * i2 * 1) && (i5 == i6);
-        boolean newBoolean2 = (i1 + 1 + 0 == i2) && (i3 == i4) || (1 + i1 == i2) && !(i5 == i6);
-        boolean newBoolean3 = (i1 < i2) && (i3 == i4) || !(i1 >= i2) && !(i5 == i6);
+        boolean newBoolean1 = ((i1 == i2 * 2) && ((i3 != i4) || (i5 == i6)));
+        boolean newBoolean2 = ((i1 + 1 + 0 == i2) && ((i3 == i4) || (i5 != i6)));
+        boolean newBoolean3 = ((i1 < i2) && ((i3 == i4) || (i5 != i6)));
     }
 
     public int replaceBitwiseOperation(int b1, int b2, int b3) {
-        return b1 & b2 | b1 & b3;
+        return (b1 & (b2 | b3));
     }
 
     public boolean doNoRefactorFailingCode(boolean b1, boolean[] b2, boolean b3) {
-        return b2[-1] && b1 || b3 && b1;
+        return ((b2[-1] || b3) && b1);
     }
 
     public boolean doNoReplaceDuplicateConditionsWithOtherCondition(boolean b1, boolean b2, boolean b3, boolean b4) {
@@ -95,25 +85,25 @@ public class ObsoleteOperandFactorizationSample {
     }
 
     public void doNoReplaceDuplicateConditionsWithOtherOperandBefore(boolean b1, boolean b2, boolean b3, boolean unrelevantCondition) {
-        boolean newBoolean1 = unrelevantCondition || (b1 && b2) || (!b1 && b3);
-        boolean newBoolean2 = unrelevantCondition || (b1 && !b2) || (b3 && !b1);
-        boolean newBoolean3 = unrelevantCondition || (b1 && b2) || (!b3 && !b1);
-        boolean newBoolean4 = unrelevantCondition || (b1 && !b2) || (!b3 && !b1);
-        boolean newBoolean5 = unrelevantCondition || (!b1 && b2) || (b3 && b1);
-        boolean newBoolean6 = unrelevantCondition || (!b1 && !b2) || (b3 && b1);
-        boolean newBoolean7 = unrelevantCondition || (!b1 && b2) || (!b3 && b1);
-        boolean newBoolean8 = unrelevantCondition || (!b1 && !b2) || (!b3 && b1);
+        boolean newBoolean1 = unrelevantCondition || (b1 ? b2 : b3);
+        boolean newBoolean2 = unrelevantCondition || (b1 ? !b2 : b3);
+        boolean newBoolean3 = unrelevantCondition || (b1 ? b2 : !b3);
+        boolean newBoolean4 = unrelevantCondition || (b1 ? !b2 : !b3);
+        boolean newBoolean5 = unrelevantCondition || (b1 ? b3 : b2);
+        boolean newBoolean6 = unrelevantCondition || (b1 ? b3 : !b2);
+        boolean newBoolean7 = unrelevantCondition || (b1 ? !b3 : b2);
+        boolean newBoolean8 = unrelevantCondition || (b1 ? !b3 : !b2);
     }
 
     public void doNoReplaceDuplicateConditionsWithOtherOperandAfter(boolean b1, boolean b2, boolean b3, boolean unrelevantCondition) {
-        boolean newBoolean1 = (b1 && b2) || (!b1 && b3) || unrelevantCondition;
-        boolean newBoolean2 = (b1 && !b2) || (b3 && !b1) || unrelevantCondition;
-        boolean newBoolean3 = (b1 && b2) || (!b3 && !b1) || unrelevantCondition;
-        boolean newBoolean4 = (b1 && !b2) || (!b3 && !b1) || unrelevantCondition;
-        boolean newBoolean5 = (!b1 && b2) || (b3 && b1) || unrelevantCondition;
-        boolean newBoolean6 = (!b1 && !b2) || (b3 && b1) || unrelevantCondition;
-        boolean newBoolean7 = (!b1 && b2) || (!b3 && b1) || unrelevantCondition;
-        boolean newBoolean8 = (!b1 && !b2) || (!b3 && b1) || unrelevantCondition;
+        boolean newBoolean1 = (b1 ? b2 : b3) || unrelevantCondition;
+        boolean newBoolean2 = (b1 ? !b2 : b3) || unrelevantCondition;
+        boolean newBoolean3 = (b1 ? b2 : !b3) || unrelevantCondition;
+        boolean newBoolean4 = (b1 ? !b2 : !b3) || unrelevantCondition;
+        boolean newBoolean5 = (b1 ? b3 : b2) || unrelevantCondition;
+        boolean newBoolean6 = (b1 ? b3 : !b2) || unrelevantCondition;
+        boolean newBoolean7 = (b1 ? !b3 : b2) || unrelevantCondition;
+        boolean newBoolean8 = (b1 ? !b3 : !b2) || unrelevantCondition;
     }
 
     public boolean doNoReplaceDuplicateConditionsWithWrappers(Boolean b1, Boolean b2, Boolean b3) {
@@ -128,15 +118,15 @@ public class ObsoleteOperandFactorizationSample {
     }
 
     public void doNotReplaceDuplicateConditionsWithIncrements(int i1, int i2, int i3, int i4, int i5, int i6) {
-        boolean newBoolean1 = (i1 == i2) && !(i3 == i4++) || (i1 == i2) && (i5 == i6++);
-        boolean newBoolean2 = (i1 == i2) && !(i3 == ++i4) || (i1 == i2) && (i5 == ++i6);
-        boolean newBoolean3 = (i1 == i2) && !(i3 == i4--) || (i1 == i2) && (i5 == i6--);
-        boolean newBoolean4 = (i1 == i2) && !(i3 == --i4) || (i1 == i2) && (i5 == --i6);
+        boolean newBoolean1 = (i1 == i2) && (i3 != i4++) || (i1 == i2) && (i5 == i6++);
+        boolean newBoolean2 = (i1 == i2) && (i3 != ++i4) || (i1 == i2) && (i5 == ++i6);
+        boolean newBoolean3 = (i1 == i2) && (i3 != i4--) || (i1 == i2) && (i5 == i6--);
+        boolean newBoolean4 = (i1 == i2) && (i3 != --i4) || (i1 == i2) && (i5 == --i6);
 
-        boolean newBoolean5 = (i1 == i2) && (i3 == i4++) || (i1 == i2) && !(i5 == i6++);
-        boolean newBoolean6 = (i1 == i2) && (i3 == ++i4) || (i1 == i2) && !(i5 == ++i6);
-        boolean newBoolean7 = (i1 == i2) && (i3 == i4--) || (i1 == i2) && !(i5 == i6--);
-        boolean newBoolean8 = (i1 == i2) && (i3 == --i4) || (i1 == i2) && !(i5 == --i6);
+        boolean newBoolean5 = (i1 == i2) && (i3 == i4++) || (i1 == i2) && (i5 != i6++);
+        boolean newBoolean6 = (i1 == i2) && (i3 == ++i4) || (i1 == i2) && (i5 != ++i6);
+        boolean newBoolean7 = (i1 == i2) && (i3 == i4--) || (i1 == i2) && (i5 != i6--);
+        boolean newBoolean8 = (i1 == i2) && (i3 == --i4) || (i1 == i2) && (i5 != --i6);
     }
 
     public void doNotReplaceDuplicateConditionsWithAssignments(int i1, int i2, boolean b1, boolean b2, boolean b3) {
@@ -144,7 +134,7 @@ public class ObsoleteOperandFactorizationSample {
         boolean newBoolean2 = (i1 == i2) && (b1 = b2) || (i1 == i2) && !(b1 = b3);
     }
 
-    private class SideEffect {
+    private static class SideEffect {
         private SideEffect() {
             staticField++;
         }

@@ -29,10 +29,7 @@ public class ObsoleteMergeConditionalBlocksSample {
     /** Duplicate if and else if code, merge it */
     public void duplicateIfAndElseIf(int i) {
         // Keep this comment
-        if (i == 0) {
-            // Keep this comment too
-            System.out.println("Duplicate");
-        } else if (i == 1) {
+        if ((i == 0) || (i == 1)) {
             // Keep this comment too
             System.out.println("Duplicate");
         } else {
@@ -44,25 +41,19 @@ public class ObsoleteMergeConditionalBlocksSample {
     /** Duplicate if and else code, merge it */
     public void duplicateIfAndElse(int i) {
         // Keep this comment
-        if (i == 0) {
+        if ((i == 0) || (i != 1)) {
             // Keep this comment too
             System.out.println("Duplicate");
-        } else if (i == 1) {
+        } else {
             // Keep this comment also
             System.out.println("Different");
-        } else {
-            // Keep this comment too
-            System.out.println("Duplicate");
         }
     }
 
     /** Duplicate if and else if code, merge it */
     public void duplicateIfAndElseIfWithoutElse(int i) {
         // Keep this comment
-        if (i == 0) {
-            // Keep this comment too
-            System.out.println("Duplicate");
-        } else if (i == 1) {
+        if ((i == 0) || (i == 1)) {
             // Keep this comment too
             System.out.println("Duplicate");
         }
@@ -74,10 +65,7 @@ public class ObsoleteMergeConditionalBlocksSample {
         if (i == 0) {
             // Keep this comment too
             System.out.println("A given code");
-        } if (i == 1) {
-            // Keep this comment too
-            System.out.println("Duplicate");
-        } else if (i == 2) {
+        } if ((i == 1) || (i == 2)) {
             // Keep this comment too
             System.out.println("Duplicate");
         } else {
@@ -89,59 +77,54 @@ public class ObsoleteMergeConditionalBlocksSample {
     /** Duplicate if and else if code, merge it */
     public void duplicateSingleStatement(int i) {
         // Keep this comment
-        if (i == 0)
+        if ((i == 0) || (i == 1)) {
             // Keep this comment too
             System.out.println("Duplicate");
-        else if (i == 1)
-            // Keep this comment too
-            System.out.println("Duplicate");
-        else
-            // Keep this comment also
-            System.out.println("Different");
-    }
-
-    /** Hardly identified elements */
-    public void doNotCreateMalFormedTree(boolean b1, boolean b2) {
-        if (b1) {
-        } else if (b2) {
-            ;
-        }
-//
-    }
-
-    /** Duplicate if and else if code, merge it */
-    public void numerousDuplicateIfAndElseIf(int i) {
-        // Keep this comment
-        if (i == 0) {
-            // Keep this comment too
-            System.out.println("Duplicate" + (i * 10 * 1));
-        } else if (i == 1) {
-            // Keep this comment too
-            System.out.println("Duplicate" + (i * 1 * 10));
-        } else if (i == 2)
-            // Keep this comment too
-            System.out.println("Duplicate" + (i * 10));
-        else if (i == 3) {
-            // Keep this comment too
-            System.out.println("Duplicate" + (10 * i));
         } else {
             // Keep this comment also
             System.out.println("Different");
         }
     }
 
+    /** Hardly identified elements */
+    public void doNotCreateMalFormedTree(boolean b1, boolean b2) {
+        if (b1 || b2) {
+        }
+    }
+
+    /** Duplicate if and else if code, merge it */
+    public void numerousDuplicateIfAndElseIf(int i) {
+        // Keep this comment
+        switch (i) {
+            case 0:
+                // Keep this comment too
+                System.out.println("Duplicate" + (i * 10 * 1));
+                break;
+            case 1:
+                // Keep this comment too
+                System.out.println("Duplicate" + (i * 1 * 10));
+                break;
+            case 2:
+                // Keep this comment too
+                System.out.println("Duplicate" + (i * 10));
+                break;
+            case 3:
+                // Keep this comment too
+                System.out.println("Duplicate" + (10 * i));
+                break;
+            default:
+                // Keep this comment also
+                System.out.println("Different");
+                break;
+        }
+    }
+
     /** Duplicate if and else if code, merge it */
     public void complexIfAndElseIf(int i) {
         // Keep this comment
-        if (i == 0) {
+        if ((i == 0) || (i == 1 || i == 2) || (i > 10)) {
             // Keep this comment too
             System.out.println("Duplicate " + (i + 123 + 0));
-        } else if (i == 1 || i == 2) {
-            // Keep this comment too
-            System.out.println("Duplicate " + (i + 0 + 123));
-        } else if (i > 10) {
-            // Keep this comment too
-            System.out.println("Duplicate " + (123 + i));
         } else {
             // Keep this comment also
             System.out.println("Different");
@@ -162,11 +145,7 @@ public class ObsoleteMergeConditionalBlocksSample {
     /** Duplicate if and else if code, merge it */
     public void longIfAndElseIf(int i) {
         // Keep this comment
-        if (i == 0) {
-            // Keep this comment too
-            System.out.println("Duplicate");
-            System.out.println("code");
-        } else if (i == 1) {
+        if ((i == 0) || (i == 1)) {
             // Keep this comment too
             System.out.println("Duplicate");
             System.out.println("code");
@@ -191,18 +170,23 @@ public class ObsoleteMergeConditionalBlocksSample {
     /** Duplicate if and else if code, merge it */
     public void doNotMergeIntruderCode(int i) {
         // Keep this comment
-        if (i == 0) {
-            // Keep this comment too
-            System.out.println("Duplicate");
-        } else if (i == 1) {
-            // Keep this comment too
-            System.out.println("Intruder");
-        } else if (i == 2) {
-            // Keep this comment too
-            System.out.println("Duplicate");
-        } else {
-            // Keep this comment also
-            System.out.println("Different");
+        switch (i) {
+            case 0:
+                // Keep this comment too
+                System.out.println("Duplicate");
+                break;
+            case 1:
+                // Keep this comment too
+                System.out.println("Intruder");
+                break;
+            case 2:
+                // Keep this comment too
+                System.out.println("Duplicate");
+                break;
+            default:
+                // Keep this comment also
+                System.out.println("Different");
+                break;
         }
     }
 }

@@ -45,9 +45,9 @@ public class BigNumberSample {
         BigDecimal bd1 = new BigDecimal(0);
         BigDecimal bd2 = new BigDecimal(1);
         BigDecimal bd3 = new BigDecimal(10);
-        BigDecimal bd4 = new BigDecimal(0l);
-        BigDecimal bd5 = new BigDecimal(1l);
-        BigDecimal bd6 = new BigDecimal(10l);
+        BigDecimal bd4 = new BigDecimal(0L);
+        BigDecimal bd5 = new BigDecimal(1L);
+        BigDecimal bd6 = new BigDecimal(10L);
         BigDecimal bd7 = new BigDecimal(0L);
         BigDecimal bd8 = new BigDecimal(1L);
         BigDecimal bd9 = new BigDecimal(10L);
@@ -59,9 +59,9 @@ public class BigNumberSample {
         BigDecimal bd13 = BigDecimal.valueOf(0);
         BigDecimal bd14 = BigDecimal.valueOf(1);
         BigDecimal bd15 = BigDecimal.valueOf(10);
-        BigDecimal bd16 = BigDecimal.valueOf(0l);
-        BigDecimal bd17 = BigDecimal.valueOf(1l);
-        BigDecimal bd18 = BigDecimal.valueOf(10l);
+        BigDecimal bd16 = BigDecimal.valueOf(0L);
+        BigDecimal bd17 = BigDecimal.valueOf(1L);
+        BigDecimal bd18 = BigDecimal.valueOf(10L);
         BigDecimal bd19 = BigDecimal.valueOf(0L);
         BigDecimal bd20 = BigDecimal.valueOf(1L);
         BigDecimal bd21 = BigDecimal.valueOf(10L);
@@ -79,9 +79,9 @@ public class BigNumberSample {
         BigInteger bi4 = BigInteger.valueOf(0);
         BigInteger bi5 = BigInteger.valueOf(1);
         BigInteger bi6 = BigInteger.valueOf(10);
-        BigInteger bi7 = BigInteger.valueOf(0l);
-        BigInteger bi8 = BigInteger.valueOf(1l);
-        BigInteger bi9 = BigInteger.valueOf(10l);
+        BigInteger bi7 = BigInteger.valueOf(0L);
+        BigInteger bi8 = BigInteger.valueOf(1L);
+        BigInteger bi9 = BigInteger.valueOf(10L);
         BigInteger bi10 = BigInteger.valueOf(0L);
         BigInteger bi11 = BigInteger.valueOf(1L);
         BigInteger bi12 = BigInteger.valueOf(10L);
@@ -92,7 +92,7 @@ public class BigNumberSample {
     public static String useValueOf() {
         // Keep this comment
         BigDecimal bd1 = new BigDecimal(5);
-        BigDecimal bd2 = new BigDecimal(5l);
+        BigDecimal bd2 = new BigDecimal(5L);
         BigDecimal bd3 = new BigDecimal(5L);
 
         return "" + bd1 + bd2 + bd3;

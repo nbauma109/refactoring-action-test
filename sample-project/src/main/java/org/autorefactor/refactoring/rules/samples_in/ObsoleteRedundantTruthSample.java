@@ -27,87 +27,87 @@ package org.autorefactor.refactoring.rules.samples_in;
 
 public class ObsoleteRedundantTruthSample {
     public void simplifyPrimitiveBooleanExpression(boolean isValid) {
-        if (isValid == true) {
+        if (isValid) {
             int i = 0;
         }
 
-        if (isValid != false) {
+        if (isValid) {
             int i = 0;
         }
 
-        if (isValid == false) {
+        if (!isValid) {
             int i = 0;
         }
 
-        if (isValid != true) {
+        if (!isValid) {
             int i = 0;
         }
 
-        if (isValid == Boolean.TRUE) {
+        if (isValid) {
             int i = 0;
         }
 
-        if (isValid != Boolean.FALSE) {
+        if (isValid) {
             int i = 0;
         }
 
-        if (isValid == Boolean.FALSE) {
+        if (!isValid) {
             int i = 0;
         }
 
-        if (isValid != Boolean.TRUE) {
+        if (!isValid) {
             int i = 0;
         }
     }
 
     public void removeParenthesis(boolean isValid, boolean isActive) {
-        if ((isValid == true) == isActive) {
+        if (isValid == isActive) {
             int i = 0;
         }
 
-        if (isActive == (isValid == true)) {
+        if (isActive == isValid) {
             int i = 0;
         }
 
-        if ((isValid == true) != isActive) {
+        if (isValid != isActive) {
             int i = 0;
         }
 
-        if (isActive != (isValid == true)) {
+        if (isActive != isValid) {
             int i = 0;
         }
 
-        if ((isValid == false) == isActive) {
+        if (isValid ^ isActive) {
             int i = 0;
         }
 
-        if (isActive == (isValid == false)) {
+        if (isActive ^ isValid) {
             int i = 0;
         }
 
-        if ((isValid == false) != isActive) {
+        if (isValid == isActive) {
             int i = 0;
         }
 
-        if (isActive != (isValid == false)) {
+        if (isActive == isValid) {
             int i = 0;
         }
     }
 
     public void simplifyBooleanWrapperExpression(Boolean isValid) {
-        if (isValid == true) {
+        if (isValid) {
             int i = 0;
         }
 
-        if (isValid != false) {
+        if (isValid) {
             int i = 0;
         }
 
-        if (isValid == false) {
+        if (!isValid) {
             int i = 0;
         }
 
-        if (isValid != true) {
+        if (!isValid) {
             int i = 0;
         }
     }

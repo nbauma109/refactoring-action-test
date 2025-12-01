@@ -28,56 +28,56 @@ package org.autorefactor.refactoring.rules.samples_in;
 public class ObsoletePrimitiveComparisonRatherThanWrapperComparisonSample {
     public int simplifyIntegerComparison(int number, int anotherNumber) {
         // Keep this comment
-        return Integer.valueOf(number).compareTo(anotherNumber);
+        return Integer.compare(number, anotherNumber);
     }
 
     public int simplifyDoubleComparison(double number, double anotherNumber) {
         // Keep this comment
-        return Double.valueOf(number).compareTo(anotherNumber);
+        return Double.compare(number, anotherNumber);
     }
 
     public int simplifyFloatComparison(float number, float anotherNumber) {
         // Keep this comment
-        return Float.valueOf(number).compareTo(anotherNumber);
+        return Float.compare(number, anotherNumber);
     }
 
     public int simplifyShortComparison(short number, short anotherNumber) {
         // Keep this comment
-        return Short.valueOf(number).compareTo(anotherNumber);
+        return Short.compare(number, anotherNumber);
     }
 
     public int simplifyLongComparison(long number, long anotherNumber) {
         // Keep this comment
-        return Long.valueOf(number).compareTo(anotherNumber);
+        return Long.compare(number, anotherNumber);
     }
 
     public int simplifyCharacterComparison(char number, char anotherNumber) {
         // Keep this comment
-        return Character.valueOf(number).compareTo(anotherNumber);
+        return Character.compare(number, anotherNumber);
     }
 
     public int simplifyByteComparison(byte number, byte anotherNumber) {
         // Keep this comment
-        return Byte.valueOf(number).compareTo(anotherNumber);
+        return Byte.compare(number, anotherNumber);
     }
 
     public int simplifyBooleanComparison(boolean number, boolean anotherNumber) {
         // Keep this comment
-        return Boolean.valueOf(number).compareTo(anotherNumber);
+        return Boolean.compare(number, anotherNumber);
     }
 
     public int refactorIntegerInstantiation(int number, int anotherNumber) {
         // Keep this comment
-        return new Integer(number).compareTo(anotherNumber);
+        return Integer.compare(number, anotherNumber);
     }
 
     public int refactorIntegerCast(int number, int anotherNumber) {
         // Keep this comment
-        return ((Integer) number).compareTo(anotherNumber);
+        return Integer.compare(number, anotherNumber);
     }
 
     public int doNotRefactorWrapper(Integer number, int anotherNumber) {
-        return Integer.valueOf(number).compareTo(anotherNumber);
+        return number.compareTo(anotherNumber);
     }
 
     public int doNotRefactorWrapperComparator(int number, Integer anotherNumber) {
@@ -89,6 +89,6 @@ public class ObsoletePrimitiveComparisonRatherThanWrapperComparisonSample {
     }
 
     public int doNotRefactorBadMethod(int number, int anotherNumber) {
-        return Integer.valueOf(number).valueOf(anotherNumber);
+        return anotherNumber;
     }
 }

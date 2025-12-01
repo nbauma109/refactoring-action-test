@@ -171,14 +171,14 @@ public class StaticConstantRatherThanInstanceConstantSample {
         final float doNotRefactorVariableFloatPrimitive = 0.0f;
         final double doNotRefactorVariableDoublePrimitive = 0.0;
 
-        final Byte doNotRefactorVariableByteWrapper = 12;
-        final Character doNotRefactorVariableCharacterWrapper = 'a';
-        final Short doNotRefactorVariableShortWrapper = 0;
-        final Integer doNotRefactorVariableIntegerWrapper = 0;
-        final Long doNotRefactorVariableLongWrapper = 0L;
-        final Boolean doNotRefactorVariableBooleanWrapper = false;
-        final Float doNotRefactorVariableFloatWrapper = 0.0f;
-        final Double doNotRefactorVariableDoubleWrapper = 0.0;
+        final byte doNotRefactorVariableByteWrapper = 12;
+        final char doNotRefactorVariableCharacterWrapper = 'a';
+        final short doNotRefactorVariableShortWrapper = 0;
+        final int doNotRefactorVariableIntegerWrapper = 0;
+        final long doNotRefactorVariableLongWrapper = 0L;
+        final boolean doNotRefactorVariableBooleanWrapper = false;
+        final float doNotRefactorVariableFloatWrapper = 0.0f;
+        final double doNotRefactorVariableDoubleWrapper = 0.0;
         final String doNotRefactorVariableStringWrapper = "Lorem ipsum";
     }
 

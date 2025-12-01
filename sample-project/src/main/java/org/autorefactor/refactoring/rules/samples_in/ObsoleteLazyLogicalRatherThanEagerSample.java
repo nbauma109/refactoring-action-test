@@ -65,7 +65,7 @@ public class ObsoleteLazyLogicalRatherThanEagerSample {
     }
 
     public void doNotReplaceOperatorWithArrayAccess() {
-        boolean[] booleans = new boolean[] {true, true};
+        boolean[] booleans = {true, true};
         boolean newBoolean1 = booleans[0] & booleans[1] & booleans[2];
         boolean newBoolean2 = booleans[0] | booleans[1] | booleans[2];
     }
@@ -98,7 +98,7 @@ public class ObsoleteLazyLogicalRatherThanEagerSample {
         boolean newBoolean2 = (i1 == i2) | (b1 = b2);
     }
 
-    private class SideEffect {
+    private static class SideEffect {
         private SideEffect() {
             staticField++;
         }

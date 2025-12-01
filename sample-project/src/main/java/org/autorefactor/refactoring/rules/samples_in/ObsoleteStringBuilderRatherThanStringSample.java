@@ -72,22 +72,19 @@ public class ObsoleteStringBuilderRatherThanStringSample {
     public static String useStringBuilderOnBasicAssignment() {
         // Keep this comment
         String variable= "";
-        // Keep this comment also
-        variable= variable + "foo";
+
         // Keep this comment too
-        return variable;
+        return variable + "foo";
     }
 
     public static String doNotUseStringBuilderWithoutAppending() {
         String variable= "";
-        variable= "foo" + variable;
-        return variable;
+        return "foo" + variable;
     }
 
     public static String doNotRefactorWrongAssignmentOperator() {
         String variable= "";
-        variable= "foo";
-        return variable;
+        return "foo";
     }
 
     public static String doNotRefactorBadAssignmentOperator() {
@@ -97,8 +94,7 @@ public class ObsoleteStringBuilderRatherThanStringSample {
     }
 
     public static String doNotUseStringBuilderWithoutConcatenation() {
-        String variable= "";
-        return variable;
+        return "";
     }
 
     public static void doNotRefactorStringChangedAfterUse(String text) {
@@ -110,12 +106,12 @@ public class ObsoleteStringBuilderRatherThanStringSample {
 
     public static String useStringBuilderWithExtendedOperation(String text) {
         // Keep this comment
-        String variable= "";
+        StringBuilder variable= new StringBuilder();
         // Keep this comment also
-        variable+= text + "foo";
-        variable= variable + text + "bar";
+        variable.append(text).append("foo");
+        variable.append(text).append("bar");
         // Keep this comment too
-        return variable;
+        return variable.toString();
     }
 
     public static String useStringBuilderWithDifferentAssignment() {
@@ -123,9 +119,9 @@ public class ObsoleteStringBuilderRatherThanStringSample {
         String variable= "";
         // Keep this comment also
         variable+= "foo";
-        variable= variable + "bar";
+
         // Keep this comment too
-        return variable;
+        return variable + "bar";
     }
 
     public static String doNotBuildStringSeveralTimes() {
@@ -151,16 +147,16 @@ public class ObsoleteStringBuilderRatherThanStringSample {
 
     public static String useStringBuilderWithLoop(List<String> texts) {
         // Keep this comment
-        String variable= "";
+        StringBuilder variable= new StringBuilder();
 
         for (String text : texts) {
             // Keep this comment also
-            variable+= text;
-            variable= variable + ",";
+            variable.append(text);
+            variable.append(",");
         }
 
         // Keep this comment too
-        return variable;
+        return variable.toString();
     }
 
     public static List<String> doNotStringifySeveralTimes(List<String> texts) {
@@ -178,39 +174,39 @@ public class ObsoleteStringBuilderRatherThanStringSample {
 
     public static String useStringBuilderWithWhile(String text, int i) {
         // Keep this comment
-        String variable= "";
+        StringBuilder variable= new StringBuilder();
 
         while (i-- > 0) {
             // Keep this comment also
-            variable+= text;
-            variable= variable + ",";
+            variable.append(text);
+            variable.append(",");
         }
 
         // Keep this comment too
-        return variable;
+        return variable.toString();
     }
 
     public static String useStringBuilderWithTry(String number, int i) {
         // Keep this comment
-        String variable= "";
+        StringBuilder variable= new StringBuilder();
 
         try {
             while (i-- > 0) {
                 // Keep this comment also
-                variable+= (Integer.parseInt(number) + 1);
-                variable= variable + ",";
+                variable.append(Integer.parseInt(number)).append(1);
+                variable.append(",");
             }
         } catch (NumberFormatException e) {
             return "0";
         }
 
         // Keep this comment too
-        return variable;
+        return variable.toString();
     }
 
     public static String useStringBuilderWithFinally(String number) {
         // Keep this comment
-        String variable= "";
+        StringBuilder variable= new StringBuilder();
         int i= 123;
 
         try {
@@ -219,12 +215,12 @@ public class ObsoleteStringBuilderRatherThanStringSample {
             System.out.println("error");
         } finally {
             // Keep this comment also
-            variable+= "foo";
-            variable= variable + "bar";
+            variable.append("foo");
+            variable.append("bar");
         }
 
         // Keep this comment too
-        return variable + i;
+        return variable.append(i).toString();
     }
 
     public static void doNotStringifySeveralTimesToo(List<String> texts) {
@@ -244,9 +240,9 @@ public class ObsoleteStringBuilderRatherThanStringSample {
         if (isEnabled) {
             // Keep this comment also
             variable+= "foo";
-            variable= variable + "bar";
+
             // Keep this comment too
-            return variable;
+            return variable + "bar";
         }
 
         return "";
@@ -258,18 +254,17 @@ public class ObsoleteStringBuilderRatherThanStringSample {
 
         if (isEnabled) {
             return "OK";
-        } else {
-            // Keep this comment also
-            variable+= "foo";
-            variable= variable + "bar";
-            // Keep this comment too
-            return variable;
         }
+        // Keep this comment also
+        variable+= "foo";
+
+        // Keep this comment too
+        return variable + "bar";
     }
 
     public static String useTwoStringBuilders(boolean isEnabled) {
         // Keep this comment
-        String variable1= "First variable";
+        StringBuilder variable1= new StringBuilder("First variable");
         String variable2= "Second variable";
 
         if (isEnabled) {
@@ -278,12 +273,12 @@ public class ObsoleteStringBuilderRatherThanStringSample {
             variable2= variable2 + "bar";
         } else {
             // Keep this comment also
-            variable1+= "foo";
-            variable1= variable1 + "bar";
+            variable1.append("foo");
+            variable1.append("bar");
         }
 
         // Keep this comment too
-        return variable1 + variable2;
+        return variable1.append(variable2).toString();
     }
 
     public static String doNotRefactorStringsWithoutConcatenation(boolean isEnabled) {

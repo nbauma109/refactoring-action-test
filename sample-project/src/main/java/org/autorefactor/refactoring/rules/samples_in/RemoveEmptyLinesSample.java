@@ -122,7 +122,7 @@ public class RemoveEmptyLinesSample
 
 
 
-    private static enum WeekOfDay { MONDAY, TUESDAY, WEDNESDAY, THRUSDAY, FRIDAY, SATURDAY, SUNDAY }
+    private enum WeekOfDay { MONDAY, TUESDAY, WEDNESDAY, THRUSDAY, FRIDAY, SATURDAY, SUNDAY }
 
 
 

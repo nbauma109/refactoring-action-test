@@ -32,16 +32,16 @@ public class ObsoleteComparisonSample implements Comparator<Double> {
         boolean b = true;
         final String s = "";
 
-        b &= s.compareTo("smaller") == -1;
-        b &= s.compareTo("greater") != -1;
-        b &= s.compareTo("smaller") != 1;
-        b &= (s.compareTo("greater")) == 1;
-        b &= (s.compareToIgnoreCase("greater")) == 1;
-        b &= -1 == (s.compareTo("smaller"));
-        b &= -1 != s.compareTo("greater");
-        b &= 1 != s.compareTo("smaller");
-        b &= 1 == s.compareTo("greater");
-        b &= 1 == s.compareToIgnoreCase("greater");
+        b &= s.compareTo("smaller") < 0;
+        b &= s.compareTo("greater") >= 0;
+        b &= s.compareTo("smaller") <= 0;
+        b &= s.compareTo("greater") > 0;
+        b &= s.compareToIgnoreCase("greater") > 0;
+        b &= s.compareTo("smaller") < 0;
+        b &= s.compareTo("greater") >= 0;
+        b &= s.compareTo("smaller") <= 0;
+        b &= s.compareTo("greater") > 0;
+        b &= s.compareToIgnoreCase("greater") > 0;
 
         return b;
     }
@@ -50,14 +50,14 @@ public class ObsoleteComparisonSample implements Comparator<Double> {
         boolean b = true;
         final String s = "";
 
-        b &= comparator.compare(s, "smaller") == -1;
-        b &= comparator.compare(s, "greater") != -1;
-        b &= comparator.compare(s, "smaller") != 1;
-        b &= (comparator.compare(s, "greater")) == 1;
-        b &= -1 == (comparator.compare(s, "smaller"));
-        b &= -1 != comparator.compare(s, "greater");
-        b &= 1 != comparator.compare(s, "smaller");
-        b &= 1 == comparator.compare(s, "greater");
+        b &= comparator.compare(s, "smaller") < 0;
+        b &= comparator.compare(s, "greater") >= 0;
+        b &= comparator.compare(s, "smaller") <= 0;
+        b &= comparator.compare(s, "greater") > 0;
+        b &= comparator.compare(s, "smaller") < 0;
+        b &= comparator.compare(s, "greater") >= 0;
+        b &= comparator.compare(s, "smaller") <= 0;
+        b &= comparator.compare(s, "greater") > 0;
 
         return b;
     }

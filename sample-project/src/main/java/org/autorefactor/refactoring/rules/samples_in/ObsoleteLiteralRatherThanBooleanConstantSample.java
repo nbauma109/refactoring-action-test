@@ -28,18 +28,16 @@ package org.autorefactor.refactoring.rules.samples_in;
 public class ObsoleteLiteralRatherThanBooleanConstantSample {
     public static boolean replaceUselessUnboxing() {
         // Keep this comment
-        boolean bo1 = Boolean.TRUE;
-        boolean bo2 = Boolean.FALSE;
-        bo1 = Boolean.TRUE;
-        if (Boolean.TRUE) {
-            bo2 = Boolean.FALSE;
+        boolean bo1 = true;
+        boolean bo2 = false;
+        if (true) {
+            bo2 = false;
         }
         return bo1 && bo2;
     }
 
     public static boolean doNotCreateUselessAutoboxing() {
-        Boolean bo = Boolean.TRUE;
-        bo = Boolean.FALSE;
-        return bo;
+        boolean bo = true;
+        return false;
     }
 }

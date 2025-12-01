@@ -29,7 +29,7 @@ package org.autorefactor.refactoring.rules.samples_in;
 public class ObsoleteStringRatherThanNewStringSample {
     public String replaceNewString() {
         // Keep this comment
-        return new String("");
+        return "";
     }
 
     public String doNotReplaceNullableString(String s) {
@@ -38,6 +38,6 @@ public class ObsoleteStringRatherThanNewStringSample {
 
     public String replaceNewStringInMethodInvocation(String s, int i) {
         // Keep this comment
-        return new String(s + i).toLowerCase();
+        return (s + i).toLowerCase();
     }
 }

@@ -25,25 +25,19 @@
  */
 package org.autorefactor.refactoring.rules.samples_in;
 
-import java.io.IOException;
-import java.io.Reader;
-import java.util.Collection;
-import java.util.List;
-import java.util.Random;
-
 public class ObsoleteEqualsNullableSample {
     private static final String NULL_CONSTANT = null;
 
     public void removeUselessNullCheck(String s) {
         // Remove redundant null checks
-        boolean b1 = s != null && "".equals(s);
-        boolean b2 = s != null && "".equalsIgnoreCase(s);
-        boolean b3 = s != null && s instanceof String;
+        boolean b1 = "".equals(s);
+        boolean b2 = "".equalsIgnoreCase(s);
+        boolean b3 = s instanceof String;
 
         // Remove redundant null checks
-        boolean b4 = null != s && "".equals(s);
-        boolean b5 = null != s && "".equalsIgnoreCase(s);
-        boolean b6 = null != s && s instanceof String;
+        boolean b4 = "".equals(s);
+        boolean b5 = "".equalsIgnoreCase(s);
+        boolean b6 = s instanceof String;
     }
 
     public boolean doNotRemoveUselessNullCheckOnInstance(Object o) {
@@ -56,42 +50,42 @@ public class ObsoleteEqualsNullableSample {
 
     public boolean removeExtendedNullCheck(boolean enabled, String s) {
         // Remove redundant null checks
-        boolean b1 = enabled && s != null && "".equals(s);
-        boolean b2 = enabled && s != null && "".equalsIgnoreCase(s);
-        boolean b3 = enabled && s != null && s instanceof String;
+        boolean b1 = enabled && "".equals(s);
+        boolean b2 = enabled && "".equalsIgnoreCase(s);
+        boolean b3 = enabled && s instanceof String;
 
         // Remove redundant null checks
-        boolean b4 = enabled && null != s && "".equals(s);
-        boolean b5 = enabled && null != s && "".equalsIgnoreCase(s);
-        boolean b6 = enabled && null != s && s instanceof String;
+        boolean b4 = enabled && "".equals(s);
+        boolean b5 = enabled && "".equalsIgnoreCase(s);
+        boolean b6 = enabled && s instanceof String;
 
         return b1 && b2 && b3 && b4 && b5 && b6;
     }
 
     public boolean removeExtendedNullCheck(boolean enabled, boolean isValid, String s) {
         // Remove redundant null checks
-        boolean b1 = enabled && isValid && s != null && "".equals(s);
-        boolean b2 = enabled && isValid && s != null && "".equalsIgnoreCase(s);
-        boolean b3 = enabled && isValid && s != null && s instanceof String;
+        boolean b1 = enabled && isValid && "".equals(s);
+        boolean b2 = enabled && isValid && "".equalsIgnoreCase(s);
+        boolean b3 = enabled && isValid && s instanceof String;
 
         // Remove redundant null checks
-        boolean b4 = enabled && isValid && null != s && "".equals(s);
-        boolean b5 = enabled && isValid && null != s && "".equalsIgnoreCase(s);
-        boolean b6 = enabled && isValid && null != s && s instanceof String;
+        boolean b4 = enabled && isValid && "".equals(s);
+        boolean b5 = enabled && isValid && "".equalsIgnoreCase(s);
+        boolean b6 = enabled && isValid && s instanceof String;
 
         return b1 && b2 && b3 && b4 && b5 && b6;
     }
 
     public boolean removeNullCheckInTheMiddle(boolean enabled, boolean isValid, String s) {
         // Remove redundant null checks
-        boolean b1 = enabled && s != null && "".equals(s) && isValid;
-        boolean b2 = enabled && s != null && "".equalsIgnoreCase(s) && isValid;
-        boolean b3 = enabled && s != null && s instanceof String && isValid;
+        boolean b1 = enabled && "".equals(s) && isValid;
+        boolean b2 = enabled && "".equalsIgnoreCase(s) && isValid;
+        boolean b3 = enabled && s instanceof String && isValid;
 
         // Remove redundant null checks
-        boolean b4 = enabled && null != s && "".equals(s) && isValid;
-        boolean b5 = enabled && null != s && "".equalsIgnoreCase(s) && isValid;
-        boolean b6 = enabled && null != s && s instanceof String && isValid;
+        boolean b4 = enabled && "".equals(s) && isValid;
+        boolean b5 = enabled && "".equalsIgnoreCase(s) && isValid;
+        boolean b6 = enabled && s instanceof String && isValid;
 
         return b1 && b2 && b3 && b4 && b5 && b6;
     }

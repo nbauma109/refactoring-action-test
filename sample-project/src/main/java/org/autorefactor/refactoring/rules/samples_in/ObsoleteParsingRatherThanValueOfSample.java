@@ -30,110 +30,102 @@ package org.autorefactor.refactoring.rules.samples_in;
 public class ObsoleteParsingRatherThanValueOfSample {
     public static void convertValueOfCallsToParseCallsInPrimitiveContext() {
         // Keep this comment
-        byte by1 = Byte.valueOf("0");
-        byte by2 = Byte.valueOf("0", 10);
-        boolean bo = Boolean.valueOf("true");
-        int i1 = Integer.valueOf("42");
-        int i2 = Integer.valueOf("42", 10);
-        long l1 = Long.valueOf("42");
-        long l2 = Long.valueOf("42", 10);
-        short s1 = Short.valueOf("42");
-        short s2 = Short.valueOf("42", 10);
-        float f = Float.valueOf("42.42");
-        double d = Double.valueOf("42.42");
+        byte by1 = Byte.parseByte("0");
+        byte by2 = Byte.parseByte("0", 10);
+        boolean bo = Boolean.parseBoolean("true");
+        int i1 = Integer.parseInt("42");
+        int i2 = Integer.parseInt("42", 10);
+        long l1 = Long.parseLong("42");
+        long l2 = Long.parseLong("42", 10);
+        short s1 = Short.parseShort("42");
+        short s2 = Short.parseShort("42", 10);
+        float f = Float.parseFloat("42.42");
+        double d = Double.parseDouble("42.42");
     }
 
     public static void removeUnnecessaryValueOfCallsInPrimitiveDeclaration() {
         // Keep this comment
-        char c = Character.valueOf('&');
-        byte by = Byte.valueOf((byte) 0);
-        boolean bo = Boolean.valueOf(true);
-        int i = Integer.valueOf(42);
-        long l = Long.valueOf(42);
-        short s = Short.valueOf((short) 42);
-        float f = Float.valueOf(42.42F);
-        double d = Double.valueOf(42.42);
+        char c = '&';
+        byte by = (byte) 0;
+        boolean bo = true;
+        int i = 42;
+        long l = 42;
+        short s = (short) 42;
+        float f = 42.42F;
+        double d = 42.42;
     }
 
     public static void removeUnnecessaryValueOfCallsInPrimitiveAssignment() {
         // Keep this comment
-        char c;
-        c = Character.valueOf('&');
-        byte by;
-        by = Byte.valueOf((byte) 0);
-        boolean bo1;
-        bo1 = Boolean.valueOf(true);
-        int i;
-        i = Integer.valueOf(42);
-        long l;
-        l = Long.valueOf(42);
-        short s;
-        s = Short.valueOf((short) 42);
-        float f;
-        f = Float.valueOf(42.42F);
-        double d;
-        d = Double.valueOf(42.42);
+        char c = '&';
+        byte by = (byte) 0;
+        boolean bo1 = true;
+        int i = 42;
+        long l = 42;
+        short s = (short) 42;
+        float f = 42.42F;
+        double d = 42.42;
     }
 
     public static char removeUnnecessaryValueOfCallsInCharacterPrimitive() {
         // Keep this comment
-        return Character.valueOf('&');
+        return '&';
     }
 
     public static byte removeUnnecessaryValueOfCallsInBytePrimitive() {
         // Keep this comment
-        return Byte.valueOf((byte) 0);
+        return (byte) 0;
     }
 
     public static boolean removeUnnecessaryValueOfCallsInBooleanPrimitive() {
         // Keep this comment
-        return Boolean.valueOf(true);
+        return true;
     }
 
     public static int removeUnnecessaryValueOfCallsInIntegerPrimitive() {
         // Keep this comment
-        return Integer.valueOf(42);
+        return 42;
     }
 
     public static long removeUnnecessaryValueOfCallsInLongPrimitive() {
         // Keep this comment
-        return Long.valueOf(42);
+        return 42;
     }
 
     public static short removeUnnecessaryValueOfCallsInShortPrimitive() {
         // Keep this comment
-        return Short.valueOf((short) 42);
+        return (short) 42;
     }
 
     public static float removeUnnecessaryValueOfCallsInFloatPrimitive() {
         // Keep this comment
-        return Float.valueOf(42.42F);
+        return 42.42F;
     }
 
     public static double removeUnnecessaryValueOfCallsInDoublePrimitive() {
         // Keep this comment
-        return Double.valueOf(42.42);
+        return 42.42;
     }
 
     public static void removeUnnecessaryObjectCreation() {
         // Keep this comment
-        new Byte("0").byteValue();
-        new Boolean("true").booleanValue();
-        new Integer("42").intValue();
-        new Short("42").shortValue();
-        new Long("42").longValue();
-        new Float("42.42").floatValue();
-        new Double("42.42").doubleValue();
+        Byte.parseByte("0");
+        Boolean.parseBoolean("true");
+        Integer.parseInt("42");
+        Short.parseShort("42");
+        Long.parseLong("42");
+        Float.parseFloat("42.42");
+        Double.parseDouble("42.42");
     }
 
     public static void removeUnnecessaryValueOfCalls() {
         // Keep this comment
-        Byte.valueOf("0").byteValue();
-        Boolean.valueOf("true").booleanValue();
-        Integer.valueOf("42").intValue();
-        Short.valueOf("42").shortValue();
-        Long.valueOf("42").longValue();
-        Float.valueOf("42.42").floatValue();
-        Double.valueOf("42.42").doubleValue();
+        Byte.parseByte("0");
+        Boolean.parseBoolean("true");
+        Integer.parseInt("42");
+        Short.parseShort("42");
+        Long.parseLong("42");
+        Float.parseFloat("42.42");
+        Double.parseDouble("42.42");
     }
 }

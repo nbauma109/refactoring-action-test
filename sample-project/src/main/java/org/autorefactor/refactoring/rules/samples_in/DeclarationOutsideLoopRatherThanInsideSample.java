@@ -47,7 +47,7 @@ public class DeclarationOutsideLoopRatherThanInsideSample {
 
         for (int i = 0; i < count; i++) {
             // Keep this comment
-            String newNumber[] = new String[] { String.valueOf(i) };
+            String newNumber[] = { String.valueOf(i) };
             concat.append(newNumber);
             concat.append(";");
         }
@@ -116,7 +116,7 @@ public class DeclarationOutsideLoopRatherThanInsideSample {
 
         do {
             // Keep this comment
-            Class<?>[] complexObject = new Class<?>[0];
+            Class<?>[] complexObject = {};
             result += complexObject.length + 1;
         } while (result < max);
 
@@ -197,20 +197,14 @@ public class DeclarationOutsideLoopRatherThanInsideSample {
     public void doNotMoveEffectivelyFinalDeclaration(List<Integer> myList, List<String> texts) {
         for (Integer number : myList) {
             String newNumber = String.valueOf(number);
-            texts.removeIf(e -> newNumber.equals(e + "0"));
+            texts.removeIf(e -> (e + "0").equals(newNumber));
         }
     }
 
     public void doNotMoveEffectivelyFinalDeclarationInAnonymousClass(List<Integer> myList, List<String> texts) {
         for (Integer number : myList) {
             String newNumber = String.valueOf(number);
-            final Predicate<? super String> filter = new Predicate<String>() {
-
-                @Override
-                public boolean test(String e) {
-                    return newNumber.equals(e + "0");
-                }
-            };
+            final Predicate<? super String> filter = e -> (e + "0").equals(newNumber);
             texts.removeIf(filter);
         }
     }

@@ -39,7 +39,7 @@ public class ObsoleteIntPrimitiveRatherThanWrapperSample {
 
     public void replaceWrapper(int i) {
         // Keep this comment
-        Integer alwaysInitializedVar = Integer.MIN_VALUE;
+        int alwaysInitializedVar = Integer.MIN_VALUE;
         if (alwaysInitializedVar > i) {
             System.out.println("True!");
         }
@@ -47,7 +47,7 @@ public class ObsoleteIntPrimitiveRatherThanWrapperSample {
 
     public void replaceWrapperAndUseParsing(int i) {
         // Keep this comment
-        Integer alwaysInitializedVar = Integer.valueOf("0");
+        int alwaysInitializedVar = Integer.parseInt("0");
         if (alwaysInitializedVar > i) {
             System.out.println("True!");
         }
@@ -55,7 +55,7 @@ public class ObsoleteIntPrimitiveRatherThanWrapperSample {
 
     public void replaceWrapperAndUseParsingWithRadix(int i) {
         // Keep this comment
-        Integer alwaysInitializedVar = Integer.valueOf("0", 10);
+        int alwaysInitializedVar = Integer.parseInt("0", 10);
         if (alwaysInitializedVar > i) {
             System.out.println("True!");
         }
@@ -63,7 +63,7 @@ public class ObsoleteIntPrimitiveRatherThanWrapperSample {
 
     public void replaceFullyQualifiedWrapper(int i) {
         // Keep this comment
-        java.lang.Integer alwaysInitializedVar = Integer.MIN_VALUE;
+        int alwaysInitializedVar = Integer.MIN_VALUE;
         if (alwaysInitializedVar < i) {
             System.out.println("True!");
         }
@@ -71,25 +71,25 @@ public class ObsoleteIntPrimitiveRatherThanWrapperSample {
 
     public boolean replacePlusWrapper(int i1, int i2) {
         // Keep this comment
-        Integer plusVar = i1 + i2;
+        int plusVar = i1 + i2;
         return plusVar > 0;
     }
 
     public int replaceLessWrapper(int i1, int i2) {
         // Keep this comment
-        Integer lessVar = i1 - i2;
+        int lessVar = i1 - i2;
         return -lessVar;
     }
 
     public int replaceTimesWrapper(int i1, int i2) {
         // Keep this comment
-        Integer timesVar = i1 * i2;
+        int timesVar = i1 * i2;
         return timesVar + 100;
     }
 
     public int replaceDivideWrapper(int i1, int i2) {
         // Keep this comment
-        Integer divideVar = i1 / i2;
+        int divideVar = i1 / i2;
         if (divideVar <= 0) {
             return -1;
         }
@@ -98,103 +98,103 @@ public class ObsoleteIntPrimitiveRatherThanWrapperSample {
 
     public int replaceAndMaskWrapper(int i1, int i2) {
         // Keep this comment
-        Integer divideVar = i1 & i2;
+        int divideVar = i1 & i2;
         return divideVar++;
     }
 
     public int replaceOrMaskWrapper(int i1, int i2) {
         // Keep this comment
-        Integer divideVar = i1 | i2;
+        int divideVar = i1 | i2;
         return divideVar++;
     }
 
     public int replaceShiftMaskWrapper(int i1, int i2) {
         // Keep this comment
-        Integer divideVar = i1 ^ i2;
+        int divideVar = i1 ^ i2;
         return divideVar++;
     }
 
     public int replaceMinusWrapper(int i) {
         // Keep this comment
-        Integer minusVar = -i;
+        int minusVar = -i;
         return minusVar++;
     }
 
     public int replacePreDecrementWrapper(int i) {
         // Keep this comment
-        Integer preDecrementVar = --i;
+        int preDecrementVar = --i;
         return preDecrementVar++;
     }
 
     public int replacePreIncrementWrapper(int i) {
         // Keep this comment
-        Integer preDecrementVar = ++i;
+        int preDecrementVar = ++i;
         return preDecrementVar++;
     }
 
     public int replacePostDecrementWrapper(int i) {
         // Keep this comment
-        Integer postDecrementVar = i--;
+        int postDecrementVar = i--;
         return postDecrementVar++;
     }
 
     public int replacePostIncrementWrapper(int i) {
         // Keep this comment
-        Integer postIncrementVar = i++;
+        int postIncrementVar = i++;
         return postIncrementVar++;
     }
 
     public int replaceWrapperFromValueOf(int i1) {
         // Keep this comment
-        Integer varFromValueOf = Integer.valueOf(i1);
+        int varFromValueOf = i1;
         return varFromValueOf++;
     }
 
     public int replaceParentherizedWrapper(int i1, int i2) {
         // Keep this comment
-        Integer parentherizedVar = (i1 + i2);
+        int parentherizedVar = (i1 + i2);
         return parentherizedVar++;
     }
 
     public int replaceComplexExprWrapper(int i1, int i2, int i3, int i4) {
         // Keep this comment
-        Integer complexVar = i1 + i2 / (i3 - i4);
+        int complexVar = i1 + i2 / (i3 - i4);
         return complexVar++;
     }
 
     public int replaceCastWrapper(Integer i) {
         // Keep this comment
-        Integer castVar = (int) i;
+        int castVar = i;
         return castVar++;
     }
 
     public int replaceWrapperInPreIncrement() {
         // Keep this comment
-        Integer alwaysInitializedVar = Integer.MIN_VALUE;
+        int alwaysInitializedVar = Integer.MIN_VALUE;
         return ++alwaysInitializedVar;
     }
 
     public int replaceWrapperInPreDecrement() {
         // Keep this comment
-        Integer alwaysInitializedVar = Integer.MIN_VALUE;
+        int alwaysInitializedVar = Integer.MIN_VALUE;
         return --alwaysInitializedVar;
     }
 
     public int replaceWrapperInPostDecrement() {
         // Keep this comment
-        Integer alwaysInitializedVar = Integer.MIN_VALUE;
+        int alwaysInitializedVar = Integer.MIN_VALUE;
         return alwaysInitializedVar--;
     }
 
     public int replaceWrapperInPostIncrement() {
         // Keep this comment
-        Integer alwaysInitializedVar = Integer.MIN_VALUE;
+        int alwaysInitializedVar = Integer.MIN_VALUE;
         return alwaysInitializedVar++;
     }
 
     public void replaceWrapperInSwitch() {
         // Keep this comment
-        Integer intInSwitch = Integer.MIN_VALUE;
+        int intInSwitch = Integer.MIN_VALUE;
         switch (intInSwitch) {
         case 1:
             System.out.println("One");
@@ -211,61 +211,53 @@ public class ObsoleteIntPrimitiveRatherThanWrapperSample {
 
     public String replaceWrapperInArrayAccess(String[] strings) {
         // Keep this comment
-        Integer intInArrayAccess = Integer.MIN_VALUE;
+        int intInArrayAccess = Integer.MIN_VALUE;
         return strings[intInArrayAccess];
     }
 
     public int replaceReturnedWrapper() {
-        // Keep this comment
-        Integer returnedInteger = Integer.MIN_VALUE;
-        return returnedInteger;
+        return Integer.MIN_VALUE;
     }
 
     public Object doNotBreakAutoboxing() {
-        Integer returnedObject = Integer.MIN_VALUE;
-        return returnedObject;
+        return Integer.MIN_VALUE;
     }
 
     public int replaceMultiReturnedWrapper(int i) {
         // Keep this comment
-        Integer returnedInteger = Integer.MIN_VALUE;
+        int returnedInteger = Integer.MIN_VALUE;
         if (i > 0) {
             System.out.println("Positive");
             return returnedInteger;
-        } else {
-            System.out.println("Negative");
-            return returnedInteger;
         }
+        System.out.println("Negative");
+        return returnedInteger;
     }
 
     public Integer replaceReturnedAutoBoxedWrapper(int i) {
         // Keep this comment
-        Integer returnedInteger = Integer.MIN_VALUE;
+        int returnedInteger = Integer.MIN_VALUE;
         if (i > 0) {
             System.out.println("Positive");
             return returnedInteger;
-        } else {
-            System.out.println("Negative");
-            return returnedInteger;
         }
+        System.out.println("Negative");
+        return returnedInteger;
     }
 
     public void replaceReassignedWrapper() {
         // Keep this comment
-        Integer reassignedInteger = Integer.MIN_VALUE;
-        reassignedInteger = 123;
+        int reassignedInteger = 123;
     }
 
     public void replaceMultiReassignedWrapper() {
         // Keep this comment
-        Integer multiReassignedInteger = Integer.MIN_VALUE;
-        multiReassignedInteger = 123;
+        int multiReassignedInteger = 123;
         multiReassignedInteger = 456;
     }
 
     public void doNotReplaceNullWrapper() {
-        Integer reassignedInteger = Integer.MIN_VALUE;
-        reassignedInteger = null;
+        Integer reassignedInteger = null;
     }
 
     public void doNotReplaceWrapperPassedAsObject(Map<Integer, Observable> obsByInteger) {
@@ -275,19 +267,19 @@ public class ObsoleteIntPrimitiveRatherThanWrapperSample {
 
     public void replaceAssignedWrapper() {
         // Keep this comment
-        Integer assignedInteger = Integer.MIN_VALUE;
+        int assignedInteger = Integer.MIN_VALUE;
         Integer anotherInteger = assignedInteger;
     }
 
     public void replaceWrapperAssignedOnIntegerField() {
         // Keep this comment
-        Integer assignedInteger = Integer.MIN_VALUE;
+        int assignedInteger = Integer.MIN_VALUE;
         intField = assignedInteger;
     }
 
     public void replaceWrapperAssignedOnWrapperField() {
         // Keep this comment
-        Integer assignedInteger = Integer.MIN_VALUE;
+        int assignedInteger = Integer.MIN_VALUE;
         wrapperField = assignedInteger;
     }
 
@@ -305,7 +297,7 @@ public class ObsoleteIntPrimitiveRatherThanWrapperSample {
     public void replaceBitAssignedWrapper(Integer aInteger, Integer anotherInteger,
             Integer yetAnotherInteger) {
         // Keep this comment
-        Integer assignedInteger = Integer.MIN_VALUE;
+        int assignedInteger = Integer.MIN_VALUE;
         aInteger &= assignedInteger;
         anotherInteger += assignedInteger;
         yetAnotherInteger ^= assignedInteger;
@@ -313,35 +305,35 @@ public class ObsoleteIntPrimitiveRatherThanWrapperSample {
 
     public String replaceWrapperAndToStringMethod(int i) {
         // Keep this comment
-        Integer alwaysInitializedVar = Integer.MIN_VALUE;
+        int alwaysInitializedVar = Integer.MIN_VALUE;
         if (alwaysInitializedVar > i) {
             System.out.println("True!");
         }
 
         // Keep this comment too
-        return alwaysInitializedVar.toString();
+        return Integer.toString(alwaysInitializedVar);
     }
 
     public int replaceWrapperAndCompareToMethod(int i) {
         // Keep this comment
-        Integer alwaysInitializedVar = Integer.MIN_VALUE;
+        int alwaysInitializedVar = Integer.MIN_VALUE;
         if (alwaysInitializedVar > i) {
             System.out.println("True!");
         }
 
         // Keep this comment too
-        return alwaysInitializedVar.compareTo(i);
+        return Integer.compare(alwaysInitializedVar, i);
     }
 
     public int replaceWrapperAndPrimitiveValueMethod(int i) {
         // Keep this comment
-        Integer alwaysInitializedVar = Integer.MIN_VALUE;
+        int alwaysInitializedVar = Integer.MIN_VALUE;
         if (alwaysInitializedVar > i) {
             System.out.println("True!");
         }
 
         // Keep this comment too
-        return alwaysInitializedVar.intValue();
+        return alwaysInitializedVar;
     }
 
     public Integer doNotReplaceMultiAutoBoxedWrapper() {
@@ -357,7 +349,6 @@ public class ObsoleteIntPrimitiveRatherThanWrapperSample {
 
     public Integer doNotReplaceAssignedAndReturnedWrapper(Integer i) {
         Integer returnedObject = Integer.MIN_VALUE;
-        returnedObject = i;
-        return returnedObject;
+        return i;
     }
 }

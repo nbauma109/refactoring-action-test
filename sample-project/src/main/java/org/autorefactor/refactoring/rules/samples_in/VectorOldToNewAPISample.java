@@ -31,7 +31,7 @@ public class VectorOldToNewAPISample {
     public void main() {
         byte b = 43;
         short s = 44;
-        Vector<Integer> v = new Vector<Integer>();
+        Vector<Integer> v = new Vector<>();
         // Keep this comment
         v.addElement(42);
         v.insertElementAt(43, 1);

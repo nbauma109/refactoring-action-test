@@ -32,181 +32,127 @@ import java.util.Date;
 import java.util.List;
 import java.util.function.Function;
 
+import org.autorefactor.refactoring.rules.samples_in.ObsoleteRedundantComparatorSample.NonComparable;
+
 public class ObsoleteRedundantComparatorSample {
     public List<Date> removeComparatorClass(List<Date> listToSort) {
         // Keep this comment
-        Collections.sort(listToSort, new Comparator<Date>() {
-            @Override
-            public int compare(Date o1, Date o2) {
-                return o1.compareTo(o2);
-            }
-
-        });
+        Collections.sort(listToSort);
 
         return listToSort;
     }
 
     public Date removeComparatorOnMax(List<Date> listToSort) {
         // Keep this comment
-        return Collections.max(listToSort, new Comparator<Date>() {
-            @Override
-            public int compare(Date o1, Date o2) {
-                return o1.compareTo(o2);
-            }
-
-        });
+        return Collections.max(listToSort);
     }
 
     public Date removeComparatorOnMin(List<Date> listToSort) {
         // Keep this comment
-        return Collections.min(listToSort, new Comparator<Date>() {
-            @Override
-            public int compare(Date o1, Date o2) {
-                return o1.compareTo(o2);
-            }
-
-        });
+        return Collections.min(listToSort);
     }
 
     public List<Long> removeLambdaExpression(List<Long> listToSort) {
         // Keep this comment
-        Collections.sort(listToSort, (Long o1, Long o2) -> o1.compareTo(o2));
+        Collections.sort(listToSort);
 
         return listToSort;
     }
 
     public List<String> removeLambdaBody(List<String> listToSort) {
         // Keep this comment
-        Collections.sort(listToSort, (String o1, String o2) -> {
-            return o1.compareTo(o2);
-        });
+        Collections.sort(listToSort);
 
         return listToSort;
     }
 
     public List<Double> removeUntypedLambda(List<Double> listToSort) {
         // Keep this comment
-        Collections.sort(listToSort, (o1, o2) -> {
-            return o1.compareTo(o2);
-        });
+        Collections.sort(listToSort);
 
         return listToSort;
     }
 
     public List<Integer> removeComparatorOnPrimitive(List<Integer> listToSort) {
         // Keep this comment
-        Collections.sort(listToSort, (o1, o2) -> {
-            return Integer.compare(o1, o2);
-        });
+        Collections.sort(listToSort);
 
         return listToSort;
     }
 
     public List<Date> removeIdentityFunction(List<Date> listToSort) {
         // Keep this comment
-        Collections.sort(listToSort, Comparator.comparing(Function.identity()));
+        Collections.sort(listToSort);
 
         return listToSort;
     }
 
     public List<Date> removeComparingLambda(List<Date> listToSort) {
         // Keep this comment
-        Collections.sort(listToSort, Comparator.comparing((Date d) -> d));
+        Collections.sort(listToSort);
 
         return listToSort;
     }
 
     public List<Date> removeComparingBody(List<Date> listToSort) {
         // Keep this comment
-        Collections.sort(listToSort, Comparator.comparing((Date d) -> {
-            return d;
-        }));
+        Collections.sort(listToSort);
 
         return listToSort;
     }
 
     public List<Date> removeUntypedParameter(List<Date> listToSort) {
         // Keep this comment
-        Collections.sort(listToSort, Comparator.comparing(d -> {
-            return d;
-        }));
+        Collections.sort(listToSort);
 
         return listToSort;
     }
 
     public List<Date> removeNaturalOrder(List<Date> listToSort) {
         // Keep this comment
-        Collections.sort(listToSort, Comparator.naturalOrder());
+        Collections.sort(listToSort);
 
         return listToSort;
     }
 
     public List<Date> removeNullComparator(List<Date> listToSort) {
         // Keep this comment
-        Collections.sort(listToSort, null);
+        Collections.sort(listToSort);
 
         return listToSort;
     }
 
     public List<BigDecimal> removeOpposedComparatorClass(List<BigDecimal> listToSort) {
         // Keep this comment
-        Collections.sort(listToSort, new Comparator<BigDecimal>() {
-            @Override
-            public int compare(BigDecimal o1, BigDecimal o2) {
-                return -o2.compareTo(o1);
-            }
-
-        });
+        Collections.sort(listToSort);
 
         return listToSort;
     }
 
     public List<Date> removeTwiceReversedComparatorClass(List<Date> listToSort) {
         // Keep this comment
-        Collections.sort(listToSort, new Comparator<Date>() {
-            @Override
-            public int compare(Date o1, Date o2) {
-                return o2.compareTo(o1);
-            }
-
-        }.reversed());
+        Collections.sort(listToSort);
 
         return listToSort;
     }
 
     public List<Date> refactoreSortedList(List<Date> listToSort) {
         // Keep this comment
-        listToSort.sort(new Comparator<Date>() {
-            @Override
-            public int compare(Date o1, Date o2) {
-                return o2.compareTo(o1);
-            }
-
-        }.reversed());
+        Collections.sort(listToSort);
 
         return listToSort;
     }
 
     public List<String> doNotRemoveComparatorWithoutCompareToMethod(List<String> listToSort) {
-        Collections.sort(listToSort, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return o1.compareToIgnoreCase(o2);
-            }
-
-        });
+        Collections.sort(listToSort, (Comparator<String>) String::compareToIgnoreCase);
 
         return listToSort;
     }
 
     public List<String> doNotRemoveComparatorWithOtherStatement(List<String> listToSort) {
-        Collections.sort(listToSort, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                System.out.println("Don't lose me!");
-                return o1.compareTo(o2);
-            }
-
+        Collections.sort(listToSort, (o1, o2) -> {
+            System.out.println("Don't lose me!");
+            return o1.compareTo(o2);
         });
 
         return listToSort;
@@ -222,25 +168,13 @@ public class ObsoleteRedundantComparatorSample {
     }
 
     public List<Date> doNotRemoveReservedComparatorClass(List<Date> listToSort) {
-        Collections.sort(listToSort, new Comparator<Date>() {
-            @Override
-            public int compare(Date o1, Date o2) {
-                return o2.compareTo(o1);
-            }
-
-        });
+        Collections.sort(listToSort, (o1, o2) -> o2.compareTo(o1));
 
         return listToSort;
     }
 
     public List<Date> doNotRemoveReservedComparatorOnMethod(List<Date> listToSort) {
-        Collections.sort(listToSort, new Comparator<Date>() {
-            @Override
-            public int compare(Date o1, Date o2) {
-                return o1.toString().compareTo(o2.toString());
-            }
-
-        });
+        Collections.sort(listToSort, Comparator.comparing(Date::toString));
 
         return listToSort;
     }
@@ -252,17 +186,13 @@ public class ObsoleteRedundantComparatorSample {
     }
 
     public List<Date> doNotRemoveReservedLambdaBody(List<Date> listToSort) {
-        Collections.sort(listToSort, (Date o1, Date o2) -> {
-            return o2.compareTo(o1);
-        });
+        Collections.sort(listToSort, (Date o1, Date o2) -> o2.compareTo(o1));
 
         return listToSort;
     }
 
     public List<Date> doNotRemoveReservedUntypedLambda(List<Date> listToSort) {
-        Collections.sort(listToSort, (o1, o2) -> {
-            return o2.compareTo(o1);
-        });
+        Collections.sort(listToSort, (o1, o2) -> o2.compareTo(o1));
 
         return listToSort;
     }
@@ -279,28 +209,20 @@ public class ObsoleteRedundantComparatorSample {
         return listToSort;
     }
 
-    private class NonComparable {
+    private static class NonComparable {
         public int compareTo(Object anotherObject) {
             return 42;
         }
     }
 
     public List<NonComparable> doNotRemoveComparatorOnNonComparable(List<NonComparable> listToSort) {
-        Collections.sort(listToSort, new Comparator<NonComparable>() {
-            @Override
-            public int compare(NonComparable o1, NonComparable o2) {
-                return o1.compareTo(o2);
-            }
-
-        });
+        Collections.sort(listToSort, (Comparator<NonComparable>) NonComparable::compareTo);
 
         return listToSort;
     }
 
     public List<NonComparable> doNotRemoveLambdaOnNonComparable(List<NonComparable> listToSort) {
-        Collections.sort(listToSort, (NonComparable o1, NonComparable o2) -> {
-            return o1.compareTo(o2);
-        });
+        Collections.sort(listToSort, (NonComparable o1, NonComparable o2) -> o1.compareTo(o2));
 
         return listToSort;
     }

@@ -29,14 +29,14 @@ public class ObsoleteUnboxingRatherThanExplicitMethodSample {
     public static void useUnboxingOnPrimitiveDeclaration(Character cObject, Byte byObject, Boolean boObject,
             Integer iObject, Short sObject, Long lObject, Float fObject, Double dObject) {
         // Keep this comment
-        char c = cObject.charValue();
-        byte by = byObject.byteValue();
-        boolean bo = boObject.booleanValue();
-        int i = iObject.intValue();
-        short s = sObject.shortValue();
-        long l = lObject.longValue();
-        float f = fObject.floatValue();
-        double d = dObject.doubleValue();
+        char c = cObject;
+        byte by = byObject;
+        boolean bo = boObject;
+        int i = iObject;
+        short s = sObject;
+        long l = lObject;
+        float f = fObject;
+        double d = dObject;
     }
 
     public static void doNotUseUnboxingOnNarrowingType(Character cObject, Byte byObject,
@@ -61,96 +61,87 @@ public class ObsoleteUnboxingRatherThanExplicitMethodSample {
     public static void reuseWrapper(Character cObject, Byte byObject, Boolean boObject,
             Integer iObject, Short sObject, Long lObject, Float fObject, Double dObject) {
         // Keep this comment
-        Character c = cObject.charValue();
-        Byte by = byObject.byteValue();
-        Boolean bo = boObject.booleanValue();
-        Integer i = iObject.intValue();
-        Short s = sObject.shortValue();
-        Long l = lObject.longValue();
-        Float f = fObject.floatValue();
-        Double d = dObject.doubleValue();
+        Character c = cObject;
+        Byte by = byObject;
+        Boolean bo = boObject;
+        Integer i = iObject;
+        Short s = sObject;
+        Long l = lObject;
+        Float f = fObject;
+        Double d = dObject;
     }
 
     public static void useUnboxingOnPrimitiveAssignment(Character cObject, Byte byObject, Boolean boObject,
             Integer iObject, Short sObject, Long lObject, Float fObject, Double dObject) {
-        // Keep this comment
-        char c;
-        c = cObject.charValue();
-        byte by;
-        by = byObject.byteValue();
-        boolean bo;
-        bo = boObject.booleanValue();
-        int i;
-        i = iObject.intValue();
-        short s;
-        s = sObject.shortValue();
-        long l;
-        l = lObject.longValue();
-        float f;
-        f = fObject.floatValue();
-        double d;
-        d = dObject.doubleValue();
+        char c = cObject;
+        byte by = byObject;
+        boolean bo = boObject;
+        int i = iObject;
+        short s = sObject;
+        long l = lObject;
+        float f = fObject;
+        double d = dObject;
     }
 
     public static char useUnboxingOnPrimitiveReturn(Character cObject) {
         // Keep this comment
-        return cObject.charValue();
+        return cObject;
     }
 
     public static byte useUnboxingOnPrimitiveReturn(Byte byObject) {
         // Keep this comment
-        return byObject.byteValue();
+        return byObject;
     }
 
     public static boolean useUnboxingOnPrimitiveReturn(Boolean boObject) {
         // Keep this comment
-        return boObject.booleanValue();
+        return boObject;
     }
 
     public static int useUnboxingOnPrimitiveReturn(Integer iObject) {
         // Keep this comment
-        return iObject.intValue();
+        return iObject;
     }
 
     public static short useUnboxingOnPrimitiveReturn(Short sObject) {
         // Keep this comment
-        return sObject.shortValue();
+        return sObject;
     }
 
     public static long useUnboxingOnPrimitiveReturn(Long lObject) {
         // Keep this comment
-        return lObject.longValue();
+        return lObject;
     }
 
     public static float useUnboxingOnPrimitiveReturn(Float fObject) {
         // Keep this comment
-        return fObject.floatValue();
+        return fObject;
     }
 
     public static double useUnboxingOnPrimitiveReturn(Double dObject) {
         // Keep this comment
-        return dObject.doubleValue();
+        return dObject;
     }
 
     public static void useUnboxingOnSwitch(Byte by, Character c, Short s, Integer i) {
         // Keep this comment
-        switch (by.byteValue()) {
+        switch (by) {
         // Keep this comment too
         default:
         }
-        switch (c.charValue()) {
+        switch (c) {
         default:
         }
-        switch (s.shortValue()) {
+        switch (s) {
         default:
         }
-        switch (i.intValue()) {
+        switch (i) {
         default:
         }
     }
 
     public static String useUnboxingOnArrayAccess(String[] strings, Integer i) {
-        return strings[i.intValue()];
+        return strings[i];
     }
 
     public static String doNotUseUnboxingOnMethod(Character cObject, Byte byObject, Boolean boObject,

@@ -115,8 +115,8 @@ public class ORConditionRatherThanRedundantClausesSample {
 
     public void removeDuplicateConditionsWithExpressions(int i1, int i2, int i3, int i4) {
         // Keep this comment
-        boolean newBoolean1 = (i1 == i2) || !(i2 == i1) && (i3 == i4);
-        boolean newBoolean2 = (i1 < i2) || !(i2 > i1) && !(i3 == i4);
+        boolean newBoolean1 = (i1 == i2) || (i2 != i1) && (i3 == i4);
+        boolean newBoolean2 = (i1 < i2) || (i2 <= i1) && (i3 != i4);
         boolean newBoolean3 = (i1 == i2) || (i2 != i1) && (i3 == i4);
         boolean newBoolean4 = (i1 < i2) || (i2 <= i1) && (i3 != i4);
     }
@@ -129,23 +129,23 @@ public class ORConditionRatherThanRedundantClausesSample {
     }
 
     public void doNotReplaceDuplicateConditionsWithIncrements(int i1, int i2, int i3, int i4) {
-        boolean newBoolean1 = (i1 == i2) || !(i1 == i2) && (i3 == i4++);
-        boolean newBoolean2 = (i1 == i2) || !(i1 == i2) && (i3 == ++i4);
-        boolean newBoolean3 = (i1 == i2) || !(i1 == i2) && (i3 == i4--);
-        boolean newBoolean4 = (i1 == i2) || !(i1 == i2) && (i3 == --i4);
+        boolean newBoolean1 = (i1 == i2) || (i1 != i2) && (i3 == i4++);
+        boolean newBoolean2 = (i1 == i2) || (i1 != i2) && (i3 == ++i4);
+        boolean newBoolean3 = (i1 == i2) || (i1 != i2) && (i3 == i4--);
+        boolean newBoolean4 = (i1 == i2) || (i1 != i2) && (i3 == --i4);
 
-        boolean newBoolean5 = (i1 == i2) || !(i1 == i2) && !(i3 == i4++);
-        boolean newBoolean6 = (i1 == i2) || !(i1 == i2) && !(i3 == ++i4);
-        boolean newBoolean7 = (i1 == i2) || !(i1 == i2) && !(i3 == i4--);
-        boolean newBoolean8 = (i1 == i2) || !(i1 == i2) && !(i3 == --i4);
+        boolean newBoolean5 = (i1 == i2) || (i1 != i2) && (i3 != i4++);
+        boolean newBoolean6 = (i1 == i2) || (i1 != i2) && (i3 != ++i4);
+        boolean newBoolean7 = (i1 == i2) || (i1 != i2) && (i3 != i4--);
+        boolean newBoolean8 = (i1 == i2) || (i1 != i2) && (i3 != --i4);
     }
 
     public void doNotReplaceDuplicateConditionsWithAssignments(int i1, int i2, boolean b1, boolean b2) {
-        boolean newBoolean1 = (i1 == i2) || !(i1 == i2) && (b1 = b2);
-        boolean newBoolean2 = (i1 == i2) || !(i1 == i2) && !(b1 = b2);
+        boolean newBoolean1 = (i1 == i2) || (i1 != i2) && (b1 = b2);
+        boolean newBoolean2 = (i1 == i2) || (i1 != i2) && !(b1 = b2);
     }
 
-    private class SideEffect {
+    private static class SideEffect {
         private SideEffect() {
             staticField++;
         }

@@ -38,7 +38,7 @@ public class ObsoleteBytePrimitiveRatherThanWrapperSample {
 
     public void replaceWrapper(byte b) {
         // Keep this comment
-        Byte alwaysInitializedVar = Byte.MIN_VALUE;
+        byte alwaysInitializedVar = Byte.MIN_VALUE;
         if (alwaysInitializedVar > b) {
             System.out.println("True!");
         }
@@ -46,7 +46,7 @@ public class ObsoleteBytePrimitiveRatherThanWrapperSample {
 
     public void replaceWrapperAndUseParsing(byte b) {
         // Keep this comment
-        Byte alwaysInitializedVar = Byte.valueOf("0");
+        byte alwaysInitializedVar = Byte.parseByte("0");
         if (alwaysInitializedVar > b) {
             System.out.println("True!");
         }
@@ -54,7 +54,7 @@ public class ObsoleteBytePrimitiveRatherThanWrapperSample {
 
     public void replaceFullyQualifiedWrapper(byte b) {
         // Keep this comment
-        java.lang.Byte alwaysInitializedVar = Byte.MIN_VALUE;
+        byte alwaysInitializedVar = Byte.MIN_VALUE;
         if (alwaysInitializedVar < b) {
             System.out.println("True!");
         }
@@ -62,79 +62,79 @@ public class ObsoleteBytePrimitiveRatherThanWrapperSample {
 
     public int replacePreDecrementWrapper(byte b) {
         // Keep this comment
-        Byte preDecrementVar = --b;
+        byte preDecrementVar = --b;
         return preDecrementVar - 1;
     }
 
     public int replacePreIncrementWrapper(byte b) {
         // Keep this comment
-        Byte preDecrementVar = ++b;
+        byte preDecrementVar = ++b;
         return preDecrementVar + 1;
     }
 
     public int replacePostDecrementWrapper(byte b) {
         // Keep this comment
-        Byte postDecrementVar = b--;
+        byte postDecrementVar = b--;
         return +postDecrementVar;
     }
 
     public int replacePostIncrementWrapper(byte b) {
         // Keep this comment
-        Byte postIncrementVar = b++;
+        byte postIncrementVar = b++;
         return -postIncrementVar;
     }
 
     public byte replaceWrapperFromValueOf(byte b1) {
         // Keep this comment
-        Byte varFromValueOf = Byte.valueOf(b1);
+        byte varFromValueOf = b1;
         return varFromValueOf++;
     }
 
     public byte replaceParentherizedWrapper(byte b1) {
         // Keep this comment
-        Byte parentherizedVar = (Byte.MIN_VALUE);
+        byte parentherizedVar = (Byte.MIN_VALUE);
         return parentherizedVar++;
     }
 
     public byte replaceCastWrapper(Byte b) {
         // Keep this comment
-        Byte castVar = (byte) b;
+        byte castVar = b;
         return castVar++;
     }
 
     public byte replaceObjectCastWrapper() {
         // Keep this comment
-        Byte castVar = (Byte) Byte.MIN_VALUE;
+        byte castVar = Byte.MIN_VALUE;
         return castVar++;
     }
 
     public byte replaceWrapperInPreIncrement() {
         // Keep this comment
-        Byte alwaysInitializedVar = Byte.MIN_VALUE;
+        byte alwaysInitializedVar = Byte.MIN_VALUE;
         return ++alwaysInitializedVar;
     }
 
     public byte replaceWrapperInPreDecrement() {
         // Keep this comment
-        Byte alwaysInitializedVar = Byte.MIN_VALUE;
+        byte alwaysInitializedVar = Byte.MIN_VALUE;
         return --alwaysInitializedVar;
     }
 
     public byte replaceWrapperInPostDecrement() {
         // Keep this comment
-        Byte alwaysInitializedVar = Byte.MIN_VALUE;
+        byte alwaysInitializedVar = Byte.MIN_VALUE;
         return alwaysInitializedVar--;
     }
 
     public byte replaceWrapperInPostIncrement() {
         // Keep this comment
-        Byte alwaysInitializedVar = Byte.MIN_VALUE;
+        byte alwaysInitializedVar = Byte.MIN_VALUE;
         return alwaysInitializedVar++;
     }
 
     public void replaceWrapperInSwitch() {
         // Keep this comment
-        Byte byteInSwitch = Byte.MIN_VALUE;
+        byte byteInSwitch = Byte.MIN_VALUE;
         switch (byteInSwitch) {
         case 1:
             System.out.println("One");
@@ -151,112 +151,104 @@ public class ObsoleteBytePrimitiveRatherThanWrapperSample {
 
     public String replaceWrapperInArrayAccess(String[] strings) {
         // Keep this comment
-        Byte byteInArrayAccess = Byte.MIN_VALUE;
+        byte byteInArrayAccess = Byte.MIN_VALUE;
         return strings[byteInArrayAccess];
     }
 
     public byte replaceReturnedWrapper() {
-        // Keep this comment
-        Byte returnedByte = Byte.MIN_VALUE;
-        return returnedByte;
+        return Byte.MIN_VALUE;
     }
 
     public byte replaceMultiReturnedWrapper(byte b) {
         // Keep this comment
-        Byte returnedByte = Byte.MIN_VALUE;
+        byte returnedByte = Byte.MIN_VALUE;
         if (b > 0) {
             System.out.println("Positive");
             return returnedByte;
-        } else {
-            System.out.println("Negative");
-            return returnedByte;
         }
+        System.out.println("Negative");
+        return returnedByte;
     }
 
     public Byte replaceReturnedAutoBoxedWrapper(byte b) {
         // Keep this comment
-        Byte returnedByte = Byte.MIN_VALUE;
+        byte returnedByte = Byte.MIN_VALUE;
         if (b > 0) {
             System.out.println("Positive");
             return returnedByte;
-        } else {
-            System.out.println("Negative");
-            return returnedByte;
         }
+        System.out.println("Negative");
+        return returnedByte;
     }
 
     public void replaceReassignedWrapper() {
         // Keep this comment
-        Byte reassignedByte = Byte.MIN_VALUE;
-        reassignedByte = 123;
+        byte reassignedByte = 123;
     }
 
     public void replaceMultiReassignedWrapper() {
         // Keep this comment
-        Byte multiReassignedByte = Byte.MIN_VALUE;
-        multiReassignedByte = 1;
+        byte multiReassignedByte = 1;
         multiReassignedByte = 2;
     }
 
     public void replaceAssignedWrapper() {
         // Keep this comment
-        Byte assignedByte = Byte.MIN_VALUE;
+        byte assignedByte = Byte.MIN_VALUE;
         Byte anotherByte = assignedByte;
     }
 
     public void replaceWrapperAssignedOnByteField() {
         // Keep this comment
-        Byte assignedByte = Byte.MIN_VALUE;
+        byte assignedByte = Byte.MIN_VALUE;
         byteField = assignedByte;
     }
 
     public void replaceWrapperAssignedOnWrapperField() {
         // Keep this comment
-        Byte assignedByte = Byte.MIN_VALUE;
+        byte assignedByte = Byte.MIN_VALUE;
         wrapperField = assignedByte;
     }
 
     public String replaceWrapperAndToStringMethod(byte b) {
         // Keep this comment
-        Byte alwaysInitializedVar = Byte.MIN_VALUE;
+        byte alwaysInitializedVar = Byte.MIN_VALUE;
         if (alwaysInitializedVar > b) {
             System.out.println("True!");
         }
 
         // Keep this comment too
-        return alwaysInitializedVar.toString();
+        return Byte.toString(alwaysInitializedVar);
     }
 
     public int replaceWrapperAndCompareToMethod(byte b) {
         // Keep this comment
-        Byte alwaysInitializedVar = Byte.MIN_VALUE;
+        byte alwaysInitializedVar = Byte.MIN_VALUE;
         if (alwaysInitializedVar > b) {
             System.out.println("True!");
         }
 
         // Keep this comment too
-        return alwaysInitializedVar.compareTo(b);
+        return Byte.compare(alwaysInitializedVar, b);
     }
 
     public byte replaceWrapperAndPrimitiveValueMethod(byte s) {
         // Keep this comment
-        Byte alwaysInitializedVar = Byte.MIN_VALUE;
+        byte alwaysInitializedVar = Byte.MIN_VALUE;
         if (alwaysInitializedVar > s) {
             System.out.println("True!");
         }
 
         // Keep this comment too
-        return alwaysInitializedVar.byteValue();
+        return alwaysInitializedVar;
     }
 
     public Object doNotBreakAutoboxing() {
-        Byte returnedObject = Byte.MIN_VALUE;
-        return returnedObject;
+        return Byte.MIN_VALUE;
     }
 
     public void doNotReplaceNullWrapper() {
-        Byte reassignedByte = Byte.MIN_VALUE;
-        reassignedByte = null;
+        Byte reassignedByte = null;
     }
 
     public void doNotReplaceWrapperPassedAsObject(Map<Byte, Observable> obsByByte) {
@@ -288,7 +280,6 @@ public class ObsoleteBytePrimitiveRatherThanWrapperSample {
 
     public Byte doNotReplaceAssignedAndReturnedWrapper(Byte b) {
         Byte returnedObject = Byte.MIN_VALUE;
-        returnedObject = b;
-        return returnedObject;
+        return b;
     }
 }

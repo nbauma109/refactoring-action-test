@@ -26,6 +26,7 @@
 package org.autorefactor.refactoring.rules.samples_in;
 
 import java.util.Map;
+import java.util.Objects;
 import java.util.Observable;
 
 public class ObsoleteObjectsEqualsRatherThanEqualsAndNullCheckSample {
@@ -38,27 +39,23 @@ public class ObsoleteObjectsEqualsRatherThanEqualsAndNullCheckSample {
      */
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         ObsoleteObjectsEqualsRatherThanEqualsAndNullCheckSample other = (ObsoleteObjectsEqualsRatherThanEqualsAndNullCheckSample) obj;
-        if (aText == null) {
-            if (other.aText != null)
-                return false;
-        } else if (!aText.equals(other.aText))
+        if (!Objects.equals(aText, other.aText)) {
             return false;
-        if (null == anObservable) {
-            if (null != other.anObservable)
-                return false;
-        } else if (!anObservable.equals(other.anObservable))
+        }
+        if (!Objects.equals(anObservable, other.anObservable)) {
             return false;
-        if (this.textById == null) {
-            if (other.textById != null)
-                return false;
-        } else if (!this.textById.equals(other.textById)) {
+        }
+        if (!Objects.equals(this.textById, other.textById)) {
             return false;
         }
         return true;

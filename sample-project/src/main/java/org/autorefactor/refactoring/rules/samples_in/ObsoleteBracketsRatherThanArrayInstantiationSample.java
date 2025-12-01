@@ -31,22 +31,22 @@ public class ObsoleteBracketsRatherThanArrayInstantiationSample {
     /**
      * Keep this comment.
      */
-    private double[] refactorThisDoubleArray = new double[] { 42.42 };
+    private double[] refactorThisDoubleArray = { 42.42 };
 
     /**
      * Keep this comment.
      */
-    private int[][] refactorThis2DimensionArray = new int[][] { { 42 } };
+    private int[][] refactorThis2DimensionArray = { { 42 } };
 
     /**
      * Keep this comment.
      */
-    private Observable[] refactorThisObserverArray = new Observable[0];
+    private Observable[] refactorThisObserverArray = {};
 
     /**
      * Keep this comment.
      */
-    private short[] refactorThisShortArray, andThisArrayToo = new short[0];
+    private short[] refactorThisShortArray, andThisArrayToo = {};
 
     private Byte[] doNotRefactorNotInitializedArray = new Byte[10];
 
@@ -54,15 +54,14 @@ public class ObsoleteBracketsRatherThanArrayInstantiationSample {
 
     public void refactorArrayInstantiations() {
         // Keep this comment
-        double[] refactorLocalDoubleArray = new double[] { 42.42 };
-        int[][] refactorLocal2DimensionArray = new int[][] { { 42 } };
-        Observable[] refactorLocalObserverArray = new Observable[0];
-        short[] refactorThisShortArray, andThisArrayToo = new short[0];
+        double[] refactorLocalDoubleArray = { 42.42 };
+        int[][] refactorLocal2DimensionArray = { { 42 } };
+        Observable[] refactorLocalObserverArray = {};
+        short[] refactorThisShortArray, andThisArrayToo = {};
     }
 
     public void doNotRefactorArrayAssignment() {
-        char[] refactorLocalDoubleArray;
-        refactorLocalDoubleArray = new char[] { 'a', 'b' };
+        char[] refactorLocalDoubleArray = new char[] { 'a', 'b' };
     }
 
     public void doNotRefactorArrayInstantiationsInBrackets() {
@@ -70,7 +69,7 @@ public class ObsoleteBracketsRatherThanArrayInstantiationSample {
     }
 
     public void doNotRefactorCastedArrayInstantiations() {
-        Object refactorLocalDoubleArray = (double[]) new double[] { 42.42 };
+        Object refactorLocalDoubleArray = new double[] { 42.42 };
     }
 
     public double[] doNotRefactorReturnedArrayInstantiation() {

@@ -145,8 +145,7 @@ public class ContainsRatherThanLoopSample {
     public boolean replaceForeachHoldResultInVariableCannotRemoveVariable(List<String> col, String toFind) {
         // Keep this comment
         boolean result = false;
-        ;
-        result = false;
+
         for (String s : col) {
             if (s.equals(toFind)) {
                 result = true;
@@ -206,8 +205,7 @@ public class ContainsRatherThanLoopSample {
 
     public boolean replaceForCounter(List<String> col, String toFind) {
         // Keep this comment
-        for (int i = 0; i < col.size(); i++) {
-            String s = col.get(i);
+        for (String s : col) {
             if (s.equals(toFind)) {
                 return true;
             }
@@ -217,8 +215,7 @@ public class ContainsRatherThanLoopSample {
 
     public boolean replaceForCounterInvertedCondition(List<String> col, String toFind) {
         // Keep this comment
-        for (int i = 0; col.size() > i; i++) {
-            String s = col.get(i);
+        for (String s : col) {
             if (s.equals(toFind)) {
                 return true;
             }
@@ -228,8 +225,7 @@ public class ContainsRatherThanLoopSample {
 
     public boolean replaceForCounterPrefixedUpdater(List<String> col, String toFind) {
         // Keep this comment
-        for (int i = 0; i < col.size(); ++i) {
-            String s = col.get(i);
+        for (String s : col) {
             if (s.equals(toFind)) {
                 return true;
             }
@@ -251,8 +247,8 @@ public class ContainsRatherThanLoopSample {
 
     public boolean replaceForCounterNoLoopVariable(List<String> col, String toFind) {
         // Keep this comment
-        for (int i = 0; i < col.size(); i++) {
-            if (col.get(i).equals(toFind)) {
+        for (String element : col) {
+            if (element.equals(toFind)) {
                 return true;
             }
         }
@@ -261,8 +257,8 @@ public class ContainsRatherThanLoopSample {
 
     public boolean replaceForCounterNoLoopVariableInvertedEquals(List<String> col, String toFind) {
         // Keep this comment
-        for (int i = 0; i < col.size(); ++i) {
-            if (toFind.equals(col.get(i))) {
+        for (String element : col) {
+            if (toFind.equals(element)) {
                 return true;
             }
         }
@@ -281,8 +277,7 @@ public class ContainsRatherThanLoopSample {
 
     public boolean replaceForIterator(List<String> col, String toFind) {
         // Keep this comment
-        for (Iterator<String> it = col.iterator(); it.hasNext();) {
-            String s = it.next();
+        for (String s : col) {
             if (s.equals(toFind)) {
                 return true;
             }

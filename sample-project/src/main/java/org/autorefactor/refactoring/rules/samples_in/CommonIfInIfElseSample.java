@@ -31,13 +31,11 @@ import java.util.List;
 public class CommonIfInIfElseSample {
     public void refactorCommonInnerIf(boolean b1, boolean b2) throws Exception {
         // Keep this comment
-        if (b1) {
-            if (b2) {
+        if (b2) {
+            if (b1) {
                 // Keep this comment too
                 System.out.println(b1);
-            }
-        } else {
-            if (b2) {
+            } else {
                 // Keep this comment too
                 System.out.println(!b1);
             }
@@ -46,14 +44,14 @@ public class CommonIfInIfElseSample {
 
     public void refactorWithoutBrackets(boolean b1, boolean b2) throws Exception {
         // Keep this comment
-        if (b1) {
-            if (b2) {
+        if (b2) {
+            if (b1) {
                 // Keep this comment too
                 System.out.println(b1);
+            } else {
+                // Keep this comment too
+                System.out.println(!b1);
             }
-        } else if (b2) {
-            // Keep this comment too
-            System.out.println(!b1);
         }
     }
 
@@ -64,10 +62,8 @@ public class CommonIfInIfElseSample {
             } else {
                 System.out.println(b1);
             }
-        } else {
-            if (b2) {
-                System.out.println(!b1);
-            }
+        } else if (b2) {
+            System.out.println(!b1);
         }
     }
 
@@ -76,12 +72,10 @@ public class CommonIfInIfElseSample {
             if (b2) {
                 System.out.println(b1);
             }
+        } else if (b2) {
+            System.out.println(b2);
         } else {
-            if (b2) {
-                System.out.println(b2);
-            } else {
-                System.out.println(!b1);
-            }
+            System.out.println(!b1);
         }
     }
 
@@ -90,21 +84,16 @@ public class CommonIfInIfElseSample {
             if (myList.isEmpty()) {
                 System.out.println("Now empty");
             }
-        } else {
-            if (myList.isEmpty()) {
-                System.out.println("Still empty");
-            }
+        } else if (myList.isEmpty()) {
+            System.out.println("Still empty");
         }
     }
 
     public void doNotRefactorAssignment(boolean b1, boolean b2) throws Exception {
-        if (b2 = b1) {
+        b2 = b1;
+        if (b2) {
             if (b2) {
                 System.out.println(b1);
-            }
-        } else {
-            if (b2) {
-                System.out.println(!b1);
             }
         }
     }
@@ -114,10 +103,8 @@ public class CommonIfInIfElseSample {
             if (i2 == 0) {
                 System.out.println(i1);
             }
-        } else {
-            if (i2 == 0) {
-                System.out.println(-i1);
-            }
+        } else if (i2 == 0) {
+            System.out.println(-i1);
         }
     }
 
@@ -126,10 +113,8 @@ public class CommonIfInIfElseSample {
             if (i2 == 0) {
                 System.out.println(i1);
             }
-        } else {
-            if (i2 == 0) {
-                System.out.println(-i1);
-            }
+        } else if (i2 == 0) {
+            System.out.println(-i1);
         }
     }
 }

@@ -5,20 +5,20 @@ import java.io.IOException;
 
 public abstract class ObsoleteRemoveSemiColonSample {
     static {
-    };
+    }
 
-    private static enum MyEnum {
-    };
+    private enum MyEnum {
+    }
 
     private static @interface MyAnotation {
     };
 
-    private int field;;
+    private int field;
 
     private void aMethod() {
-    };
+    }
 
-    public abstract void anAbstractMethod();;;;;
+    public abstract void anAbstractMethod();
 
     public abstract void removeComments();/**;*/;/*;*/;;//;
 
@@ -33,7 +33,7 @@ public abstract class ObsoleteRemoveSemiColonSample {
         class DoNotTriggerAThrow {
         }
     }
-};
+}
 
 class Unused {
-};;
+}

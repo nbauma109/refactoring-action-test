@@ -88,7 +88,8 @@ public class RemoveEmptyIfSample {
     }
 
     public void doNotRemoveAssgnment(int i) {
-        if ((i = 10) > 0) {
+        i = 10;
+        if (i > 0) {
 
         }
     }
@@ -121,31 +122,34 @@ public class RemoveEmptyIfSample {
         }
         while ((i--) * 13 > -200);
 
-        if (i > 0)
+        if (i > 0) {
             i++;
-        else if (uselessCondition) {
+        } else if (uselessCondition) {
         }
 
         return i;
     }
 
     public int replaceDeadCodeByAddingBlock(int i, byte[] bytes, boolean uselessCondition) {
-        for (;i * 13 < 100; i++)
+        for (;i * 13 < 100; i++) {
             if (uselessCondition) {
             }
+        }
 
-        for (byte oneByte : bytes)
+        for (byte oneByte : bytes) {
             if (uselessCondition) {
             }
+        }
 
-        while ((i++) * 13 < 100)
+        while ((i++) * 13 < 100) {
             if (uselessCondition) {
             }
+        }
 
-        do
+        do {
             if (uselessCondition) {
             }
-        while ((i--) * 13 > -200);
+        } while ((i--) * 13 > -200);
 
         return i;
     }

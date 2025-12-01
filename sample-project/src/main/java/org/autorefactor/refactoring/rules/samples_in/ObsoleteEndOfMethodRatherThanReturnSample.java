@@ -27,12 +27,10 @@ package org.autorefactor.refactoring.rules.samples_in;
 
 public class ObsoleteEndOfMethodRatherThanReturnSample {
     public void removeUselessReturn() {
-        return;
     }
 
     public void removeUselessReturnWithPreviousCode() {
         System.out.println("Keep this line");
-        return;
     }
 
     public int doNotRemoveReturnWithValue() {
@@ -42,38 +40,35 @@ public class ObsoleteEndOfMethodRatherThanReturnSample {
     public void removeUselessReturnWithIf(boolean isValid) {
         if (isValid) {
             System.out.println("Keep this line");
-            return;
         }
     }
 
     public void replaceByBlock(boolean isEnabled) {
         System.out.println("Keep this line");
-        if (isEnabled)
-            return;
+        if (isEnabled) {
+        }
     }
 
     public void removeElseStatement(boolean isValid) {
         System.out.println("Keep this line");
-        if (isValid)
-            System.out.println("isValid is true");
-        else
+        if (!isValid) {
             return;
+        }
+        System.out.println("isValid is true");
     }
 
     public void removeElseBlock(boolean isValid) {
         System.out.println("Keep this line");
-        if (isValid) {
-            System.out.println("isValid is true");
-        } else {
+        if (!isValid) {
             return;
         }
+        System.out.println("isValid is true");
     }
 
     public void removeUselessReturnWithSwitch(int myNumber) {
         switch (myNumber) {
         case 0:
             System.out.println("Keep this line");
-            return;
         }
     }
 
@@ -92,21 +87,18 @@ public class ObsoleteEndOfMethodRatherThanReturnSample {
         if (isValid) {
             System.out.println("Keep this line");
             return;
-        } else {
-            System.out.println("Remove anyway");
         }
+        System.out.println("Remove anyway");
     }
 
     public void doNotRemoveReturnWithFollowingCode(boolean isValid) {
         if (isValid) {
-            System.out.println("Keep this line");
-            return;
         }
         System.out.println("Keep this line");
     }
 
     public void doNotRemoveReturnInWhile(int myNumber) {
-        while (myNumber-- > 0) {
+        if (myNumber-- > 0) {
             System.out.println("Keep this line");
             return;
         }

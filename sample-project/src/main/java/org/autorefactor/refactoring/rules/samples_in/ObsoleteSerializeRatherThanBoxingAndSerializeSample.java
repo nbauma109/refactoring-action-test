@@ -28,56 +28,56 @@ package org.autorefactor.refactoring.rules.samples_in;
 public class ObsoleteSerializeRatherThanBoxingAndSerializeSample {
     public String simplifyIntegerSerialization(int number) {
         // Keep this comment
-        return Integer.valueOf(number).toString();
+        return Integer.toString(number);
     }
 
     public String simplifyDoubleSerialization(double number) {
         // Keep this comment
-        return Double.valueOf(number).toString();
+        return Double.toString(number);
     }
 
     public String simplifyFloatSerialization(float number) {
         // Keep this comment
-        return Float.valueOf(number).toString();
+        return Float.toString(number);
     }
 
     public String simplifyShortSerialization(short number) {
         // Keep this comment
-        return Short.valueOf(number).toString();
+        return Short.toString(number);
     }
 
     public String simplifyLongSerialization(long number) {
         // Keep this comment
-        return Long.valueOf(number).toString();
+        return Long.toString(number);
     }
 
     public String simplifyCharacterSerialization(char number) {
         // Keep this comment
-        return Character.valueOf(number).toString();
+        return Character.toString(number);
     }
 
     public String simplifyByteSerialization(byte number) {
         // Keep this comment
-        return Byte.valueOf(number).toString();
+        return Byte.toString(number);
     }
 
     public String simplifyBooleanSerialization(boolean number) {
         // Keep this comment
-        return Boolean.valueOf(number).toString();
+        return Boolean.toString(number);
     }
 
     public String refactorIntegerInstantiation(int number) {
         // Keep this comment
-        return new Integer(number).toString();
+        return Integer.toString(number);
     }
 
     public String refactorIntegerCast(int number) {
         // Keep this comment
-        return ((Integer) number).toString();
+        return Integer.toString(number);
     }
 
     public String doNotRefactorWrapper(Integer number) {
-        return Integer.valueOf(number).toString();
+        return number.toString();
     }
 
     public String doNotRefactorString(String number) {

@@ -67,8 +67,9 @@ public class StringBuilderMethodRatherThanReassignationSample {
     }
 
     public void removeEmbeddedReassignation(StringBuffer buffer, StringBuilder builder) {
+        buffer = buffer.append("foo");
         // Keep this comment
-        if ((buffer = buffer.append("foo")) != null) {
+        if (buffer != null) {
             buffer = buffer.reverse();
         }
 
@@ -93,11 +94,9 @@ public class StringBuilderMethodRatherThanReassignationSample {
     }
 
     public void doNotRemoveOtherAssignation(StringBuffer buffer, StringBuilder builder) {
-        int i = 0;
-
         StringBuffer localBuffer = new StringBuffer();
         localBuffer = buffer.append("foo");
-        i = buffer.capacity();
+        int i = buffer.capacity();
 
         StringBuilder localBuilder = new StringBuilder();
         localBuilder = builder.append("foo");

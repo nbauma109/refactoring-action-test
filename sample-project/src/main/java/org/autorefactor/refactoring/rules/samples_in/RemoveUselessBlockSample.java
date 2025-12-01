@@ -59,7 +59,7 @@ public class RemoveUselessBlockSample {
         // Keep this comment
         { /* leading comment to keep */ return i + 1; }
     }
-    
+
     public int removeUselessBlockWithForwardCode(int i) {
         // Keep this comment
         {

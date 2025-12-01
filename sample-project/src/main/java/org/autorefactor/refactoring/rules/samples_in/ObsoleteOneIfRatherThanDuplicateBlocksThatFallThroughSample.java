@@ -100,38 +100,36 @@ public class ObsoleteOneIfRatherThanDuplicateBlocksThatFallThroughSample {
             System.out.println("The same code");
             if (i2 == 0) {
                 return;
-            } else {
-                throw new Exception("Error #" + i1++);
             }
+            throw new Exception("Error #" + i1++);
         }
         if (i1 == 1) {
             System.out.println("The same code");
             if (i2 == 0) {
                 return;
-            } else {
-                throw new Exception("Error #" + i1++);
             }
+            throw new Exception("Error #" + i1++);
         }
         System.out.println("Next code");
     }
 
     public void mergeSeveralConditions(int i1) {
         // Keep this comment
-        if (i1 == 0) {
-            System.out.println("The same code");
-            return;
-        }
-        if (i1 == 1) {
-            System.out.println("The same code");
-            return;
-        }
-        if (i1 == 2) {
-            System.out.println("The same code");
-            return;
-        }
-        if (i1 == 3) {
-            System.out.println("The same code");
-            return;
+        switch (i1) {
+            case 0:
+                System.out.println("The same code");
+                return;
+            case 1:
+                System.out.println("The same code");
+                return;
+            case 2:
+                System.out.println("The same code");
+                return;
+            case 3:
+                System.out.println("The same code");
+                return;
+            default:
+                break;
         }
         System.out.println("Next code");
     }
@@ -204,9 +202,8 @@ public class ObsoleteOneIfRatherThanDuplicateBlocksThatFallThroughSample {
         if (i1 == 0) {
             System.out.println("The count is: " + counter++);
             return;
-        } else {
-            System.out.println("The count is: " + ++counter);
         }
+        System.out.println("The count is: " + ++counter);
         if (i1 == 1) {
             System.out.println("The count is: " + counter++);
             return;
@@ -223,9 +220,8 @@ public class ObsoleteOneIfRatherThanDuplicateBlocksThatFallThroughSample {
         if (i == 1) {
             System.out.println("The same code");
             return;
-        } else {
-            System.out.println("Another code");
         }
+        System.out.println("Another code");
         System.out.println("Next code");
     }
 }

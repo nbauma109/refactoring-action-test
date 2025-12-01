@@ -40,10 +40,11 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class ObsoleteLambdaSample extends Date {
+    private static final long serialVersionUID = 1L;
     public String changeableText = "foo";
 
     public Function<String, String> removeParentheses() {
-        return (someString) -> someString.trim().toLowerCase();
+        return someString -> someString.trim().toLowerCase();
     }
 
     public Function<String, String> doNotRemoveParenthesesWithSingleVariableDeclaration() {
@@ -59,11 +60,11 @@ public class ObsoleteLambdaSample extends Date {
     }
 
     public Function<String, String> removeReturnAndBrackets() {
-        return someString -> {return someString.trim().toLowerCase();};
+        return someString -> someString.trim().toLowerCase();
     }
 
     public Function<String, String> removeReturnAndBracketsWithParentheses() {
-        return someString -> {return someString.trim().toLowerCase() + "bar";};
+        return someString -> (someString.trim().toLowerCase() + "bar");
     }
 
     public Function<String, String> doNotRemoveReturnWithSeveralStatements() {
@@ -72,11 +73,11 @@ public class ObsoleteLambdaSample extends Date {
     }
 
     public Supplier<ArrayList<String>> useCreationReference() {
-        return () -> new ArrayList<>();
+        return ArrayList::new;
     }
 
     public Function<Integer, ArrayList<String>> useCreationReferenceWithParameter() {
-        return capacity -> new ArrayList<>(capacity);
+        return ArrayList::new;
     }
 
     public Function<Integer, ArrayList<String>> useCreationReferenceWithParameterAndType() {
@@ -99,7 +100,7 @@ public class ObsoleteLambdaSample extends Date {
     }
 
     public BiFunction<Integer, Integer, Vector<String>> useCreationReferenceWithParameters() {
-        return (initialCapacity, capacityIncrement) -> new Vector<>(initialCapacity, capacityIncrement);
+        return Vector::new;
     }
 
     public BiFunction<Integer, Integer, Vector<String>> doNotRefactorShuffledParams() {
@@ -107,31 +108,31 @@ public class ObsoleteLambdaSample extends Date {
     }
 
     public Function<Date, Long> useMethodReference() {
-        return date -> date.getTime();
+        return Date::getTime;
     }
 
     public BiFunction<Date, Date, Integer> useMethodReferenceWithParameter() {
-        return (date, anotherDate) -> date.compareTo(anotherDate);
+        return Date::compareTo;
     }
 
     public Function<String, Long> useTypeReference() {
-        return numberInText -> Long.getLong(numberInText);
+        return Long::getLong;
     }
 
     public static Function<Instant, Date> useTypeReferenceOnClassMethod() {
-        return instant -> from(instant);
+        return Date::from;
     }
 
     public static Function<Locale, Calendar> useTypeReferenceOnImportedMethod() {
-        return locale -> getInstance(locale);
+        return Calendar::getInstance;
     }
 
     public static Supplier<Locale[]> useTypeReferenceAsSupplier() {
-        return () -> getAvailableLocales();
+        return Calendar::getAvailableLocales;
     }
 
     public Function<String, Integer> useExpressionMethodReferenceOnLiteral() {
-        return textToSearch -> "AutoRefactor".indexOf(textToSearch);
+        return "AutoRefactor"::indexOf;
     }
 
     public Function<String, Integer> doNotUseExpressionMethodReferenceOnVariable() {
@@ -139,15 +140,15 @@ public class ObsoleteLambdaSample extends Date {
     }
 
     public Function<Date, Integer> useThisMethodReference() {
-        return anotherDate -> this.compareTo(anotherDate);
+        return this::compareTo;
     }
 
     public Function<Date, Integer> useThisMethodReferenceAddThis() {
-        return anotherDate -> compareTo(anotherDate);
+        return this::compareTo;
     }
 
     public Function<Date, Integer> useSuperMethodReference() {
-        return anotherDate -> super.compareTo(anotherDate);
+        return super::compareTo;
     }
 
     public Function<Integer, String> doNotUseConflictingMethodReference() {

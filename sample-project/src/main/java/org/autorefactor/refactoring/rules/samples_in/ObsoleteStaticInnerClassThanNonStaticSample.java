@@ -28,7 +28,6 @@ package org.autorefactor.refactoring.rules.samples_in;
 import static java.lang.Integer.bitCount;
 
 import java.io.File;
-import java.util.Arrays;
 
 public class ObsoleteStaticInnerClassThanNonStaticSample {
     public class RefactorThisInnerClass {

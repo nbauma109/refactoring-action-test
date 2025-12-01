@@ -94,7 +94,7 @@ public class ObsoleteAtomicObjectRatherThanMonoIndexArraySample {
         // Keep this comment
         Long[] longRef = new Long[1];
         // Keep this comment also
-        Runnable runnable = () -> longRef[0] = Long.valueOf(0);
+        Runnable runnable = () -> longRef[0] = (long) 0;
         runnable.run();
         // Keep this comment too
         return longRef[0];
@@ -102,7 +102,7 @@ public class ObsoleteAtomicObjectRatherThanMonoIndexArraySample {
 
     public static boolean useInitializedAtomicBoolean() {
         // Keep this comment
-        boolean[] booleanRef= new boolean[] {true};
+        boolean[] booleanRef= {true};
         // Keep this comment also
         Runnable runnable = () -> booleanRef[0] = true;
         runnable.run();
@@ -111,7 +111,7 @@ public class ObsoleteAtomicObjectRatherThanMonoIndexArraySample {
     }
 
     public static void doNotRefactorVoidArray() {
-        Date[] dateRef= new Date[] {};
+        Date[] dateRef= {};
         Runnable runnable = () -> {
             dateRef[0] = new Date();
         };
@@ -119,7 +119,7 @@ public class ObsoleteAtomicObjectRatherThanMonoIndexArraySample {
     }
 
     public static void doNotRefactorBadlyInitializedArray() {
-        Date[] dateRef= new Date[] {new Date(), new Date()};
+        Date[] dateRef= {new Date(), new Date()};
         Runnable runnable = () -> {
             dateRef[0] = new Date();
         };
@@ -130,12 +130,7 @@ public class ObsoleteAtomicObjectRatherThanMonoIndexArraySample {
         // Keep this comment
         Date[] dateRef= new Date[1];
         // Keep this comment also
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                dateRef[0] = new Date();
-            }
-        };
+        Runnable runnable = () -> dateRef[0] = new Date();
         runnable.run();
         // Keep this comment too
         return dateRef[0];
@@ -163,7 +158,7 @@ public class ObsoleteAtomicObjectRatherThanMonoIndexArraySample {
     }
 
     public static Date doNotRefactorEmptyArray() {
-        Date[] dateRef= new Date[0];
+        Date[] dateRef= {};
         Runnable runnable = () -> dateRef[0] = new Date();
         runnable.run();
         return dateRef[0];
@@ -218,8 +213,10 @@ public class ObsoleteAtomicObjectRatherThanMonoIndexArraySample {
     public static void doNotRefactorReadAssignment() {
         Date[][] dateRef= new Date[1][1];
         Runnable runnable = () -> {
-            if ((dateRef[0][0] = new Date()) != null)
+            dateRef[0][0] = new Date();
+            if (dateRef[0][0] != null) {
                 System.out.println("Filled");
+            }
         };
         runnable.run();
         System.out.println(dateRef[0]);

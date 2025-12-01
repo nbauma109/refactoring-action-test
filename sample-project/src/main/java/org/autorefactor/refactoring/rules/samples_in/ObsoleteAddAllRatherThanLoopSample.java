@@ -25,16 +25,18 @@
  */
 package org.autorefactor.refactoring.rules.samples_in;
 
-import java.util.AbstractSet;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 public class ObsoleteAddAllRatherThanLoopSample extends ArrayList<java.util.Date> {
+    private static final long serialVersionUID = 1L;
+
     private java.util.Date[] innerArray = new java.util.Date[10];
 
     private List<java.util.Date> innerList = new ArrayList<>();
@@ -42,12 +44,8 @@ public class ObsoleteAddAllRatherThanLoopSample extends ArrayList<java.util.Date
     public Collection<? super java.util.Date> replaceAddWithForLoopByCollectionsAddAll(
             List<? super java.util.Date> output, java.util.Date[] elems1, java.sql.Date[] elems2) {
         // Keep this comment
-        for (int i = 0; i < elems1.length; i++) {
-            output.add(elems1[i]);
-        }
-        for (int i = 0; i < elems2.length; i++) {
-            output.add(elems2[i]);
-        }
+        Collections.addAll(output, elems1);
+        Collections.addAll(output, elems2);
 
         return output;
     }
@@ -55,12 +53,8 @@ public class ObsoleteAddAllRatherThanLoopSample extends ArrayList<java.util.Date
     public Collection<? super java.util.Date> replaceBackwardLoopOnSet(
             Set<? super java.util.Date> output, java.util.Date[] elems1, java.sql.Date[] elems2) {
         // Keep this comment
-        for (int i = elems1.length - 1; i >= 0; i--) {
-            output.add(elems1[i]);
-        }
-        for (int i = elems2.length - 1; 0 <= i; i--) {
-            output.add(elems2[i]);
-        }
+        Collections.addAll(output, elems1);
+        Collections.addAll(output, elems2);
 
         return output;
     }
@@ -79,30 +73,22 @@ public class ObsoleteAddAllRatherThanLoopSample extends ArrayList<java.util.Date
 
     public void replaceAddWithNotEqualOperator(Collection<? super java.util.Date> output, java.util.Date[] dates) {
         // Keep this comment
-        for (int i = 0; i != dates.length; i++) {
-            output.add(dates[i]);
-        }
+        Collections.addAll(output, dates);
     }
 
     public void replaceAddWithForLoopByCollectionsAddAll(Collection<? super java.util.Date> output, java.util.Date[] dates) {
         // Keep this comment
-        for (int i = 0; i < dates.length; i++) {
-            output.add(dates[i]);
-        }
+        Collections.addAll(output, dates);
     }
 
     public void replaceLoopWithFieldArray(Collection<? super java.util.Date> output) {
         // Keep this comment
-        for (int i = 0; i < innerArray.length; i++) {
-            output.add(innerArray[i]);
-        }
+        Collections.addAll(output, innerArray);
     }
 
     public void replaceForeachWithFieldArray(Collection<? super java.util.Date> output) {
         // Keep this comment
-        for (java.util.Date d : this.innerArray) {
-            output.add(d);
-        }
+        Collections.addAll(output, this.innerArray);
     }
 
     @Override
@@ -122,44 +108,32 @@ public class ObsoleteAddAllRatherThanLoopSample extends ArrayList<java.util.Date
 
     public void replaceLoopWithFieldList(Collection<? super java.util.Date> output) {
         // Keep this comment
-        for (int i = 0; i < this.innerList.size(); i++) {
-            output.add(this.innerList.get(i));
-        }
+        output.addAll(this.innerList);
     }
 
     public void replaceForeachWithFieldList(Collection<? super java.util.Date> output) {
         // Keep this comment
-        for (java.util.Date d : innerList) {
-            output.add(d);
-        }
+        output.addAll(innerList);
     }
 
     public Collection replaceAddWithForEachByCollectionsAddAll(
             List<? super java.util.Date> output, java.util.Date[] elems1, java.sql.Date[] elems2) {
         // Keep this comment
-        for (java.util.Date d : elems1) {
-            output.add(d);
-        }
-        for (java.sql.Date d : elems2) {
-            output.add(d);
-        }
+        Collections.addAll(output, elems1);
+        Collections.addAll(output, elems2);
 
         return output;
     }
 
     public void replaceAddWithForEachByCollectionsAddAll(Collection<? super java.util.Date> output, java.util.Date[] dates) {
         // Keep this comment
-        for (java.util.Date date : dates) {
-            output.add(date);
-        }
+        Collections.addAll(output, dates);
     }
 
     public Map<String, List<String>> replaceLoopOnCollectionAsExpressionWithArray(
             Map<String, List<String>> mapToFill, String[] inputList) {
         // Keep this comment
-        for (String input : inputList) {
-            mapToFill.get("foo").add(input);
-        }
+        Collections.addAll(mapToFill.get("foo"), inputList);
 
         return mapToFill;
     }
@@ -167,9 +141,7 @@ public class ObsoleteAddAllRatherThanLoopSample extends ArrayList<java.util.Date
     public Collection replaceLoopOnRawCollectionWithArray(
             List colToFill, String[] inputList) {
         // Keep this comment
-        for (String input : inputList) {
-            colToFill.add(input);
-        }
+        colToFill.addAll(Arrays.asList(inputList));
 
         return colToFill;
     }
@@ -177,9 +149,7 @@ public class ObsoleteAddAllRatherThanLoopSample extends ArrayList<java.util.Date
     public Map<String, List<String>> replaceLoopOnCollectionAsExpressionWithList(
             Map<String, List<String>> mapToFill, List<String> inputList) {
         // Keep this comment
-        for (String input : inputList) {
-            mapToFill.get("foo").add(input);
-        }
+        mapToFill.get("foo").addAll(inputList);
 
         return mapToFill;
     }
@@ -187,9 +157,7 @@ public class ObsoleteAddAllRatherThanLoopSample extends ArrayList<java.util.Date
     public Collection replaceLoopOnRawCollectionWithList(
             List colToFill, List<String> inputList) {
         // Keep this comment
-        for (String input : inputList) {
-            colToFill.add(input);
-        }
+        colToFill.addAll(inputList);
 
         return colToFill;
     }
@@ -245,16 +213,16 @@ public class ObsoleteAddAllRatherThanLoopSample extends ArrayList<java.util.Date
 
     public Map<String, List<String>> doNotRefactorForLoopWithArrayUsingLoopIndex(
             Map<String, List<String>> mapToFill, String[] inputArray) {
-        for (int i = 0; i < inputArray.length; i++) {
-            mapToFill.get(inputArray[i]).add(inputArray[i]);
+        for (String element : inputArray) {
+            mapToFill.get(element).add(element);
         }
 
         return mapToFill;
     }
 
     public Collection<String> doNotRefactorForLoopAddMethodResult(List<String> output, String[] elems) {
-        for (int i = 0; i < elems.length; i++) {
-            output.add(doSomething(elems[i]));
+        for (String elem : elems) {
+            output.add(doSomething(elem));
         }
 
         return output;
@@ -270,18 +238,14 @@ public class ObsoleteAddAllRatherThanLoopSample extends ArrayList<java.util.Date
 
     public Collection<String> replaceAddWithForLoopByAddAll(List<String> col, List<String> output) {
         // Keep this comment
-        for (int i = 0; i < col.size(); i++) {
-            output.add(col.get(i));
-        }
+        output.addAll(col);
 
         return output;
     }
 
     public Collection<String> replaceAddWithForEachByAddAll(Collection<String> col, List<String> output) {
         // Keep this comment
-        for (String s : col) {
-            output.add(s);
-        }
+        output.addAll(col);
 
         return output;
     }
@@ -302,8 +266,8 @@ public class ObsoleteAddAllRatherThanLoopSample extends ArrayList<java.util.Date
 
     public Collection<String> replaceRemoveWithForLoopByRemoveAll(List<String> col, Set<String> output) {
         // Keep this comment
-        for (int i = 0; i < col.size(); i++) {
-            output.remove(col.get(i));
+        for (String element : col) {
+            output.remove(element);
         }
 
         return output;

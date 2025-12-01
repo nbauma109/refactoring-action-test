@@ -36,11 +36,11 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.LogRecord;
 
 public class FormattedNumberRatherThanPackedNumberSample {
-    private long usual = 101l;
-    private long octal = 0121l;
-    private long hex = 0xdafdafdafl;
-    private long binary = 0b1110010111l;
-    private long withUnderscore = 101_101l;
+    private long usual = 101L;
+    private long octal = 0121L;
+    private long hex = 0xdafdafdafL;
+    private long binary = 0b1110010111L;
+    private long withUnderscore = 101_101L;
 
     private float usualFloat = 101f;
     private float octalFloat = 0121f;

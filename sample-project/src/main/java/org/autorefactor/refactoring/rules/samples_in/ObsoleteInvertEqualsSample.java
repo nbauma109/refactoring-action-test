@@ -26,7 +26,7 @@
 package org.autorefactor.refactoring.rules.samples_in;
 
 public class ObsoleteInvertEqualsSample {
-    public static interface Itf {
+    public interface Itf {
         int primitiveConstant = 1;
         String objConstant = "fkjfkjf";
         String objNullConstant = null;
@@ -34,7 +34,7 @@ public class ObsoleteInvertEqualsSample {
         MyEnum enumNullConstant = null;
     }
 
-    private static enum MyEnum {
+    private enum MyEnum {
         NOT_NULL
     }
 
@@ -42,10 +42,10 @@ public class ObsoleteInvertEqualsSample {
 
     public boolean invertEquals(Object obj) {
         // Keep this comment
-        return obj.equals("")
-                && obj.equals(Itf.objConstant)
-                && obj.equals("" + Itf.objConstant)
-                && obj.equals(MyEnum.NOT_NULL);
+        return "".equals(obj)
+                && Itf.objConstant.equals(obj)
+                && ("" + Itf.objConstant).equals(obj)
+                && MyEnum.NOT_NULL.equals(obj);
                 // && obj.equals(Itf.enumConstant);
                 // should become:
                 // && Itf.enumConstant.equals(obj);
@@ -71,9 +71,9 @@ public class ObsoleteInvertEqualsSample {
 
     public boolean invertEqualsIgnoreCase(String s) {
         // Keep this comment
-        return s.equalsIgnoreCase("")
-                && s.equalsIgnoreCase(Itf.objConstant)
-                && s.equalsIgnoreCase("" + Itf.objConstant);
+        return "".equalsIgnoreCase(s)
+                && Itf.objConstant.equalsIgnoreCase(s)
+                && ("" + Itf.objConstant).equalsIgnoreCase(s);
     }
 
     public boolean doNotInvertEqualsIgnoreCaseWhenParameterIsNull(String s) {

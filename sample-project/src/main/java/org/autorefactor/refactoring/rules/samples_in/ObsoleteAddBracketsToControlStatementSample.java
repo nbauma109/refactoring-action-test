@@ -31,24 +31,21 @@ public class ObsoleteAddBracketsToControlStatementSample {
     public static void main(String[] args) {
         int i = 0;
         // Keep this comment
-        if (true)
+        i++;
+        if (true || (false && false)) {
             i++;
-        else
-            i++;
+        }
 
-        if (true)
+        for (i = 0; i < args.length; i++) {
             i++;
-        else if (false)
-            if (false)
-                i++;
+        }
 
-        for (i = 0; i < args.length; i++)
+        for (Object obj : null) {
             i++;
+        }
 
-        for (Object obj : (List) null)
+        while (i < 10) {
             i++;
-
-        while (i < 10)
-            i++;
+        }
     }
 }

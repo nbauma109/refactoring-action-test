@@ -164,12 +164,9 @@ public class ObsoleteLocalVariableRatherThanFieldSample {
     }
 
     public void doNotRefactorObject() {
-        doNotRefactorObject = new Runnable() {
-            @Override
-            public void run() {
-                while (true) {
-                    System.out.println("Don't stop me!");
-                }
+        doNotRefactorObject = () -> {
+            while (true) {
+                System.out.println("Don't stop me!");
             }
         };
         doNotRefactorObject.run();

@@ -220,8 +220,7 @@ public class DoWhileRatherThanWhileSample {
     public void replaceWithReassignment(int i) {
         int j= 1_000;
         int k= -1_000;
-        boolean isInitedToTrue= false;
-        isInitedToTrue= k < 0;
+        boolean isInitedToTrue= k < 0;
 
         // Keep this comment
         while (isInitedToTrue && j > 0) {
@@ -237,8 +236,7 @@ public class DoWhileRatherThanWhileSample {
     public void replaceWithAllowedUse(int i) {
         int j= 1_000;
         int k= -1_000;
-        boolean isInitedToTrue= k == -1_000;
-        isInitedToTrue= k < 0;
+        boolean isInitedToTrue= k < 0;
 
         // Keep this comment
         while (isInitedToTrue && j > 0) {
@@ -294,8 +292,6 @@ public class DoWhileRatherThanWhileSample {
                 m *= 2;
                 o--;
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -320,8 +316,6 @@ public class DoWhileRatherThanWhileSample {
                     o--;
                 }
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -334,8 +328,7 @@ public class DoWhileRatherThanWhileSample {
         try (FileReader reader= new FileReader("file.txt")) {
             System.out.println("Hi!");
         } catch (IOException e) {
-            boolean isInitedToTrue= false;
-            isInitedToTrue= p < 0;
+            boolean isInitedToTrue= p < 0;
 
             // Keep this comment
             while (isInitedToTrue && o > 0) {
@@ -374,8 +367,7 @@ public class DoWhileRatherThanWhileSample {
         try (FileReader reader= new FileReader(p++ + "file.txt")) {
             System.out.println("Hi!");
         } catch (IOException e) {
-            boolean isInitedToTrue= false;
-            isInitedToTrue= p < 0;
+            boolean isInitedToTrue= p < 0;
 
             // Keep this comment
             while (isInitedToTrue && o > 0) {
@@ -396,8 +388,7 @@ public class DoWhileRatherThanWhileSample {
         try (FileReader reader= new FileReader("file.txt")) {
             System.out.println(p++ + "Hi!");
         } catch (IOException e) {
-            boolean isInitedToTrue= false;
-            isInitedToTrue= p < 0;
+            boolean isInitedToTrue= p < 0;
 
             // Keep this comment
             while (isInitedToTrue && o > 0) {

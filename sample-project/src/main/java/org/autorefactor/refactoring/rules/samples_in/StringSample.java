@@ -88,7 +88,7 @@ public class StringSample {
         String s3 = Byte.toString(b) + " foo";
         String s4 = Short.toString(s) + " foo";
         String s5 = Integer.toString(42) + " foo";
-        String s6 = Long.toString(42l) + " foo";
+        String s6 = Long.toString(42L) + " foo";
         String s7 = Float.toString(42.42f) + " foo";
         String s8 = Double.toString(42.42) + " foo";
 
@@ -104,7 +104,7 @@ public class StringSample {
         String s3 = "foo " + Byte.toString(b);
         String s4 = "foo " + Short.toString(s);
         String s5 = "foo " + Integer.toString(42);
-        String s6 = "foo " + Long.toString(42l);
+        String s6 = "foo " + Long.toString(42L);
         String s7 = "foo " + Float.toString(42.42f);
         String s8 = "foo " + Double.toString(42.42);
 
@@ -120,7 +120,7 @@ public class StringSample {
         String s3 = "foo " + Byte.toString(b) + " bar";
         String s4 = "foo " + Short.toString(s) + " bar";
         String s5 = "foo " + Integer.toString(42) + " bar";
-        String s6 = "foo " + Long.toString(42l) + " bar";
+        String s6 = "foo " + Long.toString(42L) + " bar";
         String s7 = "foo " + Float.toString(42.42f) + " bar";
         String s8 = "foo " + Double.toString(42.42) + " bar";
 
@@ -136,7 +136,7 @@ public class StringSample {
         String s3 = String.valueOf(b) + " foo";
         String s4 = String.valueOf(s) + " foo";
         String s5 = String.valueOf(42) + " foo";
-        String s6 = String.valueOf(42l) + " foo";
+        String s6 = String.valueOf(42L) + " foo";
         String s7 = String.valueOf(42.42f) + " foo";
         String s8 = String.valueOf(42.42) + " foo";
         String s9 = String.valueOf(new Object()) + " foo";
@@ -151,7 +151,7 @@ public class StringSample {
         String s3 = "foo " + String.valueOf(b);
         String s4 = "foo " + String.valueOf(s);
         String s5 = "foo " + String.valueOf(42);
-        String s6 = "foo " + String.valueOf(42l);
+        String s6 = "foo " + String.valueOf(42L);
         String s7 = "foo " + String.valueOf(42.42f);
         String s8 = "foo " + String.valueOf(42.42);
         String s9 = "foo " + String.valueOf(new Object());
@@ -165,7 +165,7 @@ public class StringSample {
         String s3 = "foo " + String.valueOf(b) + " bar";
         String s4 = "foo " + String.valueOf(s) + " bar";
         String s5 = "foo " + String.valueOf(42) + " bar";
-        String s6 = "foo " + String.valueOf(42l) + " bar";
+        String s6 = "foo " + String.valueOf(42L) + " bar";
         String s7 = "foo " + String.valueOf(42.42f) + " bar";
         String s8 = "foo " + String.valueOf(42.42) + " bar";
         String s9 = "foo " + String.valueOf(new Object()) + " bar";

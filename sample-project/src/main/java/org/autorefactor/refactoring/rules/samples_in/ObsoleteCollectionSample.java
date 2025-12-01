@@ -36,47 +36,43 @@ import java.util.Stack;
 public class ObsoleteCollectionSample {
     public void replaceNewNoArgsAssignmentThenAddAll(List<String> col, List<String> output) {
         // Keep this comment
-        output = new ArrayList<String>();
-        output.addAll(col);
+        output = new ArrayList<>(col);
     }
 
     public void doNotReplaceStackCtor(List<String> col, List<String> output) {
-        output = new Stack<String>();
+        output = new Stack<>();
         output.addAll(col);
     }
 
     public List<String> replaceNewNoArgsThenAddAll(List<String> col) {
         // Keep this comment
-        final List<String> output = new ArrayList<String>();
-        output.addAll(col);
+        final List<String> output = new ArrayList<>(col);
         return output;
     }
 
     public List<Date> replaceNewOneArgThenAddAll(List<Date> col) {
         // Keep this comment
-        final List<Date> output = new ArrayList<Date>(0);
-        output.addAll(col);
+        final List<Date> output = new ArrayList<>(col);
         return output;
     }
 
     public List<String> doNotReplaceAlreadyInitedCol(List<String> col1, List<String> col2) {
-        final List<String> output = new ArrayList<String>(col1);
+        final List<String> output = new ArrayList<>(col1);
         output.addAll(col2);
         return output;
     }
 
     public List<Integer> replaceNewCollectionSizeThenAddAll(List<Integer> col, List<List<Integer>> listOfCol) {
         // Keep this comment
-        final List<Integer> output = new ArrayList<Integer>(col.size());
-        output.addAll(col);
+        final List<Integer> output = new ArrayList<>(col);
         // Keep this comment too
-        final List<Integer> output2 = new ArrayList<Integer>(listOfCol.get(0).size());
+        final List<Integer> output2 = new ArrayList<>(listOfCol.get(0).size());
         output2.addAll(listOfCol.get(0));
         return output;
     }
 
     public List<String> doNotReplaceWithSpecificSize(List<String> col) {
-        final List<String> output = new ArrayList<String>(10);
+        final List<String> output = new ArrayList<>(10);
         output.addAll(col);
         return output;
     }
@@ -89,8 +85,7 @@ public class ObsoleteCollectionSample {
 
     public Object replaceNewThenAddAllParameterizedType(Map<String, String> map) {
         // Keep this comment
-        List<Entry<String, String>> output = new ArrayList<Entry<String, String>>();
-        output.addAll(map.entrySet());
+        List<Entry<String, String>> output = new ArrayList<>(map.entrySet());
         return output;
     }
 }

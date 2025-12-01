@@ -37,25 +37,21 @@ public class EnumMapRatherThanHashMapSample {
     }
 
     public Map<DayOfWeek, String> refactorVariableDeclarationStatement() {
-        // Keep this comment
-        Map<DayOfWeek, String> map = new HashMap<DayOfWeek, String>();
-        return map;
+        return new HashMap<>();
     }
 
     public Map<DayOfWeek, String> refactorVariableDeclarationStatementWithDiamond() {
-        // Keep this comment
-        Map<DayOfWeek, String> map = new HashMap<>();
-        return map;
+        return new HashMap<>();
     }
 
     public Map<DayOfWeek, String> refactorReturnStatement() {
         // Keep this comment
-        return new HashMap<DayOfWeek, String>();
+        return new HashMap<>();
     }
 
     public Map<Example, List<String>> refactorReturnStatementWithParameterizedType() {
         // Keep this comment
-        return new HashMap<Example, List<String>>();
+        return new HashMap<>();
     }
 
     public Map<Example, String> refactorReturnStatementWithDiamondOperator() {
@@ -64,49 +60,38 @@ public class EnumMapRatherThanHashMapSample {
     }
 
     public Map<Example, String> refactorVariableDeclarationStatementWithParentheses() {
-        // Keep this comment
-        Map<Example, String> map = ((new HashMap<Example, String>()));
-        return map;
+        return ((new HashMap<>()));
     }
 
     public Map<Example, long[]> refactorAssignment() {
         // Keep this comment
         Map<Example, long[]> map;
-        map = new HashMap<>();
-        return map;
+        return new HashMap<>();
     }
 
     public Map<Example, String> refactorConditionalAssignment(boolean isFeatureEbabled) {
         // Keep this comment
         Map<Example, String> map;
-        map = isFeatureEbabled ? new HashMap<Example, String>()
-                : new HashMap<Example, String>();
-        return map;
+        return isFeatureEbabled ? new HashMap<>()
+                : new HashMap<>();
     }
 
     public Map<Example, String> refactorConstrutorWithInt() {
-        // Keep this comment
-        Map<Example, String> map = new HashMap<Example, String>(1);
-        return map;
+        return new HashMap<>(1);
     }
 
     public Map<Example, String> refactorConstrutorWithIntAndFloat() {
-        // Keep this comment
-        Map<Example, String> map = new HashMap<Example, String>(1, 0.75F);
-        return map;
+        return new HashMap<>(1, 0.75F);
     }
 
     public Map<Example, String> doNotRefactorConstrutorWithMap(
             Map<Example, String> m) {
-        Map<Example, String> map = new HashMap<Example, String>(m);
-        return map;
+        return new HashMap<>(m);
     }
 
     public Map<Example, String> refactorConstrutorWithEnumMap(
             java.util.EnumMap<Example, String> m) {
-        // Keep this comment
-        Map<Example, String> map = new HashMap<Example, String>(m);
-        return map;
+        return new HashMap<>(m);
     }
 
     public void doNotRefactorMethodArgument() {
@@ -117,12 +102,12 @@ public class EnumMapRatherThanHashMapSample {
 
     public Map<Example, String> doNotRefactor() {
         Map<Example, String> map = new java.util.EnumMap<>(Example.class);
-        map.putAll(new java.util.EnumMap<Example, String>(Example.class));
+        map.putAll(new java.util.EnumMap<>(Example.class));
         return map;
     }
 
     public Map<Example, String> doNotRefactorAnonymousClass() {
-        return new HashMap<Example, String>() {
+        return new HashMap<>() {
             @Override
             public String toString() {
                 return super.toString();

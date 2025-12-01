@@ -179,8 +179,7 @@ public class DisjointRatherThanLoopSample {
     public boolean replaceForeachHoldResultInVariableCannotRemoveVariable(List<Long> collectionToAnalyze, List<Long> dataToSearch) {
         // Keep this comment
         boolean result = true;
-        ;
-        result = true;
+
         // Keep this comment too
         for (Long number : dataToSearch) {
             if (collectionToAnalyze.contains(number)) {
@@ -316,8 +315,7 @@ public class DisjointRatherThanLoopSample {
 
     public boolean replaceForIterator(List<Long> collectionToAnalyze, List<Long> dataToSearch) {
         // Keep this comment
-        for (Iterator<Long> it = dataToSearch.iterator(); it.hasNext();) {
-            Long number = it.next();
+        for (Long number : dataToSearch) {
             if (collectionToAnalyze.contains(number)) {
                 return false;
             }

@@ -59,7 +59,6 @@ public class AnnotationSample {
         stringArrayField = {},
         stringArrayFieldWithDefaults = { "a", "b" })
     public void refactorToMarkerAnnotation() throws Exception {
-        return;
     }
 
     @MyAnnotation(
@@ -74,7 +73,6 @@ public class AnnotationSample {
         stringArrayField = {},
         stringArrayFieldWithDefaults = { "a", "b" })
     public void refactorToMarkerAnnotation2() throws Exception {
-        return;
     }
 
     @MyAnnotation(
@@ -89,11 +87,9 @@ public class AnnotationSample {
         stringArrayField = { "", "" },
         stringArrayFieldWithDefaults = {})
     public void doNotRefactorNotUsingDefaults() throws Exception {
-        return;
     }
 
     @MyAnnotation(stringArrayField = { "refactorToMarkerAnnotation" })
     public void removeCurlyBraces() throws Exception {
-        return;
     }
 }

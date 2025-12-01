@@ -28,21 +28,21 @@ package org.autorefactor.refactoring.rules.samples_in;
 public class BooleanConstantRatherThanValueOfSample {
     public void useBooleanConstants() {
         // Keep this comment
-        Boolean b1 = Boolean.valueOf(true);
-        Boolean b2 = Boolean.valueOf(false);
+        boolean b1 = true;
+        boolean b2 = false;
     }
 
     public void replaceBooleanStrings() {
         // Keep this comment
-        Boolean b1 = Boolean.valueOf("true");
-        Boolean b2 = Boolean.valueOf("false");
+        boolean b1 = Boolean.parseBoolean("true");
+        boolean b2 = Boolean.parseBoolean("false");
     }
 
     public void doNotUseBooleanConstants(boolean b) {
-        Boolean b1 = Boolean.valueOf(b);
+        boolean b1 = b;
     }
 
     public void doNotRefactorAmbigousValue(boolean b) {
-        Boolean b1 = Boolean.valueOf("TRUE");
+        boolean b1 = Boolean.parseBoolean("TRUE");
     }
 }

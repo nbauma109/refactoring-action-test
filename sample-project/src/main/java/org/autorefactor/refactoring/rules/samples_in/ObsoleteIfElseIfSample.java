@@ -30,11 +30,9 @@ public class ObsoleteIfElseIfSample {
         if (isValid) {
             // Keep this comment
             System.out.println(isValid);
-        } else {
-            if (isEnabled) {
-                // Keep this comment
-                System.out.println(isEnabled);
-            }
+        } else if (isEnabled) {
+            // Keep this comment
+            System.out.println(isEnabled);
         }
     }
 }

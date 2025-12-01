@@ -50,18 +50,16 @@ public class ObsoleteIncrementStatementRatherThanIncrementExpressionSample exten
         // Keep this comment
         if (++i > 0) {
             return "Positive";
-        } else {
-            return "Negative";
         }
+        return "Negative";
     }
 
     public String moveDecrementBeforeIf(int i) {
         // Keep this comment
         if (--i > 0) {
             return "Positive";
-        } else {
-            return "Negative";
         }
+        return "Negative";
     }
 
     public String doNotMoveIncrementAfterIf(int i) {
@@ -92,9 +90,8 @@ public class ObsoleteIncrementStatementRatherThanIncrementExpressionSample exten
     public int doNotMoveIncrementAfterFallThrough(boolean isEnabled, int i) {
         if (i-- > 0) {
             return i++;
-        } else {
-            throw new NullPointerException("i++ " + i++);
         }
+        throw new NullPointerException("i++ " + i++);
     }
 
     public int moveIncrementOutsideStatement(int i, int z, Object[] obj, ObsoleteIncrementStatementRatherThanIncrementExpressionSample[] theClass) throws InterruptedException {
@@ -105,18 +102,16 @@ public class ObsoleteIncrementStatementRatherThanIncrementExpressionSample exten
         j= i-- + 123;
         boolean isString= obj[++i] instanceof String;
         List<Date> dates= new ArrayList<>(--i);
-        long l= (long)i++;
+        long l= i++;
         int m= (i++);
-        boolean isEqual= !(i++ == 10);
+        boolean isEqual= (i++ != 10);
         theClass[i++].field--;
         int[] integers= {i++, 1, 2, 3};
         return ++i;
     }
 
     public boolean moveIncrementOutsideInfix(int i, boolean isEnabled) {
-        // Keep this comment
-        boolean isEqual= (i++ == 10) && isEnabled;
-        return isEqual;
+        return (i++ == 10) && isEnabled;
     }
 
     public String moveIncrementOutsideSuperMethod(int i) {
@@ -125,14 +120,11 @@ public class ObsoleteIncrementStatementRatherThanIncrementExpressionSample exten
     }
 
     public boolean doNotMoveIncrementOutsideConditionalInfix(int i, boolean isEnabled) {
-        boolean isEqual= isEnabled && (i++ == 10);
-        return isEqual;
+        return isEnabled && (i++ == 10);
     }
 
     public boolean moveIncrementOutsideEagerInfix(int i, boolean isEnabled) {
-        // Keep this comment
-        boolean isEqual= isEnabled & (i++ == 10);
-        return isEqual;
+        return isEnabled & (i++ == 10);
     }
 
     public int moveIncrementOutsideTernaryExpression(int i) {
@@ -185,8 +177,9 @@ public class ObsoleteIncrementStatementRatherThanIncrementExpressionSample exten
     }
 
     public int moveIncrementInIf(int i, boolean isEnabled) {
-        if (isEnabled)
+        if (isEnabled) {
             return ++i;
+        }
 
         return 0;
     }

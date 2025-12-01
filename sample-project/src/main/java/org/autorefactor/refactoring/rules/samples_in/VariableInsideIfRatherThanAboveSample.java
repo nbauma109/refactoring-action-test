@@ -46,8 +46,9 @@ public class VariableInsideIfRatherThanAboveSample {
         int i = 42;
 
         // Keep this comment too
-        if (isValid)
+        if (isValid) {
             return i * 10;
+        }
 
         return 0;
     }
@@ -57,10 +58,10 @@ public class VariableInsideIfRatherThanAboveSample {
         int i = 42;
 
         // Keep this comment too
-        if (isValid)
+        if (isValid) {
             return 0;
-        else
-            return i * 10;
+        }
+        return i * 10;
     }
 
     public int moveComplexDeclaration(boolean isValid, int j, int k) {
@@ -83,10 +84,9 @@ public class VariableInsideIfRatherThanAboveSample {
         // Keep this comment too
         if (isValid) {
             return 0;
-        } else {
-            // Keep this comment too
-            return i * 10;
         }
+        // Keep this comment too
+        return i * 10;
     }
 
     public int moveDeclarationWithoutInitializer(boolean isValid) {
@@ -142,9 +142,8 @@ public class VariableInsideIfRatherThanAboveSample {
 
         if (isValid) {
             return i * 10;
-        } else {
-            return i * 100;
         }
+        return i * 100;
     }
 
     public int moveDeclaration(boolean isValid, List<String> texts) {

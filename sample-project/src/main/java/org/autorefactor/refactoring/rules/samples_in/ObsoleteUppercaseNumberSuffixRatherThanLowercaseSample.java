@@ -26,19 +26,19 @@
 package org.autorefactor.refactoring.rules.samples_in;
 
 public class ObsoleteUppercaseNumberSuffixRatherThanLowercaseSample {
-    private long usual = 101l;
-    private long octal = 0121l;
-    private long hex = 0xdafdafdafl;
-    private long binary = 0b1110010111l;
-    private long withUnderscore = 101_101l;
+    private long usual = 101L;
+    private long octal = 0121L;
+    private long hex = 0xdafdafdafL;
+    private long binary = 0b1110010111L;
+    private long withUnderscore = 101_101L;
 
     private float usualFloat = 101f;
     private float octalFloat = 0121f;
 
     public float refactorIt() {
-        long localVar = 11l;
+        long localVar = 11L;
         float localFloat = 11f;
-        return localVar + 333l + localFloat + 11f;
+        return localVar + 333L + localFloat + 11f;
     }
 
     public float doNotRefactor() {
